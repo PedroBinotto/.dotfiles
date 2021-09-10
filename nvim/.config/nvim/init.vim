@@ -80,7 +80,7 @@ set shell=/usr/bin/zsh
 set clipboard+=unnamedplus
 highlight Comment cterm=bold
 highlight ColorColumn ctermbg=235
-colorscheme gruvbox
+colorscheme solarized8
 
 " hybrid line numbers
 :augroup numbertoggle
