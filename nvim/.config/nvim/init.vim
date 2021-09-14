@@ -12,16 +12,27 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'mtth/scratch.vim', {'branch': 'master'}
-Plug 'morhetz/gruvbox'
-Plug 'terroo/terroo-colors'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim' " needed for previews
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'wakatime/vim-wakatime'
+
+" Colorschemes
+Plug 'terroo/terroo-colors'
+Plug 'srcery-colors/srcery-vim'
+Plug 'pacokwon/onedarkpaco.vim'
+Plug 'bluz71/vim-moonfly-colors'
+Plug 'sainnhe/sonokai'
+Plug 'joshdick/onedark.vim'
+Plug 'yassinebridi/vim-purpura'
+Plug 'lifepillar/vim-wwdc16-theme'
+Plug 'tckmn/hotdog.vim'
+Plug 'rakr/vim-one'
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 inoremap jk <ESC>
@@ -80,7 +91,7 @@ set shell=/usr/bin/zsh
 set clipboard+=unnamedplus
 highlight Comment cterm=bold
 highlight ColorColumn ctermbg=235
-colorscheme solarized8
+colorscheme challenger_deep
 
 " hybrid line numbers
 :augroup numbertoggle

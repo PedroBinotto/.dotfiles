@@ -23,10 +23,11 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 #
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf --experimental-backends
-exec_always --no-startup-id $HOME/.fehbg &
+exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id bash $HOME/.notification_config &
 exec --no-startup-id dex --autostart --environment i3
 
+# exec_always --no-startup-id $HOME/.fehbg &
 # exec_always --no-startup-id light-locker &
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -240,14 +241,23 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10-
 #interactive screenshot by pressing printscreen
 bindsym Print exec gnome-screenshot -i 
 
+
+assign [class="Firefox-esr"]                1
+# assign [class="kitty"]          2
+assign [class="rhythmbox"]                  3
+assign [class="pavucontrol"]                3
+assign [class="blueman-manager"]            3
+assign [class="thunderbird"]                4
+assign [class="discord"]                    5
+assign [class="TelegramDesktop"]            5
+assign [class="slack"]                      5
+
 ## Plasma Integration
 # Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
 
 exec --no-startup-id wmctrl -c Plasma
 
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
-
-
 
 ## Avoid tiling popups, dropdown windows from plasma
 
