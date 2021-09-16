@@ -242,15 +242,41 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10-
 bindsym Print exec gnome-screenshot -i 
 
 
+# Workspace Assignments
+#============================================
+# WWW
+#############################################
 assign [class="Firefox-esr"]                1
-# assign [class="kitty"]          2
+
+# DEV
+#############################################
+# assign [class="kitty"]                    2
+assign [class="code"]                       2
+assign [class="Code"]                       2
+assign [class="emacs"]                      2
+assign [class="Emacs"]                      2
+
+# MUS
+#############################################
 assign [class="rhythmbox"]                  3
+assign [class="Rhythmbox"]                  3
+assign [title="Rhythmbox"]                  3
+assign [class="Pavucontrol"]                3
 assign [class="pavucontrol"]                3
 assign [class="blueman-manager"]            3
+
+# MAIL
+#############################################
 assign [class="thunderbird"]                4
+
+# CHAT
+#############################################
 assign [class="discord"]                    5
 assign [class="TelegramDesktop"]            5
 assign [class="slack"]                      5
+#============================================
+
+
 
 ## Plasma Integration
 # Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)

@@ -61,11 +61,11 @@ font-2 = siji:pixelsize=10;1
 wm-restack = i3
 
 modules-left = username filesystem i3 xwindow 
-modules-right = xkeyboard pulseaudio memory wlan eth battery date
+modules-right = xkeyboard pulseaudio battery date
 
 tray-position = right
 tray-padding = 5
-tray-background = #303030
+; tray-background = #303030
 
 ;wm-restack = generic
 ;wm-restack = bspwm
