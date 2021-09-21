@@ -62,6 +62,7 @@ wm-restack = i3
 
 modules-left = username filesystem i3 xwindow 
 modules-right = xkeyboard pulseaudio battery date
+;uptime
 
 tray-position = right
 tray-padding = 5
@@ -87,22 +88,25 @@ enable-ipc = true
 type = internal/xwindow
 label = %title:0:15:...%
 ; label-background = #1f1f1f
-label-underline = ${colors.primary}
+label-underline = #0a6cf5
 
 [module/xkeyboard]
 type = internal/xkeyboard
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+format-prefix-underline = #00000000
 
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+label-layout-underline = #0a6cf5
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+
+label-indicator-foreground = #1f1f1f
+label-indicator-background = #6ea2eb
+label-indicator-underline = #6ea2eb
+
 
 [module/filesystem]
 type = internal/fs
@@ -155,9 +159,10 @@ ws-icon-2 = 3;MUS
 ws-icon-3 = 4;MAIL
 ws-icon-4 = 5;CHAT
 ws-icon-5 = 6;CONF
-; ws-icon-6 = 7;7
-; ws-icon-7 = 8;8
-; ws-icon-8 = 9;9
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;10
 ; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
 ; you must also define a ws-icon-5.
 ; NOTE: Icon will be available as the %icon% token inside label-*
@@ -167,13 +172,14 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = [%index%] %icon%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused = %icon%
+label-focused-foreground = #1f1f1f
+label-focused-background = #6ea2eb
+label-focused-underline = #0a6cf5
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any moitor
-label-unfocused = [%index%] %icon%
+label-unfocused = %icon%
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
@@ -297,6 +303,13 @@ label = %date% %time%
 
 ;hidden = true
 
+[module/uptime]
+; FIXME
+type = custom/script
+exec = uptime
+format-padding = 2
+format-underline = #0a6cf5
+
 [module/pulseaudio]
 type = internal/pulseaudio
 
@@ -362,7 +375,8 @@ format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-underline = #0a6cf5
+; ${self.format-charging-underline}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
