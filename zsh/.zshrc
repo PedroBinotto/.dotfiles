@@ -10,7 +10,7 @@ fi
 # PATH='$PATH:$HOME/.local/bin'
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/pedro/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -80,7 +80,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    tmux
     zsh-autosuggestions
 )
 
@@ -121,7 +120,7 @@ fi
 alias nethogs="sudo nethogs"
 alias vi="nvim"
 alias vim="nvim"
-alias actenv1="source /home/pedro/venv/venv1/bin/activate"
+alias actenv1="source $HOME/Projetos/virtualenvs/t1/bin/activate"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -130,4 +129,5 @@ export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # bindkey -v
-if [ -e /home/pedro/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pedro/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
