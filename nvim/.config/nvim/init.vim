@@ -230,7 +230,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 map <C-_> :Commentary<CR>
-" source $HOME/.config/nvim/plug-config/coc.vim
+source $HOME/.config/nvim/plug-config/coc.vim
 " Experimental feature (preview definition): gp, `<leader>K`, or <Shift-F12>:
 " Peek into the definition in a floating window.
 " TODO: If there are 2+ definitions, it does not work with floating windows (coc.nvim problem)
