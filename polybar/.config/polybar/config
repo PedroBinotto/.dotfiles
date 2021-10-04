@@ -174,9 +174,9 @@ label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-foreground = #1f1f1f
-label-focused-background = #6ea2eb
-; label-focused-underline = #0a6cf5
+label-focused-foreground = #fff
+label-focused-background = #191919
+label-focused-underline = #0a6cf5
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any moitor
@@ -423,7 +423,7 @@ ramp-foreground = ${colors.foreground-alt}
 type = custom/script
 exec = whoami
 format-padding = 2
-format-background = #222222
+format-background = #000000
 format-underline = #0a6cf5
 
 [module/powermenu]

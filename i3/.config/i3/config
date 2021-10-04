@@ -34,6 +34,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Ctrl+Return exec i3-sensible-terminal --name=floating
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -187,12 +188,6 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-# Open applications on specific workspaces
-# assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
-
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
@@ -223,6 +218,7 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="(K|k)itty"] border none
+for_window [class="(K|k)itty" instance="floating"] floating enable resize set 640 480
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -444,6 +440,7 @@ assign [class="(F|f)irefox(-esr)?"]         1
 #############################################
 # assign [class="kitty"]                    2
 assign [class="(C|c)ode"]                   2
+assign [class="(VSC|vsc)odium"]             2
 assign [class="(E|e)macs"]                  2
 
 # MUS
