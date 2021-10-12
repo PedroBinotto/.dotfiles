@@ -32,7 +32,7 @@ Plug 'lifepillar/vim-wwdc16-theme'
 Plug 'tckmn/hotdog.vim'
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
-
+Plug 'folke/zen-mode.nvim'
 call plug#end()
 
 inoremap jk <ESC>
@@ -288,3 +288,14 @@ function! LightlineMode() abort
                 \ }
     return get(ftmap, &filetype, lightline#mode())
 endfunction
+
+" zen-mode config
+lua << EOF
+  require("zen-mode").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
+
+

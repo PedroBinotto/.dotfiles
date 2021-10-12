@@ -113,14 +113,18 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias nethogs="sudo nethogs"
 alias vi="nvim"
 alias vim="nvim"
-alias actenv1="source $HOME/Projetos/virtualenvs/t1/bin/activate"
+alias zshconfig="$EDITOR ~/.zshrc"
+alias i3config="$EDITOR ~/.config/i3/config"
+alias polyconfig="$EDITOR ~/.config/polybar/config"
+alias rm="rm -i"
+alias icat="kitty +kitten icat"
+# alias actenv1="source $HOME/Projetos/virtualenvs/t1/bin/activate"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -131,3 +135,5 @@ export NVM_DIR=~/.nvm
 # bindkey -v
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+colorscript_wrapper

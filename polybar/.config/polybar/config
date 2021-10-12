@@ -373,7 +373,7 @@ adapter = ACAD
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = #4db5bd
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = #0a6cf5
