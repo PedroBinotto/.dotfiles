@@ -13,6 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'mtth/scratch.vim', {'branch': 'master'}
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+Plug 'ying17zi/vim-live-latex-preview'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim' " needed for previews
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
