@@ -1,6 +1,6 @@
 appearance.theme=blue on default
 notification.warning=300
-notification.command=calcurse --next | xargs -I {} notify-send "[calcurse]: {}"
+notification.command=calcurse --next | xargs echo | xargs -I {} notify-send  "[calcurse]: {}"
 notification.notifyall=all
 daemon.enable=yes
 daemon.log=yes
