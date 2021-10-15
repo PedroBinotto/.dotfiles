@@ -294,6 +294,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Bluetooth applet
 exec_always --no-startup-id blueman-applet
 
+# Calcurse daemon
+exec --no-startup-id calcurse --daemon
+
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources
