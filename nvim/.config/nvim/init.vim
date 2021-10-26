@@ -95,7 +95,8 @@ set shell=/usr/bin/zsh
 set clipboard+=unnamedplus
 highlight Comment cterm=bold
 highlight ColorColumn ctermbg=235
-colorscheme challenger_deep
+colorscheme default
+" colorscheme challenger_deep
 
 " hybrid line numbers
 :augroup numbertoggle
