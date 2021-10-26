@@ -126,6 +126,7 @@ alias polyconfig="$EDITOR ~/.config/polybar/config"
 alias vimconfig="$EDITOR ~/.config/nvim/init.vim"
 alias rm="rm -i"
 alias icat="kitty +kitten icat"
+alias music="ncmpcpp"
 # alias actenv1="source $HOME/Projetos/virtualenvs/t1/bin/activate"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

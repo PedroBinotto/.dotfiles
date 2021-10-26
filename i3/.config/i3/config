@@ -284,6 +284,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id $HOME/.config/conky/startup
 exec --no-startup-id light-locker
+exec --no-startup-id mpd
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 

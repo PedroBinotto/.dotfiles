@@ -74,6 +74,9 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 set nocompatible
+set noerrorbells
+set incsearch
+set noswapfile
 set nowrap
 set number
 set ruler
