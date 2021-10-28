@@ -132,6 +132,7 @@ bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -227,6 +228,8 @@ for_window [class="(K|k)itty" instance="floating"] floating enable resize set 64
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
+
+for_window [floating] move position center
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
