@@ -304,7 +304,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id blueman-applet
 
 # Calcurse daemon
-exec --no-startup-id calcurse --daemon
+exec --no-startup-id calcurse --daemon --confdir ~/.config/calcurse
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
