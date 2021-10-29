@@ -62,7 +62,7 @@ wm-restack = i3
 
 modules-left = username filesystem i3 
 modules-center = date
-modules-right = xwindow xkeyboard battery
+modules-right = mpc xwindow xkeyboard battery
 ;uptime
 
 tray-position = right
@@ -207,8 +207,17 @@ icon-play = 
 icon-pause = 
 icon-next = 
 
-label-song-maxlen = 25
+label-song-maxlen = 20
 label-song-ellipsis = true
+
+[module/mpc]
+type = custom/script
+exec = mpdmodule
+label = mpd: %output%
+label-maxlen = 22
+format-padding = 2
+tail = true
+interval = 0
 
 [module/xbacklight]
 type = internal/xbacklight
