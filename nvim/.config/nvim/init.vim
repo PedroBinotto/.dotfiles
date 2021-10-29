@@ -91,6 +91,7 @@ set expandtab
 set list
 set listchars=tab:»·,eol:¬,trail:·
 set noshowmode
+set termguicolors
 set shell=/usr/bin/zsh
 set clipboard+=unnamedplus
 highlight Comment cterm=bold
