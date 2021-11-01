@@ -70,7 +70,7 @@ bindsym $mod+F3 exec thunar
 # bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+p exec --no-startup-id pkill picom
-bindsym $mod+Ctrl+p exec --no-startup-id picom -b
+bindsym $mod+Ctrl+p exec --no-startup-id picom --experimental-backends -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -80,10 +80,10 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+l focus left
+bindsym $mod+l focus right
 bindsym $mod+j focus down
 bindsym $mod+k focus up
-bindsym $mod+h focus right
+bindsym $mod+h focus left
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -223,7 +223,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [class="(K|k)itty"] border none
+# for_window [class="(K|k)itty"] border none
 for_window [class="(K|k)itty" instance="floating"] floating enable resize set 640 480
 
 # switch to workspace with urgent window automatically

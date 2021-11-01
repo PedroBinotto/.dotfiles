@@ -11,8 +11,8 @@
 
 Hostname = apidata.googleusercontent.com
 Path = /caldav/v2/pedrosantibinotto@gmail.com/events/
-SyncFilter = cal
 AuthMethod = oauth2
+SyncFilter = cal
 
 # Path to the calcurse binary that is used for importing/exporting items.
 Binary = calcurse
@@ -22,13 +22,13 @@ InsecureSSL = No
 
 # Disable this if you want to use HTTP instead of HTTPS.
 # Using plain HTTP is highly discouraged.
-HTTPS = Yes
+# HTTPS = Yes
 
 # Disable this option to actually enable synchronization. If it is enabled,
 # nothing is actually written to the server or to the local data files. If you
 # combine DryRun = Yes with Verbose = Yes, you get a log of what would have
 # happened with this option disabled.
-DryRun = Yes
+DryRun = No
 
 # Enable this if you want detailed logs written to stdout.
 Verbose = Yes
@@ -39,3 +39,4 @@ ClientID = 327686190172-bevdbbjhfr33j9ugevdtsljrvtv0bvg2.apps.googleusercontent.
 ClientSecret = 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
 Scope = https://www.googleapis.com/auth/calendar
 RedirectURI = http://127.0.0.1
+
