@@ -213,7 +213,7 @@ label-song-ellipsis = true
 [module/mpc]
 type = custom/script
 exec = mpdmodule
-label = [mpd]: %output%
+label = mpd: %output%
 label-maxlen = 22
 format-padding = 2
 tail = true
