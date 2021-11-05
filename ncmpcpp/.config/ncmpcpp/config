@@ -1,6 +1,6 @@
 visualizer_in_stereo                  = yes
 visualizer_type                       = spectrum
-visualizer_color                      = magenta, red, magenta, red
+visualizer_color                      = yellow
 visualizer_look                       = xs
 visualizer_fps                        = 60
 visualizer_autoscale                  = yes
