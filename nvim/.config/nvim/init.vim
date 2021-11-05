@@ -42,6 +42,7 @@ nmap <C-l> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 autocmd FileType python setlocal tabstop=4
+autocmd FileType make setlocal noexpandtab
 
 let g:NERDTreeGitStatusWithFlags = 1
 "let g:WebDevIconsUnicodeDecorateFolderNodes = 1

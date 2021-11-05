@@ -22,12 +22,12 @@ header_visibility                     = yes
 statusbar_visibility                  = yes
 cyclic_scrolling                      = yes
 display_bitrate                       = yes
-ignore_leading_the                    = no
+ignore_leading_the                    = yes
 enable_window_title                   = yes
-progressbar_look                      = ▬▬▬
+progressbar_look                      = =>-
 user_interface                        = alternative
-alternative_header_first_line_format  = {$b$6%a$9} | {$5%t$9}
-alternative_header_second_line_format = {$1(%y)$9} - {$1%b$9}
+alternative_header_first_line_format  = {$b$6%a$9} - {$5%t$9}
+alternative_header_second_line_format = {$1[%y]$9} {$1%b$9}
 alternative_ui_separator_color        = blue
 playlist_separate_albums              = no
 colors_enabled                        = yes
@@ -45,7 +45,7 @@ window_border_color                   = red
 active_window_border                  = red
 follow_now_playing_lyrics             = yes
 clock_display_seconds                 = yes
-current_item_prefix                   = $(magenta)
+current_item_prefix                   = $(red)
 current_item_suffix                   = $(end)
 current_item_inactive_column_prefix   = $(magenta)
 current_item_inactive_column_suffix   = $(end)
@@ -55,4 +55,6 @@ selected_item_prefix                  = $(white)$b
 selected_item_suffix                  = $/b$(end)
 browser_playlist_prefix               = "$2Playlist$9 "
 modified_item_prefix                  = ">> "
+
+mpd_music_dir = "~/Music"
 
