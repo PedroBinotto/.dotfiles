@@ -54,15 +54,20 @@ module-margin-left = 1
 module-margin-right = 1
 
 ; font-0 = fixed:pixelsize=10;1
-font-0 = SpaceMono:pixelsize=9;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+; font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+; font-2 = siji:pixelsize=10;1
+
+font-0 = NimbusSansL:pixelsize=10;1
+font-1 = NimbusSansL:pixelsize=10;1
+font-2 = NimbusSansL:pixelsize=10;1
+font-3 = FontAwesome:pixelsize=10;1
+font-4 = NotoSansSymbols:pixelsize=10;1
 
 wm-restack = i3
 
-modules-left = username filesystem i3 
+modules-left = badge xwindow i3 
 modules-center = date
-modules-right = mpc xwindow xkeyboard battery
+modules-right = mpc xkeyboard filesystem battery
 ;uptime
 
 tray-position = right
@@ -88,8 +93,11 @@ enable-ipc = true
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:15:...%
+
+format-padding = 1
+
 ; label-background = #1f1f1f
-label-underline = #0a6cf5
+; label-underline = #0a6cf5
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -434,6 +442,16 @@ exec = whoami
 format-padding = 2
 format-background = #000000
 format-underline = #0a6cf5
+
+[module/badge]
+type = custom/text
+content = GNU/Linux
+content-padding = 1
+
+[module/windowclass]
+type = custom/script
+interval = 0
+exec = xprop -id $(xdotool getwindowfocus) WM_CLASS
 
 [module/powermenu]
 type = custom/menu
