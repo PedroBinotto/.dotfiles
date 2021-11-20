@@ -51,6 +51,7 @@ font-0 = NimbusSansL:pixelsize=10;1
 font-1 = Inconsolata:pixelsize=10;1
 font-3 = FontAwesome:pixelsize=10;1
 font-4 = NotoSansSymbols:pixelsize=10;1
+font-5 = FiraCodeNerdFontMono:pixelsize=10;1
 
 wm-restack = i3
 
@@ -395,9 +396,9 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 =
+ramp-1 =
+ramp-2 =
 ramp-foreground = ${colors.foreground-alt}
 
 [module/username]
@@ -415,7 +416,8 @@ content-padding = 1
 [module/windowclass]
 type = custom/script
 interval = 0
-exec = xprop -id $(xdotool getwindowfocus) WM_CLASS
+exec = xprop -id $(xdotool getwindowfocus) WM_CLASS | awk '{print $4}' | sed -e 's/^"//' -e 's/"$//'
+label = %{T2}%output:15:15%
 
 [module/powermenu]
 type = custom/menu
