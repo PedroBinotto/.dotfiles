@@ -18,11 +18,8 @@
 ;==========================================================
 
 [colors]
-; background = ${xrdb:color0:#222}
 background = #ff000000
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
-;foreground = #dfdfdf
 foreground = #dddddd
 foreground-alt = #555
 primary = #ffb52a
@@ -30,11 +27,8 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 25
-;offset-x = 1%
-;offset-y = 1%
 radius = 0
 fixed-center = true
 
@@ -53,13 +47,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-; font-0 = fixed:pixelsize=10;1
-; font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-; font-2 = siji:pixelsize=10;1
-
 font-0 = NimbusSansL:pixelsize=10;1
-font-1 = NimbusSansL:pixelsize=10;1
-font-2 = NimbusSansL:pixelsize=10;1
+font-1 = Inconsolata:pixelsize=10;1
 font-3 = FontAwesome:pixelsize=10;1
 font-4 = NotoSansSymbols:pixelsize=10;1
 
@@ -68,23 +57,9 @@ wm-restack = i3
 modules-left = badge xwindow i3 
 modules-center = date
 modules-right = mpc xkeyboard filesystem battery
-;uptime
 
 tray-position = right
 tray-padding = 5
-; tray-background = #303030
-
-;wm-restack = generic
-;wm-restack = bspwm
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
 cursor-click = pointer
 cursor-scroll = ns-resize
 
@@ -92,17 +67,14 @@ enable-ipc = true
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:15:...%
+label = %{T2}%title:15:15%
 
 format-padding = 1
-
-; label-background = #1f1f1f
-; label-underline = #0a6cf5
 
 [module/xkeyboard]
 type = internal/xkeyboard
 
-format-prefix = " "
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = #00000000
 
@@ -159,9 +131,6 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-; ws-icon-[0-9]+ = <label>;<icon>
-; NOTE: The <label> needs to match the name of the i3 workspace
-; Neither <label> nor <icon> can contain a semicolon (;)
 ws-icon-0 = 1;WWW
 ws-icon-1 = 2;DEV
 ws-icon-2 = 3;MUS
@@ -172,9 +141,6 @@ ws-icon-6 = 7;MON
 ws-icon-7 = 8;MISC
 ws-icon-8 = 9;9
 ws-icon-9 = 10;10
-; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
-; you must also define a ws-icon-5.
-; NOTE: Icon will be available as the %icon% token inside label-*
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -183,15 +149,13 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
 label-focused-foreground = #fff
-label-focused-background = #191919
+; label-focused-background = #191919
 label-focused-underline = #0a6cf5
 label-focused-padding = 2
 
-; unfocused = Inactive workspace on any moitor
 label-unfocused = %icon%
 label-unfocused-padding = 2
 
-; visible = Active workspace on unfocused monitor
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
@@ -396,24 +360,24 @@ format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = #0a6cf5
 ; ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = ""
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 =
+ramp-capacity-1 =
+ramp-capacity-2 =
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 =
+animation-charging-1 =
+animation-charging-2 =
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 =
+animation-discharging-1 =
+animation-discharging-2 =
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
@@ -484,11 +448,6 @@ menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
 
 [global/wm]
 margin-top = 5
