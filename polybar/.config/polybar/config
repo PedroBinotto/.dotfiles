@@ -80,14 +80,14 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = #00000000
 
 label-layout = %layout%
-label-layout-underline = #0a6cf5
+label-layout-underline = #191919
 
 label-indicator-padding = 2
 label-indicator-margin = 1
 
-label-indicator-foreground = #1f1f1f
-label-indicator-background = #6ea2eb
-label-indicator-underline = #6ea2eb
+label-indicator-foreground = #FFFFFF
+label-indicator-background = #191919
+label-indicator-underline = #191919
 
 
 [module/filesystem]
@@ -151,7 +151,7 @@ label-mode-background = ${colors.primary}
 label-focused = %icon%
 label-focused-foreground = #fff
 ; label-focused-background = #191919
-label-focused-underline = #0a6cf5
+label-focused-underline = #191919
 label-focused-padding = 2
 
 label-unfocused = %icon%
@@ -280,7 +280,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-underline = #191919
 
 label = %date% %time%
 
@@ -358,7 +358,7 @@ format-charging = <animation-charging> <label-charging>
 format-charging-underline = #4db5bd
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = #0a6cf5
+format-discharging-underline = #191919
 ; ${self.format-charging-underline}
 
 format-full-prefix = ""
