@@ -55,7 +55,7 @@ font-5 = FiraCodeNerdFontMono:pixelsize=10;1
 
 wm-restack = i3
 
-modules-left = badge xwindow i3 
+modules-left = badge windowclass i3 
 modules-center = date
 modules-right = mpc xkeyboard filesystem battery
 
@@ -417,7 +417,7 @@ content-padding = 1
 type = custom/script
 interval = 0
 exec = xprop -id $(xdotool getwindowfocus) WM_CLASS | awk '{print $4}' | sed -e 's/^"//' -e 's/"$//'
-label = %{T2}%output:15:15%
+label = %{T2}%output:10:10%
 
 [module/powermenu]
 type = custom/menu

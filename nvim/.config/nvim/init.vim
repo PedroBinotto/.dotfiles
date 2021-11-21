@@ -38,9 +38,23 @@ call plug#end()
 
 inoremap jk <ESC>
 nnoremap <Tab>b :buffers<CR>:buffer<Space>
+nnoremap Y y$
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+nnoremap <leader>k :m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+
 nmap <C-l> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+
 autocmd FileType python setlocal tabstop=4
 autocmd FileType make setlocal noexpandtab
 
@@ -93,6 +107,7 @@ set list
 set listchars=tab:»·,eol:¬,trail:·
 set noshowmode
 set termguicolors
+set guifont=FiraCodeNerdFont
 set shell=/usr/bin/zsh
 set clipboard+=unnamedplus
 highlight Comment cterm=bold
