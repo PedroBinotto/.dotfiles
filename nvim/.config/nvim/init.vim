@@ -283,8 +283,14 @@ let g:lightline = {
       \             [ 'readonly', 'filename', 'modified', 'git-branch' ] ]
       \ },
       \ 'component': {
-      \   'git-branch': ' %{FugitiveStatusline()}'
+      \   'git-branch': ' %{FugitiveStatusline()}'
       \ },
+      \ 'separator': {
+      \     'left': '', 'right': ''
+      \ },
+      \ 'subseparator': {
+      \ 'left': '', 'right': ''
+      \ }
       \ }
 
 let g:lightline.component_function = { 'lineinfo': 'LightlineLineinfo' }

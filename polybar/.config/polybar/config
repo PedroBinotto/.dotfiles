@@ -51,7 +51,8 @@ font-0 = NimbusSansL:pixelsize=10;1
 font-1 = Inconsolata:pixelsize=10;1
 font-3 = FontAwesome:pixelsize=10;1
 font-4 = NotoSansSymbols:pixelsize=10;1
-font-5 = FiraCodeNerdFontMono:pixelsize=10;1
+font-5 = "Fira Code Nerd Font Mono":pixelsize=10;1
+font-6 = siji:pixelsize=14;1
 
 wm-restack = i3
 
@@ -137,11 +138,10 @@ ws-icon-1 = 2;DEV
 ws-icon-2 = 3;MUS
 ws-icon-3 = 4;MAIL
 ws-icon-4 = 5;CHAT
-ws-icon-5 = 6;CONF
-ws-icon-6 = 7;MON
+ws-icon-5 = 6;CALL
+ws-icon-6 = 7;CONF
 ws-icon-7 = 8;MISC
-ws-icon-8 = 9;9
-ws-icon-9 = 10;10
+ws-icon-8 = 9;MON
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -377,8 +377,6 @@ animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
 animation-discharging-0 =
-animation-discharging-1 =
-animation-discharging-2 =
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
