@@ -140,4 +140,6 @@
     text-color: @normal-foreground;
 }
 
-@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
+//@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
+//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+@theme "/usr/share/rofi/themes/Pop-Dark.rasi"

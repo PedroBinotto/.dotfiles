@@ -11,7 +11,10 @@ Plug 'itchyny/lightline.vim', {'branch': 'master'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 Plug 'mtth/scratch.vim', {'branch': 'master'}
+Plug 'szw/vim-maximizer'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'ying17zi/vim-live-latex-preview'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
@@ -35,6 +38,8 @@ Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'folke/zen-mode.nvim'
 call plug#end()
+
+nnoremap mm :MaximizerToggle<CR>
 
 inoremap jk <ESC>
 nnoremap <Tab>b :buffers<CR>:buffer<Space>
@@ -112,7 +117,10 @@ set shell=/usr/bin/zsh
 set clipboard+=unnamedplus
 highlight Comment cterm=bold
 highlight ColorColumn ctermbg=235
-colorscheme gruvbox
+
+colorscheme one
+set background=dark
+let g:one_allow_italics=1
 
 " hybrid line numbers
 :augroup numbertoggle
@@ -278,20 +286,21 @@ nmap <leader>K     :<C-U>PreviewDefinition<CR>
 nmap <silent> gp   :<C-U>PreviewDefinition<CR>
 
 let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified', 'git-branch' ] ]
-      \ },
-      \ 'component': {
-      \   'git-branch': ' %{FugitiveStatusline()}'
-      \ },
-      \ 'separator': {
-      \     'left': '', 'right': ''
-      \ },
-      \ 'subseparator': {
-      \ 'left': '', 'right': ''
-      \ }
-      \ }
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'readonly', 'filename', 'modified', 'git-branch' ] ]
+  \ },
+  \ 'component': {
+  \   'git-branch': ' %{FugitiveStatusline()}'
+  \ },
+  \ 'separator': {
+  \     'left': '', 'right': ''
+  \ },
+  \ 'subseparator': {
+  \ 'left': '', 'right': ''
+  \ },
+  \ 'colorscheme': 'one',
+\ }
 
 let g:lightline.component_function = { 'lineinfo': 'LightlineLineinfo' }
 
@@ -318,10 +327,9 @@ endfunction
 
 " zen-mode config
 lua << EOF
-  require("zen-mode").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
+  require("zen-mode").setup {}
+  require'nvim-treesitter.configs'.setup {
+      highlight = { enable = true }
   }
 EOF
 
