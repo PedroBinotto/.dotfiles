@@ -52,6 +52,12 @@ bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioStop exec mpc stop
 
+# dunst
+
+bindsym $mod+Ctrl+space exec dunstctl close
+bindsym $mod+Shift+Ctrl+space exec dunstctl close-all
+bindsym $mod+Ctrl+h exec dunstctl history-pop 
+
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
@@ -457,6 +463,8 @@ assign [class="(F|f)irefox(-esr)?"]         1
 # assign [class="kitty"]                    2
 assign [class="(C|c)ode"]                   2
 assign [class="(VSC|vsc)odium"]             2
+assign [class="jetbrains-idea"]             2
+assign [class="(N|n)eovide"]                2
 assign [class="(E|e)macs"]                  2
 
 # MUS
