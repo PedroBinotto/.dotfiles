@@ -115,7 +115,7 @@ set list
 set listchars=tab:»·,eol:¬,trail:·
 set noshowmode
 set termguicolors
-set guifont=FiraCodeNerdFont
+set guifont=FiraCodeNerdFont:h12
 set shell=/usr/bin/zsh
 set clipboard+=unnamedplus
 highlight Comment cterm=bold
