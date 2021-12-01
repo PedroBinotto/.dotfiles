@@ -321,6 +321,8 @@ exec_always --no-startup-id bash $HOME/.redshiftconfig &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Bluetooth applet
 exec_always --no-startup-id blueman-applet
+# i3 Autotiling
+exec_always --no-startup-id autotiling
 
 # Calcurse daemon
 exec --no-startup-id calcurse --daemon --confdir ~/.config/calcurse
