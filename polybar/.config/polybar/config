@@ -18,7 +18,7 @@
 ;==========================================================
 
 [colors]
-background = #ff000000
+background = #64000000
 background-alt = #444
 foreground = #dddddd
 foreground-alt = #555

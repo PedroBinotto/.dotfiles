@@ -49,6 +49,21 @@ bindsym $mod+Shift+Return exec --no-startup-id rofi -show run
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
+# Launcher Bindings
+# ===========================================
+# WEB BROWSER
+#############################################
+bindsym $mod+Ctrl+b exec $BROWSER
+
+# MUSIC PLAYER
+#############################################
+bindsym $mod+ctrl+m exec Mpdevil
+
+# FILE EXPLORER
+#############################################
+bindsym $mod+Ctrl+f exec Thunar
+#============================================
+
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioPause exec mpc toggle
 bindsym XF86AudioNext exec mpc next
@@ -66,10 +81,8 @@ bindsym $mod+Ctrl+h exec dunstctl history-pop
 ################################################################################################
 
 #exec --no-startup-id volumeicon
-#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
-bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -78,9 +91,9 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec firefox
-bindsym $mod+F3 exec thunar
+bindsym $mod+b exec $TERMINAL -e 'bmenu'
+# bindsym $mod+F2 exec firefox
+# bindsym $mod+F3 exec thunar
 # bindsym $mod+F3 exec ranger
 # bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
@@ -120,8 +133,8 @@ bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth no
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+# bindsym $mod+b workspace back_and_forth
+# bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
 bindsym $mod+Ctrl+v split h;exec notify-send 'tile horizontally'
@@ -494,6 +507,4 @@ assign [class="(S|s)lack"]                  5
 #############################################
 assign [class="(D|d)iscord"]                6
 #============================================
-
-
 
