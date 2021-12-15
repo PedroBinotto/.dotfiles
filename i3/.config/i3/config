@@ -491,6 +491,7 @@ assign [class="(E|e)macs"]                  2
 #############################################
 assign [class="(R|r)hythmbox"]              3
 assign [class="(P|p)avucontrol"]            3
+assign [class="(M|m)pdevil"]                3
 assign [class="blueman-manager"]            3
 
 # MAIL
