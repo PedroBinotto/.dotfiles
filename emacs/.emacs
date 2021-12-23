@@ -1,10 +1,29 @@
+;;  _____                           ____             __ _       
+;; | ____|_ __ ___   __ _  ___ ___ / ___|___  _ __  / _(_) __ _ 
+;; |  _| | '_ ` _ \ / _` |/ __/ __| |   / _ \| '_ \| |_| |/ _` |
+;; | |___| | | | | | (_| | (__\__ \ |__| (_) | | | |  _| | (_| |
+;; |_____|_| |_| |_|\__,_|\___|___/\____\___/|_| |_|_| |_|\__, |
+;;                                                        |___/ 
+
+;; FIXME: Temporary
+(load-theme 'wombat)
+
 ;; Configure repositories
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+(setq package-archives  '(("org" . "http://orgmode.org/elpa/")
+                          ("elpa" . "https://elpa.gnu.org/packages/")
+                          ("melpa" . "http://melpa.org/packages/")
+                          ("melpa-stable" . "http://stable.melpa.org/packages/")))
 
 ;; Make Emacs look not-ancient out of the box
 (setq inhibit-startup-message t)
+;; Disable page-jumps
+(setq scroll-conservatively 101)
+;; Column numbers
+(setq column-number-mode t)
+;; Relative line numbers
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode)
+
 (scroll-bar-mode -1)
 (tooltip-mode -1)
 (tool-bar-mode -1)
@@ -12,6 +31,25 @@
 
 ;; Font typeface configuration
 (set-face-attribute 'default nil :font "FiraCode Nerd Font Mono" :height 90)
+(use-package ligature
+    :load-path "~/.emacs.d/github/ligature-el"
+    :config
+    (ligature-set-ligatures 't '("www"))
+    (ligature-set-ligatures 'prog-mode '(
+         "www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"
+         ":::" ":=" "!!" "!=" "!==" "-}" "----" "-->" "->" "->>"
+         "-<" "-<<" "-~" "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
+         "#_(" ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*" "/**"
+         "/=" "/==" "/>" "//" "///" "&&" "||" "||=" "|=" "|>" "^=" "$>"
+         "++" "+++" "+>" "=:=" "==" "===" "==>" "=>" "=>>" "<="
+         "=<<" "=/=" ">-" ">=" ">=>" ">>" ">>-" ">>=" ">>>" "<*"
+         "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
+         "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
+         "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
+    (global-ligature-mode 't))
+
+;; Bind "Cancel" to Escape
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; use-package bootstrap script
 (require 'package)
@@ -20,10 +58,37 @@
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
+  (setq use-package-always-ensure t)
 
 ;; Automatically install packages
-(use-package helm
-  :ensure t)
+;; Swiper
+(use-package swiper)
+
+;; Ivy & binds
+(use-package ivy
+  :diminish
+  :bind( 
+    ("C-s" . swiper)
+    :map ivy-minibuffer-map
+    ("C-l" . ivy-alt-done)
+    ("TAB" . ivy-next-line)
+    ("C-j" . ivy-next-line)
+    ("<backtab>" . ivy-previous-line)
+    ("C-k" . ivy-previous-line)
+    :map ivy-switch-buffer-map
+    ("C-k" . ivy-previous-line)
+    ("C-l" . ivy-done)
+    ("C-d" . ivy-switch-buffer-kill)
+    :map ivy-reverse-i-search-map
+    ("C-k" . ivy-previous-line)
+    ("C-d" . ivy-reverse-i-search-kill))
+  :config
+  (ivy-mode 1)
+)
+
+;; DOOM Modeline
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
 
 ;; Initialize EVIL Mode automatically
 (require 'evil)
@@ -38,7 +103,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(evil-visual-mark-mode)))
+ '(package-selected-packages
+   '(fira-code-mode doom-modeline swiper evil-visual-mark-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
