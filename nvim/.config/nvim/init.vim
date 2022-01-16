@@ -62,7 +62,9 @@ nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
 
 nmap <C-l> :NERDTreeToggle<CR>
-nmap <C-F> :NERDTreeFind<CR>
+nmap <leader>l :NERDTreeFind<CR>
+
+nmap <leader>z :ZenMode<CR>
 
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
@@ -80,10 +82,9 @@ let g:NERDTreeGitStatusWithFlags = 1
     "\ "Untracked" : "#FCE77C",  
     "\ "Unmerged"  : "#FC51E6",  
     "\ "Dirty"     : "#FFBD61",  
-    "\ "Clean"     : "#87939A",   
+    "\ "Clean"     : "#87939A",  
     "\ "Ignored"   : "#808080"   
     "\ }                         
-
 
 let g:NERDTreeIgnore = ['^node_modules$']
 
@@ -149,7 +150,12 @@ let g:coc_global_extensions = [
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
+"
+" Some servers have issues with backup files, see #649 set nobackup set nowritebackup
+" Better display for messages set cmdheight=2
+" You will have bad experience for diagnostic messages when it's default 4000.
+
+set hidden
 set updatetime=300
 
 " don't give |ins-completion-menu| messages.
