@@ -1,0 +1,20 @@
+:CocList --normal extensions
+
+*******************************
+
+coc-snippets              2.4.6
+coc-prettier             1.1.24
+coc-pairs                 1.3.0
+coc-html                  1.6.0
+coc-eslint                1.4.5
+coc-tsserver              1.8.6
+coc-rust-analyzer        0.59.1
+coc-pyright             1.1.185
+coc-json                  1.3.6
+coc-java                  1.5.4
+coc-css                   1.3.0
+coc-clangd               0.17.0
+
+*******************************
+
+17/01/22
