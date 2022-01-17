@@ -64,8 +64,8 @@ nnoremap mm :MaximizerToggle<CR>
 
 " Press * to search for the term under the cursor or a visual selection and
 " then press a key below to replace all instances of it in the current file.
-nnoremap <Leader>r :%s///g<Left><Left>
-nnoremap <Leader>rc :%s///gc<Left><Left><Left>
+nnoremap <leader>r :%s///g<Left><Left>
+nnoremap <leader>rc :%s///gc<Left><Left><Left>
 
 inoremap jk <ESC>
 nnoremap <Tab>b :buffers<CR>:buffer<Space>
