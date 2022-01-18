@@ -68,7 +68,7 @@ nnoremap <leader>r :%s///g<Left><Left>
 nnoremap <leader>rc :%s///gc<Left><Left><Left>
 
 inoremap jk <ESC>
-nnoremap <Tab>b :buffers<CR>:buffer<Space>
+nnoremap <leader>b :Buffers<CR>
 nnoremap Y y$
 
 nnoremap n nzzzv
