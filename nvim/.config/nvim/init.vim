@@ -69,6 +69,7 @@ nnoremap <leader>rc :%s///gc<Left><Left><Left>
 
 inoremap jk <ESC>
 nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap Y y$
 
 nnoremap n nzzzv
