@@ -105,13 +105,17 @@ fun! SendTerminalCommand(ctrlId, command)
     call chansend(job_id, command)
 endfun
 
+fun! VertTerm()
+    :vsplit | term
+endfun
+
 " ******************************************************************************
 
 
 " ******************************************************************************
 " section REMAPS
 " ******************************************************************************
-"
+
 nnoremap mm :MaximizerToggle<CR>
 
 " Press * to search for the term under the cursor or a visual selection and
@@ -196,6 +200,9 @@ nmap <leader>tse :call SetBuffer(1)<CR>
 nmap <leader>tso :call SetBuffer(2)<CR>
 nmap <leader>tsa :call SetBuffer(3)<CR>
 
+nmap <leader>vt :call VertTerm()<CR>
+nmap <leader>nt :term<CR>
+
 " ******************************************************************************
 
 
@@ -237,6 +244,8 @@ highlight ColorColumn ctermbg=235
 colorscheme one
 set background=dark
 let g:one_allow_italics=1
+
+let mapleader="\<Space>"
 
 let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
