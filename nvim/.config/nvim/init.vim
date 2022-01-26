@@ -35,7 +35,7 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim' " needed for previews
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['markdown', 'vim-plug'] }
 
 " Colorschemes
 Plug 'terroo/terroo-colors'
@@ -239,9 +239,9 @@ set shortmess+=c
 set signcolumn=yes
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 highlight Comment cterm=bold
-highlight ColorColumn ctermbg=235
+call matchadd('colorcolumn', '\%81v', 100)
 
-colorscheme one
+colorscheme PaperColor
 set background=dark
 let g:one_allow_italics=1
 
@@ -251,15 +251,15 @@ let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeGitStatusNodeColorization = 1
 " let g:NERDTreeColorMapCustom = {
-"     \ "Staged"    : "#0ee375",  
-"     \ "Modified"  : "#d9bf91",  
-"     \ "Renamed"   : "#51C9FC",  
-"     \ "Untracked" : "#FCE77C",  
-"     \ "Unmerged"  : "#FC51E6",  
-"     \ "Dirty"     : "#FFBD61",  
-"     \ "Clean"     : "#87939A",  
-"     \ "Ignored"   : "#808080"   
-"     \ }                         
+"     \ "Staged"    : "#0ee375",
+"     \ "Modified"  : "#d9bf91",
+"     \ "Renamed"   : "#51C9FC",
+"     \ "Untracked" : "#FCE77C",
+"     \ "Unmerged"  : "#FC51E6",
+"     \ "Dirty"     : "#FFBD61",
+"     \ "Clean"     : "#87939A",
+"     \ "Ignored"   : "#808080"
+"     \ }
 
 let g:NERDTreeIgnore = ['^node_modules$']
 
@@ -376,7 +376,7 @@ let g:lightline = {
   \ 'subseparator': {
   \ 'left': '', 'right': ''
   \ },
-  \ 'colorscheme': 'one',
+  \ 'colorscheme': 'PaperColor',
 \ }
 
 let g:lightline.component_function = { 'lineinfo': 'LightlineLineinfo' }
