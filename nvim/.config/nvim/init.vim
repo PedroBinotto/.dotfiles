@@ -109,6 +109,8 @@ fun! VertTerm()
     :vsplit | term
 endfun
 
+" TODO: -> Toggle docked terminal; 'VSCode'-style
+
 " ******************************************************************************
 
 
@@ -125,6 +127,7 @@ nnoremap <leader>rc :%s///gc<Left><Left><Left>
 
 inoremap jk <ESC>
 nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f :Rg ''<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap Y y$
 
@@ -140,6 +143,8 @@ inoremap <C-k> <esc>:m .-2<CR>==
 nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
 
+nnoremap <leader>R :so ~/.config/nvim/init.vim<CR>
+
 nmap <C-l> :NERDTreeToggle<CR>
 nmap <leader>l :NERDTreeFind<CR>
 
@@ -148,6 +153,9 @@ nmap <leader>z :ZenMode<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
+"
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -158,8 +166,6 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <F2> <Plug>(coc-rename)
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -244,8 +250,6 @@ call matchadd('colorcolumn', '\%81v', 100)
 colorscheme PaperColor
 set background=dark
 let g:one_allow_italics=1
-
-let mapleader="\<Space>"
 
 let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
