@@ -128,6 +128,8 @@ nnoremap <leader>rc :%s///gc<Left><Left><Left>
 inoremap jk <ESC>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
+nnoremap <leader>F :Rg ''<CR>
+
 nnoremap Y y$
 
 nnoremap n nzzzv
@@ -152,8 +154,8 @@ nmap <leader>z :ZenMode<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 "
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
