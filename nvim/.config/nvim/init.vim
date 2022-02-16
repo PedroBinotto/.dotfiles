@@ -381,8 +381,8 @@ let g:lightline = {
   \ 'subseparator': {
   \ 'left': '', 'right': ''
   \ },
-  \ 'colorscheme': 'PaperColor',
 \ }
+" -  \ 'colorscheme': 'PaperColor',
 
 let g:lightline.component_function = { 'lineinfo': 'LightlineLineinfo' }
 
