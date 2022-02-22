@@ -60,6 +60,44 @@ call plug#end()
 " section FUNCTIONS
 " ******************************************************************************
 
+fun! GetBufferList()
+  redir =>buflist
+  silent! ls!
+  redir END
+  return buflist
+endfun
+
+fun! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfun
+
+command -bang -nargs=? QFix call QFixToggle(<bang>0)
+fun! QFixToggle(forced)
+  if exists("g:qfix_win") && a:forced == 0
+    cclose
+    unlet g:qfix_win
+  else
+    copen 10
+    let g:qfix_win = bufnr("$")
+  endif
+endfun
+
 fun! GoToBuffer(ctrlId)
     if (a:ctrlId > 9) || (a:ctrlId < 0)
         echo "CtrlID must be between 0 - 9"
@@ -130,6 +168,9 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>F :Rg ''<CR>
 
+nnoremap <C-[> :cprev<CR>
+nnoremap <C-]> :cnext<CR>
+
 nnoremap Y y$
 
 nnoremap n nzzzv
@@ -148,6 +189,7 @@ nnoremap <leader>R :so ~/.config/nvim/init.vim<CR>
 
 nmap <C-l> :NERDTreeToggle<CR>
 nmap <leader>l :NERDTreeFind<CR>
+nmap <silent> <leader>Q :QFix<CR>
 
 nmap <leader>z :ZenMode<CR>
 
@@ -265,8 +307,9 @@ let g:NERDTreeGitStatusNodeColorization = 1
 "     \ "Clean"     : "#87939A",
 "     \ "Ignored"   : "#808080"
 "     \ }
-
+"
 let g:NERDTreeIgnore = ['^node_modules$']
+let NERDTreeMapActivateNode = 'l'
 
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
