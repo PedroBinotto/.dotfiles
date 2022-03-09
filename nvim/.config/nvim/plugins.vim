@@ -24,9 +24,9 @@ Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['markdown', 'vim-plug'] }
 Plug 'nvim-lua/plenary.nvim'
-Plug 'hoschi/yode-nvim'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
+
+" Plug 'hoschi/yode-nvim'   // FIXME
 
 " Colorschemes
 Plug 'terroo/terroo-colors'

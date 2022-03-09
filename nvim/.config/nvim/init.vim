@@ -86,12 +86,13 @@ function! s:open_as_preview(callstr)
 endfunction
 
 autocmd BufWritePre *.ts :call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.tsx :call CocAction('runCommand', 'editor.action.organizeImport')
 
 lua << EOF
   require("zen-mode").setup {}
-  require('yode-nvim').setup({})
   require'nvim-treesitter.configs'.setup {
       highlight = { enable = true }
   }
 EOF
 
+" require('yode-nvim').setup({})  // ^^ FIXME
