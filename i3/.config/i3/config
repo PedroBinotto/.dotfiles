@@ -104,6 +104,8 @@ bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $mod+m [instance="m_player"] scratchpad show; [instance="m_player"] move position center
+bindsym $mod+Shift+m [instance="m_player"] move scratchpad
 
 # focus_follows_mouse no
 
@@ -253,8 +255,8 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-# for_window [class="(K|k)itty"] border none
 for_window [class="(K|k)itty" instance="floating"] floating enable resize set 640 480
+for_window [class="(K|k)itty" instance="m_player"] floating enable resize set 640 480 move scratchpad
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -323,6 +325,7 @@ exec --no-startup-id clipit
 exec --no-startup-id $HOME/.config/conky/startup
 exec --no-startup-id light-locker
 exec --no-startup-id mpd
+exec --no-startup-id $TERMINAL --name m_player --execute ncmpcpp
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
@@ -399,7 +402,6 @@ set_from_resource $term_color15    color15
 #}
 
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border

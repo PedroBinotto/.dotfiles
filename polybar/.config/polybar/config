@@ -135,7 +135,7 @@ pin-workspaces = true
 
 ws-icon-0 = 1;WWW
 ws-icon-1 = 2;DEV
-ws-icon-2 = 3;MUS
+ws-icon-2 = 3;TERM
 ws-icon-3 = 4;MAIL
 ws-icon-4 = 5;CHAT
 ws-icon-5 = 6;CALL
