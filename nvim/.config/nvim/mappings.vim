@@ -94,3 +94,12 @@ nmap <leader>tsa :call SetBuffer(3)<CR>
 nmap <leader>vt :call VertTerm()<CR>
 nmap <leader>nt :term<CR>
 
+nmap <leader>+ :lua require("harpoon.mark").add_file()<CR>
+nmap <leader>H :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nmap <leader>hu :lua require("harpoon.ui").nav_file(1)<CR>
+nmap <leader>he :lua require("harpoon.ui").nav_file(2)<CR>
+nmap <leader>ho :lua require("harpoon.ui").nav_file(3)<CR>
+nmap <leader>ha :lua require("harpoon.ui").nav_file(4)<CR>
+nmap <leader>hp :lua require("harpoon.ui").nav_prev() <CR>
+nmap <leader>hn :lua require("harpoon.ui").nav_next() <CR>
+

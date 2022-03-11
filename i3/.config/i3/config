@@ -108,6 +108,8 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 bindsym $mod+m [instance="m_player"] scratchpad show; [instance="m_player"] move position center
 bindsym $mod+Shift+m [instance="m_player"] move scratchpad
 
+# TODO : scratchpad vim todo.md -> $mod+a / $mod+Shift+a
+
 # focus_follows_mouse no
 
 # change focus
