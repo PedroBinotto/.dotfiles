@@ -142,7 +142,14 @@ export NVM_DIR=~/.nvm
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-colorscript_wrapper
+# colorscript_wrapper   # someday, maybe ...
+bindkey -s ^f "tmux-sessionizer\n"
+
+bindkey -s "^[a" "tmux-sessionizer ~/Projetos/bridge/sgtes-residencias/frontend\n"
+bindkey -s "^[s" "tmux-sessionizer ~/Projetos/bridge/pec/frontend\n"
+bindkey -s "^[j" "tmux-sessionizer ~/Projetos/scripts\n"
+bindkey -s "^[k" "tmux-sessionizer ~/.dotfiles\n"
+
 
 source /usr/share/nvm/init-nvm.sh
 
