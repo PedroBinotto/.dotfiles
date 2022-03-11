@@ -130,7 +130,6 @@ alias rm="rm -i"
 alias icat="kitty +kitten icat"
 alias music="ncmpcpp"
 alias \:q="exit"
-# alias actenv1="source $HOME/Projetos/virtualenvs/t1/bin/activate"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -150,6 +149,7 @@ bindkey -s "^[s" "tmux-sessionizer ~/Projetos/bridge/pec/frontend\n"
 bindkey -s "^[j" "tmux-sessionizer ~/Projetos/scripts\n"
 bindkey -s "^[k" "tmux-sessionizer ~/.dotfiles\n"
 
+alias shellhelp="source ~/Projetos/scripts/zsh-help/zsh-help.sh"
 
 source /usr/share/nvm/init-nvm.sh
 
