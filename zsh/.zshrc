@@ -150,6 +150,7 @@ bindkey -s "^[j" "tmux-sessionizer ~/Projetos/scripts\n"
 bindkey -s "^[k" "tmux-sessionizer ~/.dotfiles\n"
 
 alias shellhelp="source ~/Projetos/scripts/zsh-help/zsh-help.sh"
+alias lf="lfub"
 
 source /usr/share/nvm/init-nvm.sh
 
