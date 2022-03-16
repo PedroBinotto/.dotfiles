@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 if !(pgrep -x "redshift-gtk" > /dev/null)
 then
-    redshift-gtk -l -26:-51 -t 6500:4000
+    redshift-gtk -l -26:-51 -t 6500:3500
 fi
