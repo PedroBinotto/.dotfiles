@@ -34,7 +34,7 @@ let g:coc_global_extensions = [
   \ 'coc-rust-analyzer',
   \ 'coc-pyright',
   \ 'coc-json',
-  \ 'coc-css'
+  \ 'coc-css',
   \ ]
 
 function! s:check_back_space() abort

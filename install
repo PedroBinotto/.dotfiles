@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# automatic software installation and dotfiles deployment script
+# for *arch-based* linux distributions.
+
+echo 'work in progress lol'
+
