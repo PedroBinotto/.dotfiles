@@ -1,6 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo "[Husky] pre-commit hook"
-echo "TODO:"
-echo "    - write Coc (nvim) extensions to file before every commit"
+echo "[Husky] pre-commit hook (TODO)"
