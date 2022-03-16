@@ -25,11 +25,16 @@ autocmd FileType make setlocal noexpandtab
 " coc config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
+  \ 'coc-prettier',
   \ 'coc-pairs',
+  \ 'coc-html',
+  \ 'coc-eslint',
   \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
+  \ 'coc-sql',
+  \ 'coc-rust-analyzer',
+  \ 'coc-pyright',
+  \ 'coc-json',
+  \ 'coc-css'
   \ ]
 
 function! s:check_back_space() abort
