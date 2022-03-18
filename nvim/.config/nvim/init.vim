@@ -35,6 +35,7 @@ let g:coc_global_extensions = [
   \ 'coc-pyright',
   \ 'coc-json',
   \ 'coc-css',
+  \ 'coc-clangd',
   \ ]
 
 function! s:check_back_space() abort
