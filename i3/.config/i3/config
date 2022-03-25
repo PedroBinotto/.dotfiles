@@ -108,6 +108,9 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 bindsym $mod+m [instance="m_player"] scratchpad show; [instance="m_player"] move position center
 bindsym $mod+Shift+m [instance="m_player"] move scratchpad
 
+bindsym $mod+c [instance="calculator"] scratchpad show; [instance="calculator"] move position center
+# bindsym $mod+Shift+c [instance="calculator"] move scratchpad
+
 # TODO : scratchpad vim todo.md -> $mod+a / $mod+Shift+a
 
 # focus_follows_mouse no
@@ -164,8 +167,6 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
-bindsym $mod+p focus parent
-bindsym $mod+c focus child
 
 # move the currently focused window to the scratchpad
 # bindsym $mod+Shift+minus move scratchpad
@@ -260,6 +261,7 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="(K|k)itty" instance="floating"] floating enable resize set 640 480
 for_window [class="(K|k)itty" instance="m_player"] floating enable sticky enable move scratchpad resize set 640 480
+for_window [class="(K|k)itty" instance="calculator"] floating enable sticky enable move scratchpad resize set 640 480
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -329,6 +331,7 @@ exec --no-startup-id $HOME/.config/conky/startup
 exec --no-startup-id light-locker
 exec --no-startup-id mpd
 exec --no-startup-id $TERMINAL --name m_player --override background_opacity=0.75 --execute ncmpcpp
+exec --no-startup-id $TERMINAL --name calculator --override background_opacity=0.75 --execute bc
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 

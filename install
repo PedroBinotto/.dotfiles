@@ -8,13 +8,17 @@ while getopts ":a:r:b:p:h" o; do case "${o}" in
     b) repobranch=${OPTARG} ;;
     p) progsfile=${OPTARG} ;;
     a) aurhelper=${OPTARG} ;;
+    s) scriptsrepo=${OPTARG} && git ls-remote "$scriptsrepo" || exit 1 ;;
+    sb) scriptsbranch=${OPTARG} ;;
     *) printf "Invalid option: -%s\\n" "$OPTARG" && exit 1 ;;
 esac done
 
 [ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/PedroBinotto/.dotfiles.git"
 [ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/PedroBinotto/.dotfiles/main/progfile.csv"
+[ -z "$scriptsrepo" ] && scriptsrepo="https://github.com/PedroBinotto/shellscripts.git"
 [ -z "$aurhelper" ] && aurhelper="yay"
-[ -z "$repobranch" ] && repobranch="master"
+[ -z "$repobranch" ] && repobranch="main"
+[ -z "$scriptsbranch" ] && scriptsbranch="main"
 
 ### FUNCTIONS ###
 
@@ -109,7 +113,7 @@ manualinstall() { # Installs $1 manually. Used only for AUR helper here.
     printf "Installing \"$1\", an AUR helper...\n"
     sudo -u "$name" mkdir -p "$repodir/$1"
     sudo -u "$name" git clone --depth 1 "https://aur.archlinux.org/$1.git" "$repodir/$1" >/dev/null 2>&1 ||
-        { cd "$repodir/$1" || return 1 ; sudo -u "$name" git pull --force origin master;}
+        { cd "$repodir/$1" || return 1 ; sudo -u "$name" git pull --force origin main;}
     cd "$repodir/$1"
     sudo -u "$name" -D "$repodir/$1" makepkg --noconfirm -si >/dev/null 2>&1 || return 1
 }
@@ -125,7 +129,7 @@ gitmakeinstall() {
     dir="$repodir/$progname"
     printf "\nLARBS Installation\n"
     printf "Installing \`$progname\` ($n of $total) via \`git\` and \`make\`. $(basename '$1') $2"
-    sudo -u "$name" git clone --depth 1 "$1" "$dir" >/dev/null 2>&1 || { cd "$dir" || return 1 ; sudo -u "$name" git pull --force origin master;}
+    sudo -u "$name" git clone --depth 1 "$1" "$dir" >/dev/null 2>&1 || { cd "$dir" || return 1 ; sudo -u "$name" git pull --force origin main;}
     cd "$dir" || exit 1
     make >/dev/null 2>&1
     make install >/dev/null 2>&1
@@ -162,7 +166,7 @@ installationloop() { \
 
 putgitrepo() { # Downloads a gitrepo $1 and places the files in $2 only overwriting conflicts
     printf "Downloading and installing config files...\n"
-    [ -z "$3" ] && branch="master" || branch="$repobranch"
+    [ -z "$3" ] && branch="main" || branch="$repobranch"
     dir=$(mktemp -d)
     [ ! -d "$2" ] && mkdir -p "$2"
     chown "$name":wheel "$dir" "$2"
@@ -242,8 +246,17 @@ printf "\nFinally, installing \`libxft-bgra\` to enable color emoji in suckless 
 yes | sudo -u "$name" $aurhelper -S libxft-bgra-git >/dev/null 2>&1
 
 # Install the dotfiles in the user's home directory
+installpkg "stow"
+
 mkdir /home/$name/.dotfiles
+mkdir /home/$name/.shellscripts
+mkdir /home/$name/.local/bin
+
 putgitrepo "$dotfilesrepo" "/home/$name/.dotfiles" "$repobranch"
+putgitrepo "$scriptsrepo" "/home/$name/.scripts" "$repobranch"
+
+# TODO: (de)stow dotfiles
+
 # Create default urls file if none exists.
 
 # Most important command! Get rid of the beep!
