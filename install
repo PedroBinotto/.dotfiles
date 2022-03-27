@@ -182,6 +182,10 @@ systembeepoff() {
 deploydotfiles() {
     installpkg "stow"
 
+    mkdir /home/$name/.dotfiles
+    mkdir /home/$name/.scripts
+    mkdir /home/$name/.local/bin 
+
     putgitrepo "$dotfilesrepo" "/home/$name/.dotfiles" "$repobranch"
     putgitrepo "$scriptsrepo" "/home/$name/.scripts" "$repobranch"
 
@@ -246,12 +250,7 @@ sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /et
 sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
 installpkg "yay"
-# manualinstall yay-bin || error "Failed to install AUR helper."
 
-# The command that does all the installing. Reads the progs.csv file and
-# installs each needed program the way required. Be sure to run this only after
-# the user has been created and has priviledges to run sudo without a password
-# and all build dependencies are installed.
 installationloop
 
 printf "\nLARBS Installation\n"
