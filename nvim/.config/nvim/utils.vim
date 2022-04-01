@@ -85,5 +85,30 @@ fun! VertTerm()
     :vsplit | term
 endfun
 
-" TODO: -> Toggle docked terminal; 'VSCode'-style
+
+fun! AppContextBuild()
+    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
+    \      tmux has-session -t :backend || tmux new-window -n backend;
+    \      tmux send -t :backend '"g:BuildApp"' Enter;
+    \      tmux select-window -t 1;"
+endfun
+
+fun! AppContextRunBackend()
+    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
+    \      tmux has-session -t :backend || tmux new-window -n backend;
+    \      tmux send -t :backend '"g:RunBackend"' Enter;
+    \      tmux select-window -t 1;"
+endfun
+
+fun! AppContextRunFrontend()
+    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
+    \      tmux has-session -t :frontend || tmux new-window -n frontend;
+    \      tmux send -t :frontend '"g:RunFrontend"' Enter;
+    \      tmux select-window -t 1;"
+endfun
+
+fun! AppContextRunAll()
+    :call AppContextBuildBackend()
+    :call AppContextBuildFrontend()
+endfun
 
