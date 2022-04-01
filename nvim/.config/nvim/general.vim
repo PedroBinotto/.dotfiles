@@ -60,7 +60,6 @@ let g:prettier#autoformat_require_pragma = 0
 let g:RunBackend = ''
 let g:RunFrontend = ''
 let g:BuildApp = ''
-" g:KillAll = ''
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 

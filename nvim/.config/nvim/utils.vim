@@ -107,8 +107,14 @@ fun! AppContextRunFrontend()
     \      tmux select-window -t 1;"
 endfun
 
+" fun! AppContextKillAll()
+"     :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
+"     \      tmux has-session -t :backend  && tmux send -t :backend  'C-a';
+"     \      tmux has-session -t :frontend && tmux send -t :frontend 'C-a';"
+" endfun
+
 fun! AppContextRunAll()
-    :call AppContextBuildBackend()
-    :call AppContextBuildFrontend()
+    :call AppContextRunBackend()
+    :call AppContextRunFrontend()
 endfun
 
