@@ -22,14 +22,23 @@ autocmd FileType make setlocal noexpandtab
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 :augroup END
 
+" prettier config
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html Prettier
+
 " coc config
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
+  \ 'coc-prettier',
   \ 'coc-pairs',
+  \ 'coc-html',
+  \ 'coc-eslint',
   \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
+  \ 'coc-sql',
+  \ 'coc-rust-analyzer',
+  \ 'coc-pyright',
+  \ 'coc-json',
+  \ 'coc-css',
+  \ 'coc-clangd',
+  \ 'coc-graphql',
   \ ]
 
 function! s:check_back_space() abort
@@ -85,14 +94,15 @@ function! s:open_as_preview(callstr)
           \ })
 endfunction
 
-autocmd BufWritePre *.ts :call CocAction('runCommand', 'editor.action.organizeImport')
-autocmd BufWritePre *.tsx :call CocAction('runCommand', 'editor.action.organizeImport')
+fun! FormatOnSave()
+    :call CocAction('runCommand', 'editor.action.organizeImport')
+    :call CocAction('runCommand', 'eslint.executeAutofix')
+endfun
+
+autocmd BufWritePre *.ts(x?) :call FormatOnSave()
 
 lua << EOF
   require("zen-mode").setup {}
-  require'nvim-treesitter.configs'.setup {
-      highlight = { enable = true }
-  }
   require("harpoon").setup({
       menu = {
           width = vim.api.nvim_win_get_width(0) - 4,

@@ -1,4 +1,4 @@
-# if ! tmux ls 2>/dev/null | grep -q -E '^main.*attached'; then tmux attach -t main || tmux new -s main; else /usr/bin/zsh; fi
+path+=('/home/pedro/.local/bin')
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -139,7 +139,9 @@ export NVM_DIR=~/.nvm
 
 # bindkey -v
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# source /usr/share/nvm/init-nvm.sh
 
 # colorscript_wrapper   # someday, maybe ...
 bindkey -s ^f "tmux-sessionizer\n"
@@ -152,7 +154,7 @@ bindkey -s "^[k" "tmux-sessionizer ~/.dotfiles\n"
 alias shellhelp="source ~/Projetos/scripts/zsh-help/zsh-help.sh"
 alias lf="lfub"
 
-source /usr/share/nvm/init-nvm.sh
+export PATH
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

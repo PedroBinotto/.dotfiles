@@ -28,7 +28,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 highlight Comment cterm=bold
 call matchadd('colorcolumn', '\%81v', 100)
 
-colorscheme PaperColor
+colorscheme one
 set background=dark
 let g:one_allow_italics=1
 
@@ -49,7 +49,8 @@ let g:NERDTreeGitStatusNodeColorization = 1
 let g:NERDTreeIgnore = ['^node_modules$']
 let NERDTreeMapActivateNode = 'l'
 
-let g:prettier#autoformat = 1
+" let g:prettier#autoformat = 1
+" let g:prettier#exec_cmd_async = 1
 let g:prettier#autoformat_require_pragma = 0
 
 " ctrlp
