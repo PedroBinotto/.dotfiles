@@ -22,7 +22,7 @@ autocmd FileType make setlocal noexpandtab
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 :augroup END
 
-" prettier config
+"prettier config
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html Prettier
 
 " coc config
@@ -39,6 +39,8 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-clangd',
   \ 'coc-graphql',
+  \ 'coc-sh',
+  \ 'coc-vimlsp',
   \ ]
 
 function! s:check_back_space() abort
@@ -96,7 +98,7 @@ endfunction
 
 fun! FormatOnSave()
     :call CocAction('runCommand', 'editor.action.organizeImport')
-    :call CocAction('runCommand', 'eslint.executeAutofix')
+    :call CocAction('runCommand', 'eslint.executeAutoFix')
 endfun
 
 autocmd BufWritePre *.ts(x?) :call FormatOnSave()
@@ -110,4 +112,4 @@ lua << EOF
   })
 EOF
 
-" require('yode-nvim').setup({})  // ^^ FIXME
+set secure

@@ -91,6 +91,11 @@ nmap <leader>tse :call SetBuffer(1)<CR>
 nmap <leader>tso :call SetBuffer(2)<CR>
 nmap <leader>tsa :call SetBuffer(3)<CR>
 
+nnoremap <leader>cf :call AppContextRunFrontend()<CR>
+nnoremap <leader>cb :call AppContextRunBackend()<CR>
+nnoremap <leader>cr :call AppContextRunAll()<CR>
+nnoremap <leader>cc :call AppContextBuild()<CR>
+
 nmap <leader>vt :call VertTerm()<CR>
 nmap <leader>nt :term<CR>
 
