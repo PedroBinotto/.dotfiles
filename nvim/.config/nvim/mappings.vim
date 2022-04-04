@@ -95,10 +95,13 @@ nnoremap <leader>cf :call AppContextRunFrontend()<CR>
 nnoremap <leader>cb :call AppContextRunBackend()<CR>
 nnoremap <leader>cr :call AppContextRunAll()<CR>
 nnoremap <leader>cc :call AppContextBuild()<CR>
-" nnoremap <leader>ck :call AppContextKillAll()<CR>
+nnoremap <leader>ck :call AppContextKillAll()<CR>
 
 nmap <leader>vt :call VertTerm()<CR>
 nmap <leader>nt :term<CR>
+
+vmap <expr>  <leader>m  VMATH_YankAndAnalyse()
+nmap         <leader>m  vip++
 
 nmap <leader>H :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nmap <leader>h+ :lua require("harpoon.mark").add_file()<CR>
