@@ -119,10 +119,22 @@ fun! AppContextRunFrontend()
     \      tmux select-window -t 1;"
 endfun
 
+fun! AppContextRunTests()
+    if strchars(g:RunTests) == 0
+        echo "Test runner configuration for application not defined. Check project .exrc for 'g:RunTests'"
+        return
+    end
+    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
+    \      tmux has-session -t :test || tmux new-window -n test;
+    \      tmux send -t :test '"g:RunTests"' Enter;
+    \      tmux select-window -t 1;"
+endfun
+
 fun! AppContextKillAll()
     :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
     \      tmux has-session -t :backend  && tmux send -t :backend  'C-c';
-    \      tmux has-session -t :frontend && tmux send -t :frontend 'C-c';"
+    \      tmux has-session -t :frontend && tmux send -t :frontend 'C-c';
+    \      tmux has-session -t :test && tmux send -t :test 'C-c';"
 endfun
 
 fun! AppContextRunAll()

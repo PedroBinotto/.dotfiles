@@ -95,6 +95,7 @@ nnoremap <leader>cf :call AppContextRunFrontend()<CR>
 nnoremap <leader>cb :call AppContextRunBackend()<CR>
 nnoremap <leader>cr :call AppContextRunAll()<CR>
 nnoremap <leader>cc :call AppContextBuild()<CR>
+nnoremap <leader>ct :call AppContextRunTests()<CR>
 nnoremap <leader>ck :call AppContextKillAll()<CR>
 
 nmap <leader>vt :call VertTerm()<CR>
