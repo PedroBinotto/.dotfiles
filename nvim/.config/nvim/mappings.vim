@@ -5,13 +5,15 @@ nnoremap mm :MaximizerToggle<CR>
 nnoremap <leader>r :%s///g<Left><Left>
 nnoremap <leader>rc :%s///gc<Left><Left><Left>
 
-inoremap jk <ESC>
+nnoremap <leader>F :Rg ''<CR>
+nnoremap <leader>fe :Rg ''<Left>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
-nnoremap <leader>F :Rg ''<CR>
+nnoremap <leader>p :GFiles <CR>
+nnoremap <leader>P :Files <CR>
 
-nnoremap <C-[> :cprev<CR>
-nnoremap <C-]> :cnext<CR>
+nnoremap <leader>[ :cprev<CR>
+nnoremap <leader>] :cnext<CR>
 
 nnoremap Y y$
 
@@ -39,8 +41,7 @@ vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
 xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-"
+
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -95,6 +96,7 @@ nnoremap <leader>cf :call AppContextRunFrontend()<CR>
 nnoremap <leader>cb :call AppContextRunBackend()<CR>
 nnoremap <leader>cr :call AppContextRunAll()<CR>
 nnoremap <leader>cc :call AppContextBuild()<CR>
+nnoremap <leader>ct :call AppContextRunTests()<CR>
 nnoremap <leader>ck :call AppContextKillAll()<CR>
 
 nmap <leader>vt :call VertTerm()<CR>
