@@ -42,6 +42,7 @@ let g:coc_global_extensions = [
   \ 'coc-graphql',
   \ 'coc-sh',
   \ 'coc-vimlsp',
+  \ 'coc-emmet',
   \ ]
 
 function! s:check_back_space() abort

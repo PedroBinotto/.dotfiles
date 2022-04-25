@@ -8,7 +8,8 @@ nnoremap <leader>rc :%s///gc<Left><Left><Left>
 nnoremap <leader>F :Rg ''<CR>
 nnoremap <leader>fe :Rg ''<Left>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>g :GitGutterToggle<CR>
+nnoremap <leader>gg :GitGutterToggle<CR>
+nnoremap <leader>gd :Git diff HEAD<CR>
 nnoremap <leader>p :GFiles <CR>
 nnoremap <leader>P :Files <CR>
 
@@ -28,6 +29,11 @@ inoremap <C-j> <esc>:m .+1<CR>==
 inoremap <C-k> <esc>:m .-2<CR>==
 nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
+
+nnoremap <silent> <leader>= :10winc > <CR>
+nnoremap <silent> <leader>- :10winc < <CR>
+nnoremap <silent> <leader>+ :10winc + <CR>
+nnoremap <silent> <leader>_ :10winc - <CR>
 
 nnoremap <leader>R :so ~/.config/nvim/init.vim<CR>
 

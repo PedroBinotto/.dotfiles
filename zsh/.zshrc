@@ -156,6 +156,7 @@ alias shellhelp="source ~/Projetos/scripts/zsh-help/zsh-help.sh"
 alias lf="lfub"
 
 export PATH
+export NODE_OPTIONS="--max-old-space-size=8192"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
