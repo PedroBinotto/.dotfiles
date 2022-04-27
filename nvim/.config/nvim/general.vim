@@ -28,6 +28,7 @@ set exrc
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 highlight Comment cterm=bold
 call matchadd('colorcolumn', '\%81v', 100)
+filetype plugin on
 
 colorscheme PaperColor
 set background=dark

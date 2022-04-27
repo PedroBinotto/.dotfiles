@@ -175,7 +175,7 @@ putgitrepo() { # Downloads a gitrepo $1 and places the files in $2 only overwrit
     }
 
 systembeepoff() {
-    printf "Getting rid of that retarded error beep sound...\n"
+    printf "Getting rid of the error beep sound...\n"
     rmmod pcspkr
     echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf ;}
 
@@ -201,9 +201,6 @@ finalize(){ \
     printf "Congrats! Provided there were no hidden errors, the script completed successfully and all the programs and configuration files should be in place.\n\nTo run the new graphical environment, log out and log back in as your new user, then run the command \"startx\" to start the graphical environment (it will start automatically in tty1).\n\n"
     }
 
-### THE ACTUAL SCRIPT ###
-
-### This is how everything happens in an intuitive format and order.
 
 # Check if user is root on Arch distro.
 pacman --noconfirm --needed -Sy || error "Are you sure you're running this as the root user, are on an Arch-based distribution and have an internet connection?"

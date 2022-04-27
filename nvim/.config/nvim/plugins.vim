@@ -31,6 +31,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':[
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
 Plug 'nixon/vim-vmath'
+Plug 'vimwiki/vimwiki'
 
 " Colorschemes
 Plug 'terroo/terroo-colors'

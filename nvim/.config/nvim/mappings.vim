@@ -94,10 +94,15 @@ nmap <leader>tsa :call SetBuffer(3)<CR>
 
 nnoremap <leader>cf :call AppContextRunFrontend()<CR>
 nnoremap <leader>cb :call AppContextRunBackend()<CR>
-nnoremap <leader>cr :call AppContextRunAll()<CR>
-nnoremap <leader>cc :call AppContextBuild()<CR>
 nnoremap <leader>ct :call AppContextRunTests()<CR>
-nnoremap <leader>ck :call AppContextKillAll()<CR>
+
+nnoremap <leader>ckb :call AppContextKillBackend()<CR>
+nnoremap <leader>ckf :call AppContextKillFrontend()<CR>
+nnoremap <leader>ckt :call AppContextKillTests()<CR>
+
+nnoremap <leader>cc :call AppContextBuild()<CR>
+nnoremap <leader>cr :call AppContextRunAll()<CR>
+nnoremap <leader>cK :call AppContextKillAll()<CR>
 
 nmap <leader>vt :call VertTerm()<CR>
 nmap <leader>nt :term<CR>

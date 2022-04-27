@@ -42,11 +42,25 @@ fun! AppContextRunTests()
     \      tmux select-window -t 1;"
 endfun
 
-fun! AppContextKillAll()
+fun! AppContextKillBackend()
     :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
-    \      tmux has-session -t :backend  && tmux send -t :backend  'C-c';
-    \      tmux has-session -t :frontend && tmux send -t :frontend 'C-c';
+    \      tmux has-session -t :backend  && tmux send -t :backend  'C-c';"
+endfun
+
+fun! AppContextKillFrontend()
+    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
+    \      tmux has-session -t :frontend && tmux send -t :frontend 'C-c';"
+endfun
+
+fun! AppContextKillTests()
+    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
     \      tmux has-session -t :test && tmux send -t :test 'C-c';"
+endfun
+
+fun! AppContextKillAll()
+    :call AppContextKillBackend()
+    :call AppContextKillFrontend()
+    :call AppContextTests()
 endfun
 
 fun! AppContextRunAll()
