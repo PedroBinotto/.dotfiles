@@ -11,7 +11,7 @@ set cindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set laststatus=2
+set laststatus=3
 set expandtab
 set list
 set listchars=tab:»·,eol:¬,trail:·
@@ -30,7 +30,7 @@ highlight Comment cterm=bold
 call matchadd('colorcolumn', '\%81v', 100)
 filetype plugin on
 
-colorscheme PaperColor
+colorscheme one
 set background=dark
 let g:one_allow_italics=1
 

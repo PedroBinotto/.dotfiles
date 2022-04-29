@@ -10,10 +10,10 @@ let g:lightline = {
   \     'left': '', 'right': ''
   \ },
   \ 'subseparator': {
-  \ 'left': '', 'right': ''
+  \ 'left': '', 'right': '',
   \ },
+  \ 'colorscheme': 'one'
 \ }
-" -  \ 'colorscheme': 'PaperColor',
 
 let g:lightline.component_function = { 'lineinfo': 'LightlineLineinfo' }
 

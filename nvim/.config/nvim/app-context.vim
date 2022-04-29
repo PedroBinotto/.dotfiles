@@ -1,6 +1,6 @@
 fun! AppContextBuild()
     if strchars(g:BuildApp) == 0
-        echo "Application 'build' configuration not defined. Check project .exrc for 'g:RunBackend'"
+        echo "Application 'build' configuration not defined. Check project .exrc for 'g:BuildApp'"
         return
     end
     :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
@@ -60,7 +60,7 @@ endfun
 fun! AppContextKillAll()
     :call AppContextKillBackend()
     :call AppContextKillFrontend()
-    :call AppContextTests()
+    :call AppContextKillTests()
 endfun
 
 fun! AppContextRunAll()
