@@ -506,6 +506,7 @@ assign [class="Mail"]                       4
 #############################################
 assign [class="TelegramDesktop"]            5
 assign [class="(S|s)lack"]                  5
+assign [class="(M|m)attermost"]             5
 
 # CALL
 #############################################

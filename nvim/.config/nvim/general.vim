@@ -33,6 +33,7 @@ filetype plugin on
 colorscheme one
 set background=dark
 let g:one_allow_italics=1
+let g:vimwiki_global_ext = 0
 
 let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1

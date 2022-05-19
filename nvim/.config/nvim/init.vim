@@ -15,6 +15,9 @@ source $HOME/.config/nvim/powerline.vim
 autocmd FileType python setlocal tabstop=4
 autocmd FileType scss setl iskeyword+=@-@
 autocmd FileType make setlocal noexpandtab
+autocmd FileType markdown setlocal spell spelllang=pt_br
+autocmd FileType tex setlocal spell spelllang=pt_br
+autocmd FileType tex setlocal tw=80
 
 " hybrid line numbers
 :augroup numbertoggle
