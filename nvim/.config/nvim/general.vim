@@ -38,6 +38,18 @@ let g:vimwiki_global_ext = 0
 let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeGitStatusNodeColorization = 1
+let g:NERDTreeIgnore = ['^node_modules$']
+let NERDTreeMapActivateNode = 'l'
+let g:NERDCreateDefaultMappings = 0
+let g:prettier#autoformat_require_pragma = 0
+let g:coc_filetype_map = {'tex': 'latex'}
+
+" set initial variables for tmux server session starters
+let g:RunBackend = ''
+let g:RunFrontend = ''
+let g:RunTests = ''
+let g:BuildApp = ''
+
 " let g:NERDTreeColorMapCustom = {
 "     \ "Staged"    : "#0ee375",
 "     \ "Modified"  : "#d9bf91",
@@ -49,18 +61,3 @@ let g:NERDTreeGitStatusNodeColorization = 1
 "     \ "Ignored"   : "#808080"
 "     \ }
 "
-let g:NERDTreeIgnore = ['^node_modules$']
-let NERDTreeMapActivateNode = 'l'
-
-let g:NERDCreateDefaultMappings = 0
-
-" let g:prettier#autoformat = 1
-" let g:prettier#exec_cmd_async = 1
-let g:prettier#autoformat_require_pragma = 0
-
-" set initial variables for tmux server session starters
-let g:RunBackend = ''
-let g:RunFrontend = ''
-let g:RunTests = ''
-let g:BuildApp = ''
-

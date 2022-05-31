@@ -11,11 +11,13 @@ source $HOME/.config/nvim/app-context.vim
 source $HOME/.config/nvim/mappings.vim
 source $HOME/.config/nvim/general.vim
 source $HOME/.config/nvim/powerline.vim
+source $HOME/.config/nvim/latex.vim
 
 autocmd FileType python setlocal tabstop=4
 autocmd FileType scss setl iskeyword+=@-@
 autocmd FileType make setlocal noexpandtab
 autocmd FileType markdown setlocal spell spelllang=pt_br
+autocmd FileType markdown setlocal tw=100
 autocmd FileType tex setlocal spell spelllang=pt_br
 autocmd FileType tex setlocal tw=80
 
