@@ -49,6 +49,8 @@ let g:RunBackend = ''
 let g:RunFrontend = ''
 let g:RunTests = ''
 let g:BuildApp = ''
+let g:LatexPreviewWindow = 'TeXPreview'
+let g:LatexCompileWindow = 'TeXCompile'
 
 " let g:NERDTreeColorMapCustom = {
 "     \ "Staged"    : "#0ee375",

@@ -10,8 +10,8 @@ source $HOME/.config/nvim/utils.vim
 source $HOME/.config/nvim/app-context.vim
 source $HOME/.config/nvim/mappings.vim
 source $HOME/.config/nvim/general.vim
-source $HOME/.config/nvim/powerline.vim
 source $HOME/.config/nvim/latex.vim
+source $HOME/.config/nvim/powerline.vim
 
 autocmd FileType python setlocal tabstop=4
 autocmd FileType scss setl iskeyword+=@-@

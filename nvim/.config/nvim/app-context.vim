@@ -1,60 +1,53 @@
-fun! AppContextBuild()
-    if strchars(g:BuildApp) == 0
-        echo "Application 'build' configuration not defined. Check project .exrc for 'g:BuildApp'"
+fun! StartProcess(command, errorMessage, tmuxWindow)
+    if strchars(a:command) == 0
+        echo a:errorMessage
         return
     end
     :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
-    \      tmux has-session -t :backend || tmux new-window -n backend;
-    \      tmux send -t :backend '"g:BuildApp"' Enter;
+    \      tmux has-session -t :'"a:tmuxWindow"' || tmux new-window -n '"a:tmuxWindow"';
+    \      tmux send -t :'"a:tmuxWindow"' '"a:command"' Enter;
     \      tmux select-window -t 1;"
+endfun
+
+fun! KillProcess(tmuxWindow)
+    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
+    \      tmux has-session -t :'"a:tmuxWindow"'  && tmux send -t :'"a:tmuxWindow"'  'C-c';"
+endfun
+
+fun! AppContextBuild()
+    :call StartProcess(g:BuildApp,
+                      \"Application 'build' configuration not defined. Check project .exrc for 'g:BuildApp'",
+                      \"backend")
 endfun
 
 fun! AppContextRunBackend()
-    if strchars(g:RunBackend) == 0
-        echo "Backend server runner configuration not defined. Check project .exrc for 'g:RunBackend'"
-        return
-    end
-    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
-    \      tmux has-session -t :backend || tmux new-window -n backend;
-    \      tmux send -t :backend '"g:RunBackend"' Enter;
-    \      tmux select-window -t 1;"
+    :call StartProcess(g:RunBackend,
+                     \"Backend server runner configuration not defined. Check project .exrc for 'g:RunBackend'",
+                     \"backend")
 endfun
 
 fun! AppContextRunFrontend()
-    if strchars(g:RunFrontend) == 0
-        echo "Frontend server runner configuration not defined. Check project .exrc for 'g:RunFrontend'"
-        return
-    end
-    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
-    \      tmux has-session -t :frontend || tmux new-window -n frontend;
-    \      tmux send -t :frontend '"g:RunFrontend"' Enter;
-    \      tmux select-window -t 1;"
+    :call StartProcess(g:RunFrontend,
+                      \"Frontend server runner configuration not defined. Check project .exrc for 'g:RunFrontend'",
+                      \"frontend")
 endfun
 
 fun! AppContextRunTests()
-    if strchars(g:RunTests) == 0
-        echo "Test runner configuration for application not defined. Check project .exrc for 'g:RunTests'"
-        return
-    end
-    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
-    \      tmux has-session -t :test || tmux new-window -n test;
-    \      tmux send -t :test '"g:RunTests"' Enter;
-    \      tmux select-window -t 1;"
+    :call StartProcess(g:RunTests,
+                      \"Test runner configuration for application not defined. Check project .exrc for 'g:RunTests'",
+                      \"test")
 endfun
 
 fun! AppContextKillBackend()
-    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
-    \      tmux has-session -t :backend  && tmux send -t :backend  'C-c';"
+    :call KillProcess("backend")
 endfun
 
 fun! AppContextKillFrontend()
-    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
-    \      tmux has-session -t :frontend && tmux send -t :frontend 'C-c';"
+    :call KillProcess("frontend")
 endfun
 
 fun! AppContextKillTests()
-    :silent exe "![ -z '$TMUX' ] && echo 'Not attached to a TMUX session.' && exit 1;
-    \      tmux has-session -t :test && tmux send -t :test 'C-c';"
+    :call KillProcess("test")
 endfun
 
 fun! AppContextKillAll()

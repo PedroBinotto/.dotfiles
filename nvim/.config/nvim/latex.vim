@@ -13,4 +13,24 @@ autocmd FileType tex inoremap <leader>ssec \subsection{}<Enter><Enter><><Esc>2kf
 autocmd FileType tex inoremap <leader>sssec \subsubsection{}<Enter><Enter><><Esc>2kf{a
 autocmd FileType tex nnoremap <leader>wr /<><Enter>cw
 
-" TODO: API para compilar/ mostrar/ afins
+fun! LatexCompileDocument()
+    let s:filePath = expand('%:p')
+    let g:TeXCompile = 'compileTex ' . s:filePath
+    :call StartProcess(g:TeXCompile,
+                      \"No configuration for 'g:TeXCompile'",
+                      \g:LatexCompileWindow)
+endfun
+
+fun! LatexStartPreview()
+    let s:filePath = expand('%:p:r')
+    let g:TeXPreview = 'zathura ' . s:filePath .'.pdf'
+    :call StartProcess(g:TeXPreview,
+                      \"No configuration for 'g:TeXPreview'",
+                      \g:LatexPreviewWindow)
+endfun
+
+fun! LatexStopPreview()
+    :call KillProcess(g:LatexPreviewWindow)
+endfun
+
+autocmd BufWritePost *.tex :call LatexCompileDocument()
