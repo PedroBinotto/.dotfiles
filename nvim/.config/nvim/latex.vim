@@ -13,6 +13,9 @@ autocmd FileType tex inoremap <leader>ssec \subsection{}<Enter><Enter><><Esc>2kf
 autocmd FileType tex inoremap <leader>sssec \subsubsection{}<Enter><Enter><><Esc>2kf{a
 autocmd FileType tex nnoremap <leader>wr /<><Enter>cw
 
+let g:LatexPreviewWindow = 'TeXPreview'
+let g:LatexCompileWindow = 'TeXCompile'
+
 fun! LatexCompileDocument()
     let s:filePath = expand('%:p')
     let g:TeXCompile = 'compileTex ' . s:filePath

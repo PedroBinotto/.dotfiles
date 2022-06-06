@@ -1,5 +1,5 @@
 # Basic Settings
-set previewer ./scope
+set previewer './scope'
 set preview true
 set hidden true
 set icons true
