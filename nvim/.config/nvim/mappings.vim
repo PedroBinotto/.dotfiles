@@ -8,8 +8,7 @@ nnoremap <leader>rc :%s///gc<Left><Left><Left>
 nnoremap <leader>F :Rg ''<CR>
 nnoremap <leader>fe :Rg ''<Left>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>gg :GitGutterToggle<CR>
-nnoremap <leader>gd :Git diff HEAD<CR>
+nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>p :GFiles <CR>
 nnoremap <leader>P :Files <CR>
 
