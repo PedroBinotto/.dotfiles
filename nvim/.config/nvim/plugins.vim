@@ -32,6 +32,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
 Plug 'nixon/vim-vmath'
 Plug 'vimwiki/vimwiki'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Colorschemes
 Plug 'terroo/terroo-colors'
