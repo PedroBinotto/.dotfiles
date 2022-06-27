@@ -13,8 +13,17 @@ source $HOME/.config/nvim/general.vim
 source $HOME/.config/nvim/latex.vim
 source $HOME/.config/nvim/powerline.vim
 
+autocmd FileType typescript setlocal tabstop=2
+autocmd FileType typescript setlocal softtabstop=2
+autocmd FileType typescript setlocal shiftwidth=2
+autocmd FileType typescriptreact setlocal tabstop=2
+autocmd FileType typescriptreact setlocal softtabstop=2
+autocmd FileType typescriptreact setlocal shiftwidth=2
+autocmd FileType html setlocal tabstop=2
+autocmd FileType html setlocal softtabstop=2
+autocmd FileType html setlocal shiftwidth=2
 autocmd FileType python setlocal tabstop=4
-autocmd FileType scss setl iskeyword+=@-@
+autocmd FileType scss setlocal iskeyword+=@-@
 autocmd FileType make setlocal noexpandtab
 autocmd FileType markdown setlocal spell spelllang=pt_br
 autocmd FileType markdown setlocal tw=100

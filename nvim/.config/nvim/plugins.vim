@@ -33,6 +33,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
 Plug 'nixon/vim-vmath'
 Plug 'jparise/vim-graphql'
+Plug 'thaerkh/vim-indentguides'
 
 " Colorschemes
 Plug 'terroo/terroo-colors'

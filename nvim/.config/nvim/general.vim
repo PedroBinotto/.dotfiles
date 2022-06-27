@@ -30,7 +30,7 @@ highlight Comment cterm=bold
 call matchadd('colorcolumn', '\%81v', 100)
 filetype plugin on
 
-colorscheme one
+colorscheme gruvbox
 set background=dark
 let g:one_allow_italics=1
 let g:vimwiki_global_ext = 0
@@ -62,4 +62,8 @@ let g:LatexCompileWindow = 'TeXCompile'
 "     \ "Clean"     : "#87939A",
 "     \ "Ignored"   : "#808080"
 "     \ }
-"
+
+let g:indentguides_ignorelist = ['text']
+let g:indentguides_spacechar = '│'
+let g:indentguides_tabchar = '│'
+let g:indentguides_concealcursor_unaltered = 't'
