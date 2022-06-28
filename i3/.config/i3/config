@@ -14,7 +14,7 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
+default_border pixel 4
 default_floating_border normal
 
 # Hide borders
@@ -258,6 +258,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [class="(S|s)team" title="Friends List"] floating enable
 for_window [class="(K|k)itty" instance="floating"] floating enable resize set 640 480
 for_window [class="(K|k)itty" instance="m_player"] floating enable sticky enable move scratchpad resize set 640 480
 for_window [class="(K|k)itty" instance="calculator"] floating enable sticky enable move scratchpad resize set 640 480
@@ -410,9 +411,9 @@ set_from_resource $term_color15    color15
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #282c34 #282c34 #979eab #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #282c34 #2F3D44 #979eab #454948
+  client.focused          #282c34 #2F3D44 #979eab #454948
+  client.focused_inactive #282c34 #282c34 #979eab #FDF6E3
+  client.unfocused        #282c34 #282c34 #979eab #FDF6E3
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
   client.placeholder      #000000 #0c0c0c #ffffff #000000 
 
@@ -423,7 +424,7 @@ set_from_resource $term_color15    color15
 #############################
 
 # Set inner/outer gaps
-gaps inner 4
+gaps inner 6
 gaps outer 1
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -517,5 +518,10 @@ assign [class="(D|d)iscord"]                6
 #############################################
 assign [class="(Q|q)uite(R|r)ss"]           7
 assign [class="News(F|f)lash(GTK)?"]        7
+#============================================
+
+# MISC
+#############################################
+assign [class="(S|s)team"]                  7
 #============================================
 
