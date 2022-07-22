@@ -32,8 +32,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':[
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
 Plug 'nixon/vim-vmath'
-Plug 'jparise/vim-graphql'
-Plug 'thaerkh/vim-indentguides'
+Plug 'vimwiki/vimwiki'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'brooth/far.vim'
 
 " Colorschemes
 Plug 'terroo/terroo-colors'

@@ -119,6 +119,7 @@ fi
 alias nethogs="sudo nethogs"
 alias vi="nvim"
 alias vim="nvim"
+alias vimdiff="nvim -d"
 alias zshconfig="$EDITOR ~/.zshrc"
 alias i3config="$EDITOR ~/.config/i3/config"
 alias kittyconfig="$EDITOR ~/.config/kitty/kitty.conf"

@@ -13,23 +13,6 @@ source $HOME/.config/nvim/general.vim
 source $HOME/.config/nvim/latex.vim
 source $HOME/.config/nvim/powerline.vim
 
-autocmd FileType typescript setlocal tabstop=2
-autocmd FileType typescript setlocal softtabstop=2
-autocmd FileType typescript setlocal shiftwidth=2
-autocmd FileType typescriptreact setlocal tabstop=2
-autocmd FileType typescriptreact setlocal softtabstop=2
-autocmd FileType typescriptreact setlocal shiftwidth=2
-autocmd FileType html setlocal tabstop=2
-autocmd FileType html setlocal softtabstop=2
-autocmd FileType html setlocal shiftwidth=2
-autocmd FileType python setlocal tabstop=4
-autocmd FileType scss setlocal iskeyword+=@-@
-autocmd FileType make setlocal noexpandtab
-autocmd FileType markdown setlocal spell spelllang=pt_br
-autocmd FileType markdown setlocal tw=100
-autocmd FileType tex setlocal spell spelllang=pt_br
-autocmd FileType tex setlocal tw=80
-
 " hybrid line numbers
 :augroup numbertoggle
 :  autocmd!
@@ -120,12 +103,25 @@ endfun
 autocmd BufWritePre *.ts(x?) :call FormatOnSave()
 
 lua << EOF
-  require("zen-mode").setup {}
+  require("zen-mode").setup({
+    window = {
+      width = 200,
+    }
+  })
   require("harpoon").setup({
       menu = {
           width = vim.api.nvim_win_get_width(0) - 4,
       }
   })
+  require("indent_blankline").setup {
+      space_char_blankline = " ",
+      show_current_context = true,
+      show_current_context_start = true,
+  }
+  require'nvim-treesitter.configs'.setup {
+      highlight = { enable = true },
+      ensure_installed = "all",
+  }
 EOF
 
 set secure
