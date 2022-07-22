@@ -104,6 +104,12 @@ Include = /etc/pacman.d/mirrorlist-arch" >> /etc/pacman.conf
             ;;
     esac ;}
 
+setupOhMyZsh() {
+    sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+}
+
 newperms() { # Set special sudoers settings for install (or after).
     sed -i "/#LARBS/d" /etc/sudoers
     echo "$* #LARBS" >> /etc/sudoers ;}
@@ -259,6 +265,7 @@ systembeepoff
 
 # Make zsh the default shell for the user.
 chsh -s /bin/zsh "$name" >/dev/null 2>&1
+setupOhMyZsh
 sudo -u "$name" mkdir -p "/home/$name/.cache/zsh/"
 
 # Install the dotfiles in the user's home directory
