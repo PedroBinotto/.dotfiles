@@ -194,10 +194,9 @@ deploydotfiles() {
 
     putgitrepo "$dotfilesrepo" "/home/$name/.dotfiles" "$repobranch"
     putgitrepo "$scriptsrepo" "/home/$name/.scripts" "$repobranch"
-
     stow -vSt /home/$name/.local/bin /home/$name/.scripts/*
-    export PATH=/home/$name/.local/bin:$PATH
 
+    export PATH=/home/$name/.local/bin:/home/$name/.scripts:$PATH
     destow -s /home/$name/.dotfiles -t /home/$name
 }
 
