@@ -1,0 +1,94 @@
+sw_volume: 30
+audio_device_state:1:pulse audio
+audio_device_state:0:FIFO
+state: pause
+current: 67
+time: 178.079000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Acid King/1999 - busse woods/01 - electric machine.mp3
+1:Acid King/1999 - busse woods/02 - silent circle.mp3
+2:Acid King/1999 - busse woods/03 - drive fast, take chances.mp3
+3:Acid King/1999 - busse woods/04 - 39 lashes.mp3
+4:Acid King/1999 - busse woods/05 - carve the 5.mp3
+5:Acid King/1999 - busse woods/06 - busse woods.mp3
+6:Acid King/1999 - busse woods/07 - motorhead.mp3
+7:Acid King/1999 - busse woods/08 - not fragile.mp3
+8:Black Flag/1981 - Damaged/14 - Life Of Pain.mp3
+9:Mazzy Star/So Tonight That I Might See/10 So Tonight That I Might See.mp3
+10:Mazzy Star/So Tonight That I Might See/09 Into Dust.mp3
+11:Mazzy Star/So Tonight That I Might See/08 Wasted.mp3
+12:Mazzy Star/So Tonight That I Might See/07 Unreflected.mp3
+13:Mazzy Star/So Tonight That I Might See/06 She's My Baby.mp3
+14:Mazzy Star/So Tonight That I Might See/05 Blue Light.mp3
+15:Mazzy Star/So Tonight That I Might See/04 Five String Serenade.mp3
+16:Mazzy Star/So Tonight That I Might See/03 Mary of Silence.mp3
+17:Mazzy Star/So Tonight That I Might See/02 Bells Ring.mp3
+18:Mazzy Star/So Tonight That I Might See/01 Fade Into You.mp3
+19:Dinosaur Jr/Dinosaur Jr. - Beyond 2007/1-12 Yer Son.mp3
+20:Black Flag/1981 - Damaged/15 - Damaged I.mp3
+21:Black Flag/1981 - Damaged/01 - Rise Above.mp3
+22:Black Flag/1981 - Damaged/13 - Padded Cell.mp3
+23:Black Flag/1981 - Damaged/12 - No More.mp3
+24:Black Flag/1981 - Damaged/11 - Damaged II.mp3
+25:Black Flag/1981 - Damaged/10 - Room 13.mp3
+26:Black Flag/1981 - Damaged/09 - Depression.mp3
+27:Black Flag/1981 - Damaged/08 - Gimmie Gimmie Gimmie.mp3
+28:Black Flag/1981 - Damaged/07 - Police Story.mp3
+29:Black Flag/1981 - Damaged/06 - Thirsty And Miserable.mp3
+30:Black Flag/1981 - Damaged/05 - TV Party.mp3
+31:Black Flag/1981 - Damaged/04 - What I See.mp3
+32:Black Flag/1981 - Damaged/03 - Six Pack.mp3
+33:Black Flag/1981 - Damaged/02 - Spray Paint.mp3
+34:MACINTOSH PLUS/Floral Shoppe/01 ブート.mp3
+35:MACINTOSH PLUS/Floral Shoppe/02 リサフランク420 _ 現代のコンピュー.mp3
+36:MACINTOSH PLUS/Floral Shoppe/03 花の専門店.mp3
+37:MACINTOSH PLUS/Floral Shoppe/04 ライブラリ.mp3
+38:MACINTOSH PLUS/Floral Shoppe/05 地理.mp3
+39:MACINTOSH PLUS/Floral Shoppe/06 ECCOと悪寒ダイビング.mp3
+40:MACINTOSH PLUS/Floral Shoppe/07 数学.mp3
+41:MACINTOSH PLUS/Floral Shoppe/08 待機.mp3
+42:MACINTOSH PLUS/Floral Shoppe/09 て.mp3
+43:MACINTOSH PLUS/Floral Shoppe/10 Untitled.mp3
+44:MACINTOSH PLUS/Floral Shoppe/11 Untitled.mp3
+45:MACINTOSH PLUS/Floral Shoppe/01 ブート.mp3
+46:MACINTOSH PLUS/Floral Shoppe/02 リサフランク420 _ 現代のコンピュー.mp3
+47:MACINTOSH PLUS/Floral Shoppe/03 花の専門店.mp3
+48:MACINTOSH PLUS/Floral Shoppe/04 ライブラリ.mp3
+49:MACINTOSH PLUS/Floral Shoppe/05 地理.mp3
+50:MACINTOSH PLUS/Floral Shoppe/06 ECCOと悪寒ダイビング.mp3
+51:MACINTOSH PLUS/Floral Shoppe/07 数学.mp3
+52:MACINTOSH PLUS/Floral Shoppe/08 待機.mp3
+53:MACINTOSH PLUS/Floral Shoppe/09 て.mp3
+54:MACINTOSH PLUS/Floral Shoppe/10 Untitled.mp3
+55:MACINTOSH PLUS/Floral Shoppe/11 Untitled.mp3
+56:Slowdive/1991 – Just For A Day/01 - Spanish Air.mp3
+57:Slowdive/1991 – Just For A Day/02 - Celia's Dream.mp3
+58:Slowdive/1991 – Just For A Day/03 - Catch the Breeze.mp3
+59:Slowdive/1991 – Just For A Day/04 - Ballad of Sister Sue.mp3
+60:Slowdive/1991 – Just For A Day/05 - Erik's Song.mp3
+61:Slowdive/1991 – Just For A Day/06 - Waves.mp3
+62:Slowdive/1991 – Just For A Day/07 - Brighter.mp3
+63:Slowdive/1991 – Just For A Day/08 - The Sadman.mp3
+64:Slowdive/1991 – Just For A Day/09 - Primal.mp3
+65:Slowdive/Souvlaki/01 Alison.mp3
+66:Slowdive/Souvlaki/02 Machine Gun 1.mp3
+67:Slowdive/Souvlaki/03 40 Days.mp3
+68:Slowdive/Souvlaki/04 Sing.mp3
+69:Slowdive/Souvlaki/05 Here She Comes.mp3
+70:Slowdive/Souvlaki/06 Souvlaki Space Station.mp3
+71:Slowdive/Souvlaki/07 When the Sun Hits.mp3
+72:Slowdive/Souvlaki/08 Altogether.mp3
+73:Slowdive/Souvlaki/09 Melon Yellow.mp3
+74:Slowdive/Souvlaki/10 Dagger.mp3
+75:Slowdive/Souvlaki/11 Some Velvet Morning [_].mp3
+76:Slowdive/Souvlaki/12 Good Day Sunshine [_].mp3
+77:Slowdive/Souvlaki/13 Missing You [_].mp3
+78:Slowdive/Souvlaki/14 Country Rain [_].mp3
+playlist_end

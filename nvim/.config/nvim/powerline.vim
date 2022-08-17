@@ -13,7 +13,8 @@ let g:lightline = {
   \ 'left': '', 'right': ''
   \ },
 \ }
-" -  \ 'colorscheme': 'PaperColor',
+
+" \ 'colorscheme': 'solarized',
 
 let g:lightline.component_function = { 'lineinfo': 'LightlineLineinfo' }
 
