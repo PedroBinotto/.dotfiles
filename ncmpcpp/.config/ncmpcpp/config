@@ -1,3 +1,7 @@
+visualizer_in_stereo                  = yes
+visualizer_type                       = spectrum
+visualizer_color                      = yellow
+visualizer_look                       = xs
 playlist_disable_highlight_delay      = 3
 allow_for_physical_item_deletion      = yes
 message_delay_time                    = 8
