@@ -5,6 +5,11 @@ nnoremap mm :MaximizerToggle<CR>
 nnoremap <leader>r :%s///g<Left><Left>
 nnoremap <leader>rc :%s///gc<Left><Left><Left>
 
+nnoremap <silent>= :10winc > <CR>
+nnoremap <silent>- :10winc < <CR>
+nnoremap <silent>+ :10winc + <CR>
+nnoremap <silent>_ :10winc - <CR>
+
 nnoremap <leader>F :Rg ''<CR>
 nnoremap <leader>fe :Rg ''<Left>
 nnoremap <leader>b :Buffers<CR>

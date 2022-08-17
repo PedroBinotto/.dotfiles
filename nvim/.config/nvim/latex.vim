@@ -8,6 +8,8 @@ autocmd FileType tex inoremap <leader>tt \texttt{}<Space><><Esc>T{i
 autocmd FileType tex inoremap <leader>tit \title{}<Space><><Esc>T{i
 autocmd FileType tex inoremap <leader>ct \cite{}<Space><><Esc>T{i
 autocmd FileType tex inoremap <leader>up \usepackage{}<Esc>T{i
+autocmd FileType tex inoremap <leader>par \paragraph{}<Enter><Enter><><Esc>2kf{a
+autocmd FileType tex inoremap <leader>subpar \subparagraph{}<Enter><Enter><><Esc>2kf{a
 autocmd FileType tex inoremap <leader>sec \section{}<Enter><Enter><><Esc>2kf{a
 autocmd FileType tex inoremap <leader>ssec \subsection{}<Enter><Enter><><Esc>2kf{a
 autocmd FileType tex inoremap <leader>sssec \subsubsection{}<Enter><Enter><><Esc>2kf{a

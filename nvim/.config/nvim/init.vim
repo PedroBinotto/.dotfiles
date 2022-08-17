@@ -119,6 +119,9 @@ lua << EOF
       highlight = { enable = true },
       ensure_installed = "all",
   }
+  require'treesitter-context'.setup {
+      enable = false,
+  }
 EOF
 
 set secure

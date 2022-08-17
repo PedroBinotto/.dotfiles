@@ -18,11 +18,11 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'prettier/vim-prettier'
 Plug 'mtth/scratch.vim', {'branch': 'master'}
 Plug 'szw/vim-maximizer'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
-Plug 'ying17zi/vim-live-latex-preview'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim' " needed for previews
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
