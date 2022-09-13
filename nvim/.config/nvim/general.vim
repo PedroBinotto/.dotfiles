@@ -30,7 +30,7 @@ highlight Comment cterm=bold
 call matchadd('colorcolumn', '\%81v', 100)
 filetype plugin on
 
-colorscheme one
+colorscheme PaperColor
 set background=dark
 let g:one_allow_italics=1
 let g:vimwiki_global_ext = 0

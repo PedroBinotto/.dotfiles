@@ -47,5 +47,6 @@ Plug 'tckmn/hotdog.vim'
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'folke/zen-mode.nvim'
+Plug 'nikolvs/vim-sunbather'
 call plug#end()
 
