@@ -85,3 +85,26 @@ fun! VertTerm()
     :vsplit | term
 endfun
 
+let g:NetrwIsOpen=0
+
+function! ToggleNetrw()
+    if (&filetype == "netrw")
+        :echo "aaaaaa"
+        :q
+        left g:NetrwIsOpen = 0
+    endif
+
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i 
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Vexplore
+    endif
+endfunction
