@@ -21,16 +21,14 @@ set guifont=FiraCodeNerdFont:h12
 set shell=/usr/bin/zsh
 set clipboard+=unnamedplus
 set hidden
-set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 set exrc
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 highlight Comment cterm=bold
 call matchadd('colorcolumn', '\%81v', 100)
 filetype plugin on
 
-colorscheme gruvbox
+colorscheme onedarkhc
 set background=dark
 let g:one_allow_italics=1
 let g:vimwiki_global_ext = 0
@@ -51,6 +49,12 @@ let g:RunTests = ''
 let g:BuildApp = ''
 let g:LatexPreviewWindow = 'TeXPreview'
 let g:LatexCompileWindow = 'TeXCompile'
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 10
 
 autocmd FileType typescript setlocal tabstop=2
 autocmd FileType typescript setlocal softtabstop=2
