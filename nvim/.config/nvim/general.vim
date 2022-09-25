@@ -30,7 +30,7 @@ highlight Comment cterm=bold
 call matchadd('colorcolumn', '\%81v', 100)
 filetype plugin on
 
-colorscheme PaperColor
+colorscheme onedarkhc
 set background=dark
 let g:one_allow_italics=1
 let g:vimwiki_global_ext = 0
@@ -38,7 +38,7 @@ let g:vimwiki_global_ext = 0
 let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeGitStatusNodeColorization = 1
-let g:NERDTreeIgnore = ['^node_modules$']
+let g:NERDTreeIgnore = ['^node_modules$', '^__pycache__$']
 let NERDTreeMapActivateNode = 'l'
 let g:NERDCreateDefaultMappings = 0
 let g:prettier#autoformat_require_pragma = 0

@@ -1,15 +1,32 @@
 [user]
-	name = Pedro Binotto
-	email = pedrosantibinotto@gmail.com
+    name = Pedro Binotto
+    email = pedrosantibinotto@gmail.com
 
 [core]
-	editor = nvim
+    editor = nvim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[add.interactive]
+    useBuiltin = false
+
+[delta]
+    navigate = true
+    light = false
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 
 [init]
     defaultBranch = main
