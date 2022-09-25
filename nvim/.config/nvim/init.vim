@@ -20,35 +20,16 @@ source $HOME/.config/nvim/powerline.vim
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 :augroup END
 
-"prettier config
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html Prettier
-
-" coc config
-let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-prettier',
-  \ 'coc-pairs',
-  \ 'coc-html',
-  \ 'coc-eslint',
-  \ 'coc-tsserver',
-  \ 'coc-sql',
-  \ 'coc-rust-analyzer',
-  \ 'coc-pyright',
-  \ 'coc-json',
-  \ 'coc-css',
-  \ 'coc-clangd',
-  \ 'coc-graphql',
-  \ 'coc-sh',
-  \ 'coc-vimlsp',
-  \ 'coc-emmet',
-  \ ]
+autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \ "rg --column --line-number --no-heading --color=always --smart-case " .
   \ <q-args>, 1, fzf#vim#with_preview(), <bang>0)
-
-source $HOME/.config/nvim/plug-config/coc.vim
 
 command! -nargs=0 PreviewDefinition :call CocActionAsync('jumpDefinition', ':OpenAsPreview')
 command! -nargs=* OpenAsPreview :call s:open_as_preview("<args>")
@@ -75,6 +56,9 @@ endfun
 
 autocmd BufWritePre *.ts(x?) :call FormatOnSave()
 
+luafile $HOME/.config/nvim/plug-config/compe.lua
+luafile $HOME/.config/nvim/plug-config/language-servers.lua
+
 lua << EOF
   require("zen-mode").setup {}
   require("harpoon").setup({
@@ -90,12 +74,16 @@ lua << EOF
   require'nvim-treesitter.configs'.setup {
       highlight = { enable = true },
       ensure_installed = "all",
+      ignore_install = { "javascript", "markdown", "plaplus", "vim", "vala", "beancount" },
   }
   require'treesitter-context'.setup {
       enable = false,
   }
   require('telescope').setup {}
   require('telescope').load_extension('fzf')
+  require('mason').setup()
+  require('mason-lspconfig').setup()
 EOF
 
 set secure
+

@@ -13,6 +13,7 @@ nnoremap <silent>_ :10winc - <CR>
 nnoremap <leader>F :Telescope live_grep<CR>
 nnoremap <leader>fe :Telescope grep_string<CR>
 nnoremap <leader>b :Telescope buffers<CR>
+nnoremap <leader>\ :Telescope lsp_dynamic_workspace_symbols<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
 
 nnoremap <leader>p :Telescope git_files <CR>
@@ -91,4 +92,13 @@ nmap <leader>ho :lua require("harpoon.ui").nav_file(3)<CR>
 nmap <leader>ha :lua require("harpoon.ui").nav_file(4)<CR>
 nmap <leader>hp :lua require("harpoon.ui").nav_prev() <CR>
 nmap <leader>hn :lua require("harpoon.ui").nav_next() <CR>
+
+nnoremap <silent> gd :Telescope lsp_definitions<CR>
+nnoremap <silent> gD :Telescope lsp_type_definitions<CR>
+nnoremap <silent> gr :Telescope lsp_references<CR>
+
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
