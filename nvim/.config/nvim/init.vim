@@ -95,6 +95,7 @@ lua << EOF
   require('mason').setup()
   require('pears').setup()
   require('mason-lspconfig').setup()
+  require('renamer').setup()
 EOF
 
 set secure
