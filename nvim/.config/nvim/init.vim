@@ -56,7 +56,7 @@ endfun
 
 autocmd BufWritePre *.ts(x?) :call FormatOnSave()
 
-luafile $HOME/.config/nvim/plug-config/compe.lua
+luafile $HOME/.config/nvim/plug-config/cmp.lua
 luafile $HOME/.config/nvim/plug-config/language-servers.lua
 luafile $HOME/.config/nvim/plug-config/nvim-tree.lua
 
