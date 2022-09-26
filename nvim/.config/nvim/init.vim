@@ -20,11 +20,11 @@ source $HOME/.config/nvim/powerline.vim
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 :augroup END
 
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.js lua vim.lsp.buf.format(nil)
+autocmd BufWritePre *.jsx lua vim.lsp.buf.format(nil)
+autocmd BufWritePre *.ts lua vim.lsp.buf.format(nil)
+autocmd BufWritePre *.tsx lua vim.lsp.buf.format(nil)
+autocmd BufWritePre *.py lua vim.lsp.buf.format(nil)
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
