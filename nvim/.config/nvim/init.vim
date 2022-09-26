@@ -120,6 +120,7 @@ lua << EOF
 
     auto_update = true,
   }
+  require('renamer').setup()
 EOF
 
 set secure

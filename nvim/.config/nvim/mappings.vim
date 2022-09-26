@@ -45,11 +45,7 @@ nmap <leader>z :ZenMode<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
-inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-nmap <F2> <Plug>(coc-rename)
-nmap <silent> <C-d> <Plug>(coc-range-select)
-xmap <silent> <C-d> <Plug>(coc-range-select)
 map <C-_> :Commentary<CR>
 
 nmap <F24>         :<C-U>PreviewDefinition<CR>
@@ -101,4 +97,6 @@ nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+
+nnoremap <silent> <F2> <cmd>lua require('renamer').rename()<cr>
 
