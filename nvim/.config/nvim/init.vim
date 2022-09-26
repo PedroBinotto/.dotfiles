@@ -26,36 +26,6 @@ autocmd BufWritePre *.ts lua vim.lsp.buf.format(nil)
 autocmd BufWritePre *.tsx lua vim.lsp.buf.format(nil)
 autocmd BufWritePre *.py lua vim.lsp.buf.format(nil)
 
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \ "rg --column --line-number --no-heading --color=always --smart-case " .
-  \ <q-args>, 1, fzf#vim#with_preview(), <bang>0)
-
-command! -nargs=0 PreviewDefinition :call CocActionAsync('jumpDefinition', ':OpenAsPreview')
-command! -nargs=* OpenAsPreview :call s:open_as_preview("<args>")
-function! s:open_as_preview(callstr)
-    let m = matchlist(a:callstr, '^+call cursor(\(\d\+\),\s*\(\d\+\))\s\+\(.*\)')
-    if len(m) < 4   " TODO: more robust error handling
-      echohl WarningMsg | echom "ERROR: Invalid callstr format" | echohl None
-      return
-    endif
-    let linenr = m[1]
-    let filename = expand(m[3])
-
-    call quickui#preview#open(filename, {
-          \ 'cursor': linenr,
-          \ 'number' : 1,
-          \ 'persist': 0,
-          \ })
-endfunction
-
-fun! FormatOnSave()
-    :call CocAction('runCommand', 'editor.action.organizeImport')
-    :call CocAction('runCommand', 'eslint.executeAutoFix')
-endfun
-
-autocmd BufWritePre *.ts(x?) :call FormatOnSave()
-
 luafile $HOME/.config/nvim/plug-config/cmp.lua
 luafile $HOME/.config/nvim/plug-config/language-servers.lua
 luafile $HOME/.config/nvim/plug-config/nvim-tree.lua
@@ -77,9 +47,6 @@ lua << EOF
       ensure_installed = "all",
       ignore_install = { "javascript", "markdown", "plaplus", "vim", "vala", "beancount" },
   }
-  require'treesitter-context'.setup {
-      enable = false,
-  }
   require('telescope').setup {
     defaults = {
         mappings = {
@@ -90,11 +57,45 @@ lua << EOF
         }
     }
   }
-  require("nvim-tree").setup()
+  require('nvim-tree').setup()
+  require('null-ls').setup({
+    sources = {
+        require('null-ls').builtins.formatting.black,
+        require('null-ls').builtins.diagnostics.eslint,
+        require('null-ls').builtins.formatting.prettier,
+        require('null-ls').builtins.diagnostics.flake8,
+        require('null-ls').builtins.formatting.stylua,
+    }
+  })
   require('telescope').load_extension('fzf')
   require('mason').setup()
   require('pears').setup()
   require('mason-lspconfig').setup()
+  require('mason-tool-installer').setup {
+    ensure_installed = {
+        'clangd',
+        'css-lsp',
+        'emmet-ls',
+        'emmet-ls',
+        'eslint-lsp',
+        'eslint-lsp',
+        'graphql-language-service-cli',
+        'html-lsp',
+        'json-lsp',
+        'pyright',
+        'rust-analyzer',
+        'bash-language-server',
+        'sqlls',
+        'typescript-language-server',
+        'vim-language-server',
+        'black',
+        'prettier',
+        'flake8',
+        'stylua',
+    },
+
+    auto_update = true,
+  }
   require('renamer').setup()
 EOF
 
