@@ -50,6 +50,7 @@ let g:BuildApp = ''
 let g:LatexPreviewWindow = 'TeXPreview'
 let g:LatexCompileWindow = 'TeXCompile'
 
+let loaded_netrwPlugin = 1
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4

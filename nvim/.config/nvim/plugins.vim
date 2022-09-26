@@ -5,12 +5,10 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
+Plug 'steelsojka/pears.nvim'
 Plug 'itchyny/lightline.vim', {'branch': 'master'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-commentary'
@@ -33,6 +31,7 @@ Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'ying17zi/vim-live-latex-preview'
 Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim' " needed for previews
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['markdown', 'vim-plug'] }
 Plug 'nvim-lua/plenary.nvim'
