@@ -58,6 +58,7 @@ autocmd BufWritePre *.ts(x?) :call FormatOnSave()
 
 luafile $HOME/.config/nvim/plug-config/compe.lua
 luafile $HOME/.config/nvim/plug-config/language-servers.lua
+luafile $HOME/.config/nvim/plug-config/nvim-tree.lua
 
 lua << EOF
   require("zen-mode").setup {}
@@ -79,9 +80,20 @@ lua << EOF
   require'treesitter-context'.setup {
       enable = false,
   }
-  require('telescope').setup {}
+  require('telescope').setup {
+    defaults = {
+        mappings = {
+            i = {
+                ["<C-j>"] = 'move_selection_next',
+                ["<C-k>"] = 'move_selection_previous'
+            }
+        }
+    }
+  }
+  require("nvim-tree").setup()
   require('telescope').load_extension('fzf')
   require('mason').setup()
+  require('pears').setup()
   require('mason-lspconfig').setup()
 EOF
 
