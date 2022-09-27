@@ -1,7 +1,0 @@
-{
-    "eslint.enable": true,
-    "eslint.alwaysShowStatus": true,
-    "eslint.autoFixOnSave": true,
-    "python.venvPath": "~/Projetos/rascunhos/validacao-documentos/environment/bin/activate",
-    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/14.0.3/clangd_14.0.3/bin/clangd"
-}

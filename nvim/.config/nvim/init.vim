@@ -83,7 +83,6 @@ lua << EOF
         'emmet-ls',
         'eslint-lsp',
         'eslint-lsp',
-        'graphql-language-service-cli',
         'html-lsp',
         'json-lsp',
         'pyright',
@@ -97,11 +96,11 @@ lua << EOF
         'flake8',
         'stylua',
     },
-
-    auto_update = true,
   }
+
   require('renamer').setup()
 EOF
+
 
 set secure
 
