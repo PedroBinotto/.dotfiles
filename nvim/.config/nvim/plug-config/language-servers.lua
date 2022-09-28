@@ -2,10 +2,8 @@ require'lspconfig'.clangd.setup {}
 require'lspconfig'.cssls.setup {}
 require'lspconfig'.emmet_ls.setup {}
 require'lspconfig'.eslint.setup {}
-require'lspconfig'.graphql.setup {}
 require'lspconfig'.html.setup {}
 require'lspconfig'.jsonls.setup {}
-require'lspconfig'.pyright.setup {}
 require'lspconfig'.pyright.setup {}
 require'lspconfig'.rust_analyzer.setup {}
 require'lspconfig'.bashls.setup {}

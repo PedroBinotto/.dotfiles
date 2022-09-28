@@ -15,7 +15,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
-Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'filipdutescu/renamer.nvim', { 'branch': 'master' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
