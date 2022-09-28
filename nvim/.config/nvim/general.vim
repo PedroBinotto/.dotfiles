@@ -32,15 +32,7 @@ colorscheme onedarkhc
 set background=dark
 let g:one_allow_italics=1
 let g:vimwiki_global_ext = 0
-
-let g:NERDTreeGitStatusWithFlags = 1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:NERDTreeGitStatusNodeColorization = 1
-let g:NERDTreeIgnore = ['^node_modules$']
-let NERDTreeMapActivateNode = 'l'
-let g:NERDCreateDefaultMappings = 0
 let g:prettier#autoformat_require_pragma = 0
-let g:coc_filetype_map = {'tex': 'latex'}
 
 " set initial variables for tmux server session starters
 let g:RunBackend = ''
@@ -74,14 +66,20 @@ autocmd FileType markdown setlocal tw=100
 autocmd FileType tex setlocal spell spelllang=pt_br
 autocmd FileType tex setlocal tw=80
 
-" let g:NERDTreeColorMapCustom = {
-"     \ "Staged"    : "#0ee375",
-"     \ "Modified"  : "#d9bf91",
-"     \ "Renamed"   : "#51C9FC",
-"     \ "Untracked" : "#FCE77C",
-"     \ "Unmerged"  : "#FC51E6",
-"     \ "Dirty"     : "#FFBD61",
-"     \ "Clean"     : "#87939A",
-"     \ "Ignored"   : "#808080"
-"     \ }
-"
+" hybrid line numbers
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
+
+:command! RemoveQFItem :call RemoveQFItem()
+autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
+command -bang -nargs=? QFix call QFixToggle(<bang>0)
+
+autocmd BufWritePre *.js lua vim.lsp.buf.format(nil)
+autocmd BufWritePre *.jsx lua vim.lsp.buf.format(nil)
+autocmd BufWritePre *.ts lua vim.lsp.buf.format(nil)
+autocmd BufWritePre *.tsx lua vim.lsp.buf.format(nil)
+autocmd BufWritePre *.py lua vim.lsp.buf.format(nil)
+

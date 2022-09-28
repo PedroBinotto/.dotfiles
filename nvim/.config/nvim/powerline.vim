@@ -4,7 +4,7 @@ let g:lightline = {
   \             [ 'readonly', 'filename', 'modified', 'git-branch' ] ]
   \ },
   \ 'component': {
-  \   'git-branch': ' %{FugitiveStatusline()}'
+  \   'git-branch': ' %{FugitiveHead()}'
   \ },
   \ 'separator': {
   \     'left': '', 'right': ''
@@ -28,19 +28,6 @@ function! LightlineLineinfo() abort
     let l:lineinfo = ' ' . l:current_line . '/' . l:max_line
     return l:lineinfo
 endfunction
-
-" When using `dd` in the quickfix list, remove the item from the quickfix list.
-function! RemoveQFItem()
-  let curqfidx = line('.') - 1
-  let qfall = getqflist()
-  call remove(qfall, curqfidx)
-  call setqflist(qfall, 'r')
-  execute curqfidx + 1 . "cfirst"
-  :copen
-endfunction
-:command! RemoveQFItem :call RemoveQFItem()
-" Use map <buffer> to only map dd in the quickfix window. Requires +localmap
-autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
 
 let g:lightline.component_function = { 'mode': 'LightlineMode' }
 

@@ -52,16 +52,6 @@ nmap <F24>         :<C-U>PreviewDefinition<CR>
 nmap <leader>K     :<C-U>PreviewDefinition<CR>
 nmap <silent> gp   :<C-U>PreviewDefinition<CR>
 
-nmap <leader>tu :call GoToBuffer(0)<CR>
-nmap <leader>te :call GoToBuffer(1)<CR>
-nmap <leader>to :call GoToBuffer(2)<CR>
-nmap <leader>ta :call GoToBuffer(3)<CR>
-
-nmap <leader>tsu :call SetBuffer(0)<CR>
-nmap <leader>tse :call SetBuffer(1)<CR>
-nmap <leader>tso :call SetBuffer(2)<CR>
-nmap <leader>tsa :call SetBuffer(3)<CR>
-
 nnoremap <leader>cf :call AppContextRunFrontend()<CR>
 nnoremap <leader>cb :call AppContextRunBackend()<CR>
 nnoremap <leader>ct :call AppContextRunTests()<CR>
@@ -93,10 +83,12 @@ nnoremap <silent> gd :Telescope lsp_definitions<CR>
 nnoremap <silent> gD :Telescope lsp_type_definitions<CR>
 nnoremap <silent> gr :Telescope lsp_references<CR>
 
+nnoremap <silent> <leader>d :Telescope diagnostics<CR>
+
 nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> [g <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap <silent> ]g <cmd>lua vim.diagnostic.goto_next()<CR>
 
 nnoremap <silent> <F2> <cmd>lua require('renamer').rename()<cr>
 
