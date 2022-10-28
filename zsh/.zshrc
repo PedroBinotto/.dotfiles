@@ -18,6 +18,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -81,6 +82,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     git
     zsh-autosuggestions
+    fzf-zsh-plugin
 )
 
 # export ZSH_TMUX_AUTOSTART=true
@@ -139,6 +141,7 @@ export NVM_DIR=~/.nvm
 
 # bindkey -v
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # colorscript_wrapper   # someday, maybe ...
@@ -154,8 +157,7 @@ bindkey -s "^[w" "tmux-sessionizer ~/vimwiki\n"
 alias shellhelp="source ~/Projetos/scripts/zsh-help/zsh-help.sh"
 alias lf="lfub"
 
-source /usr/share/nvm/init-nvm.sh
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
