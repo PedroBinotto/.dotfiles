@@ -41,7 +41,6 @@ end
 function M.run_all()
 	M.run_backend()
 	M.run_frontend()
-	M.run_tests()
 end
 
 function M.kill_backend()
@@ -59,7 +58,6 @@ end
 function M.kill_all()
 	M.kill_backend()
 	M.kill_frontend()
-	M.kill_tests()
 end
 
 return M

@@ -14,7 +14,7 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.stylua,
 		formatting.eslint,
-		diagnostics.flake8,
+		diagnostics.flake8.with({ extra_args = { "-extend-ignore=E501" } }),
 		diagnostics.eslint,
 	},
 })

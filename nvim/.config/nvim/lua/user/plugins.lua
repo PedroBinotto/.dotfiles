@@ -65,9 +65,15 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("MunifTanjim/exrc.nvim")
 	use("mg979/vim-visual-multi")
-	-- TODO: use 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['markdown', 'vim-plug'] }
-
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 
 	-- colorschemes
 

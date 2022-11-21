@@ -40,6 +40,7 @@ keymap("n", "<leader>b", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>\\", ":Telescope lsp_dynamic_workspace_symbols<CR>", opts)
 keymap("n", "<leader>p", ":Telescope git_files<CR>", opts)
 keymap("n", "<leader>P", ":Telescope fd<CR>", opts)
+keymap("n", "<leader>wk", ":Telescope keymaps<CR>", opts)
 keymap("n", "<silent> <leader>d", ":Telescope diagnostics<CR>", opts)
 keymap("n", "gr", ":Telescope lsp_references<CR>", opts)
 
@@ -60,3 +61,5 @@ keymap("n", "<leader>ckt", ":lua require('user.app-context').kill_tests()<CR>", 
 
 keymap("n", "<leader>cr", ":lua require('user.app-context').run_all()<CR>", opts)
 keymap("n", "<leader>cK", ":lua require('user.app-context').kill_all()<CR>", opts)
+
+keymap("n", "<leader>mdp", ":lua require('user.utils').preview()<CR>", opts)
