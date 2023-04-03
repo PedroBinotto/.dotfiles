@@ -1,10 +1,12 @@
 local servers = {
-	"sumneko_lua",
+	"lua_ls",
 	"pyright",
 	"html",
 	"cssls",
 	"jsonls",
 	"tsserver",
+	"tailwindcss",
+	"solidity",
 }
 
 local lsp_opts = {}

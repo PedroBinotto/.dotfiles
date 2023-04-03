@@ -121,6 +121,7 @@ fi
 alias nethogs="sudo nethogs"
 alias vi="nvim"
 alias vim="nvim"
+alias v="vi"
 alias zshconfig="$EDITOR ~/.zshrc"
 alias i3config="$EDITOR ~/.config/i3/config"
 alias kittyconfig="$EDITOR ~/.config/kitty/kitty.conf"
@@ -149,6 +150,7 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 bindkey -s "^[a" "tmux-sessionizer ~/Projetos/bridge/sgtes-residencias/frontend\n"
 bindkey -s "^[s" "tmux-sessionizer ~/Projetos/bridge/pec/frontend\n"
+bindkey -s "^[d" "tmux-sessionizer ~/Projetos/bridge/pec-assinador/frontend\n"
 bindkey -s "^[j" "tmux-sessionizer ~/Projetos/scripts\n"
 bindkey -s "^[k" "tmux-sessionizer ~/.dotfiles\n"
 bindkey -s "^[u" "tmux-sessionizer ~/Documents/UFSC\n"
@@ -161,3 +163,9 @@ alias lf="lfub"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH=$HOME/.cargo/bin:$PATH
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

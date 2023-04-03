@@ -66,6 +66,7 @@ return packer.startup(function(use)
 	use("MunifTanjim/exrc.nvim")
 	use("mg979/vim-visual-multi")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use({ "vimwiki/vimwiki" })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
@@ -83,6 +84,7 @@ return packer.startup(function(use)
 	use("rakr/vim-one")
 	use("morhetz/gruvbox")
 	use("folke/tokyonight.nvim")
+	use({ "tjdevries/colorbuddy.nvim", branch = "dev" })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

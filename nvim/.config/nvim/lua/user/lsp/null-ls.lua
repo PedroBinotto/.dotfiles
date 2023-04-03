@@ -16,5 +16,8 @@ null_ls.setup({
 		formatting.eslint,
 		diagnostics.flake8.with({ extra_args = { "-extend-ignore=E501" } }),
 		diagnostics.eslint,
+		formatting.deno_fmt.with({
+			filetypes = { "markdown" },
+		}),
 	},
 })
