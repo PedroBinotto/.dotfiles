@@ -4,21 +4,20 @@ if not status_ok then
 	return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+local config_status_ok, _ = pcall(require, "nvim-tree.config")
 if not config_status_ok then
 	return
 end
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
 nvim_tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,
-	ignore_ft_on_setup = {
-		"startify",
-		"dashboard",
-		"alpha",
-	},
+	-- ignore_ft_on_setup = {
+	-- 	"startify",
+	-- 	"dashboard",
+	-- 	"alpha",
+	-- },
+	open_on_tab = false,
 	hijack_cursor = false,
 	update_cwd = true,
 	hijack_directories = {
