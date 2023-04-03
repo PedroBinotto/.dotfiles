@@ -6,16 +6,15 @@ local function preview_markdown()
 end
 
 local function preview_latex()
-	print("TODO: Port latex previews from old vimscript")
-	-- vim.g.mkdp_auto_close = 0
-	-- vim.cmd("MarkdownPreviewToggle")
+	require("user.latex").latex_start_preview()
 end
 
 function M.preview()
 	local function_map = {
 		markdown = preview_markdown,
-		latex = preview_latex,
+		tex = preview_latex,
 	}
+
 	local filetype = vim.bo.filetype
 	if function_map[filetype] then
 		function_map[filetype]()
@@ -23,5 +22,7 @@ function M.preview()
 		print("No preview method available for filetype '" .. filetype .. "'.")
 	end
 end
+
+function M.stop_preview() end
 
 return M
