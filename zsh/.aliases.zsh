@@ -1,0 +1,18 @@
+#/bin/zsh
+
+alias l="ls -al"
+alias nethogs="sudo nethogs"
+alias vi="nvim"
+alias vim="nvim"
+alias v="vi"
+alias zshconfig="$EDITOR ~/.zshrc"
+alias i3config="$EDITOR ~/.config/i3/config"
+alias kittyconfig="$EDITOR ~/.config/kitty/kitty.conf"
+alias polyconfig="$EDITOR ~/.config/polybar/config"
+alias vimconfig="$EDITOR ~/.config/nvim/init.lua"
+alias piconfig="$EDITOR ~/.config/picom/picom.conf"
+alias emacsconfig="$EDITOR ~/.emacs"
+alias rm="rm -i"
+alias icat="kitty +kitten icat"
+alias music="ncmpcpp"
+alias \:q="exit"
