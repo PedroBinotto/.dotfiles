@@ -6,4 +6,6 @@ xargs sudo apt -y install < packagefile
 
 cshsh -s $(which zsh)
 
+sudo cat ./env > /etc/environment
+
 make all
