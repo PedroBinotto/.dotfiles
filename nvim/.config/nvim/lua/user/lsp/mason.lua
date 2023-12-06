@@ -7,6 +7,7 @@ local servers = {
 	"tsserver",
 	"tailwindcss",
 	"solidity",
+	"angularls",
 }
 
 local lsp_opts = {}

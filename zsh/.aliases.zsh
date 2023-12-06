@@ -1,5 +1,6 @@
 #/bin/zsh
 
+alias ls="ls --color=auto"
 alias l="ls -al"
 alias nethogs="sudo nethogs"
 alias vi="nvim"
