@@ -79,9 +79,7 @@ return packer.startup(function(use)
 	-- colorschemes
 
 	use("lunarvim/colorschemes")
-	use("pacokwon/onedarkpaco.vim")
-	use("joshdick/onedark.vim")
-	use("rakr/vim-one")
+	use("navarasu/onedark.nvim")
 	use("morhetz/gruvbox")
 	use("folke/tokyonight.nvim")
 	use({ "tjdevries/colorbuddy.nvim", branch = "dev" })
