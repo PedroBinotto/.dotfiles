@@ -10,11 +10,14 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.prettier,
 		formatting.stylua,
 		formatting.eslint,
-		diagnostics.flake8.with({ extra_args = { "-extend-ignore=E501" } }),
+		formatting.autopep8.with({
+			extra_args = { "--ignore", "E402", "--max-line-length", "120" },
+		}),
+		diagnostics.mypy,
+		diagnostics.pylint.with({ extra_args = { "--max-line-length", "120" } }),
 		diagnostics.eslint,
 		formatting.deno_fmt.with({
 			filetypes = { "markdown" },
