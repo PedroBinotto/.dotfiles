@@ -15,10 +15,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
+	augroup packer_user_config
+		autocmd!
+		autocmd BufWritePost plugins.lua source <afile> | PackerSync
+	augroup end
 ]])
 
 local status_ok, packer = pcall(require, "packer")
@@ -53,7 +53,7 @@ return packer.startup(function(use)
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("nvim-tree/nvim-web-devicons")
-	use({ "nvim-tree/nvim-tree.lua", commit = "ace64228ad5d89035fbe6f85e7f45a1f7b9e29c1" })
+	use("stevearc/oil.nvim")
 	use("nvim-telescope/telescope.nvim")
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
@@ -82,7 +82,7 @@ return packer.startup(function(use)
 	use("navarasu/onedark.nvim")
 	use("morhetz/gruvbox")
 	use("folke/tokyonight.nvim")
-	use({ "tjdevries/colorbuddy.nvim", branch = "dev" })
+	use({ "tjdevries/colorbuddy.nvim" })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

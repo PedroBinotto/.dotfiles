@@ -12,15 +12,6 @@ null_ls.setup({
 	sources = {
 		formatting.prettier,
 		formatting.stylua,
-		formatting.eslint,
-		formatting.autopep8.with({
-			extra_args = { "--ignore", "E402", "--max-line-length", "120" },
-		}),
 		diagnostics.mypy,
-		diagnostics.pylint.with({ extra_args = { "--max-line-length", "120" } }),
-		diagnostics.eslint,
-		formatting.deno_fmt.with({
-			filetypes = { "markdown" },
-		}),
 	},
 })
