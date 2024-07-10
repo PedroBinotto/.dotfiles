@@ -67,6 +67,7 @@ return packer.startup(function(use)
 	use("mg979/vim-visual-multi")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use({ "vimwiki/vimwiki" })
+	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
