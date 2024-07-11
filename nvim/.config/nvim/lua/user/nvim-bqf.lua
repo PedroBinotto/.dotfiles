@@ -29,7 +29,7 @@ bqf.setup({
 	},
 	-- make `drop` and `tab drop` to become preferred
 	func_map = {
-		drop = "ddj",
+		drop = "o",
 		openc = "O",
 		split = "<C-s>",
 		tabdrop = "<C-t>",

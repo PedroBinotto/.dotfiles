@@ -19,6 +19,3 @@ export NVM_DIR=~/.nvm
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
-
-# Created by `pipx` on 2024-04-30 22:11:55
-export PATH="$PATH:/home/bridge/.local/bin"

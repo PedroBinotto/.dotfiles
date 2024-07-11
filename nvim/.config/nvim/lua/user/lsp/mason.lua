@@ -1,4 +1,5 @@
 local servers = {
+	"clangd",
 	"ruff",
 	"eslint",
 	"denols",
