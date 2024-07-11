@@ -1,5 +1,6 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
+local utils = require("user.utils")
 
 keymap("", "<Bslash>", "<Nop>", opts)
 vim.g.mapleader = "\\"
@@ -10,7 +11,8 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<leader>e", ":lua require('oil').toggle_float('.')<CR>", { desc = "Open parent directory" })
+keymap("n", "<leader>e", utils.oil_find_file, { desc = "Open parent directory" })
+keymap("n", "<leader>E", utils.oil_cwd, { desc = "Open CWD" })
 
 keymap("n", "<leader>=", ":10winc > <CR>", opts)
 keymap("n", "<leader>-", ":10winc < <CR>", opts)

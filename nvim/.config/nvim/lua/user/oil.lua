@@ -1,6 +1,6 @@
 local status_ok, oil = pcall(require, "oil")
 if not status_ok then
-	print("Failed to load module 'gitsigns.nvim'.")
+	print("Failed to load module 'oil.nvim'.")
 	return
 end
 
