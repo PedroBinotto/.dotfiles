@@ -25,4 +25,19 @@ end
 
 function M.stop_preview() end
 
+function M.oil_cwd()
+	local oil = require("oil")
+	oil.toggle_float(".")
+end
+
+function M.oil_find_file()
+	local oil = require("oil")
+	local path = vim.fn.expand("%:h")
+	if vim.fn.findfile(path) then
+		oil.toggle_float(path)
+	else
+		M.oil_cwd()
+	end
+end
+
 return M

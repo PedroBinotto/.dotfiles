@@ -1,4 +1,8 @@
 local servers = {
+	"clangd",
+	"ruff",
+	"eslint",
+	"denols",
 	"lua_ls",
 	"pyright",
 	"html",
