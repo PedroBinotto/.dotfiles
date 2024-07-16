@@ -4,6 +4,8 @@ if not status_ok then
 	return
 end
 
+local utils = require("user.utils")
+
 oil.setup({
 	default_file_explorer = true,
 	columns = { "icon" },
@@ -49,14 +51,27 @@ oil.setup({
 		["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
 		["gs"] = "actions.change_sort",
 		["gx"] = "actions.open_external",
-		["g."] = "actions.toggle_hidden",
+		["<C-h>"] = "actions.toggle_hidden",
 		["g\\"] = "actions.toggle_trash",
 	},
 	use_default_keymaps = true,
 	view_options = {
-		show_hidden = true,
-		is_hidden_file = function(name, bufnr)
-			return vim.startswith(name, ".")
+		show_hidden = false,
+		is_hidden_file = function(name, _)
+			-- dotfiles are always considered hidden
+			if vim.startswith(name, ".") then
+				if name == ".." then
+					return false
+				end
+				return true
+			end
+			local dir = require("oil").get_current_dir()
+			-- if no local directory (e.g. for ssh connections), always show
+			if not dir then
+				return false
+			end
+			-- Check if file is gitignored
+			return vim.list_contains(utils.oil_is_git_ignored[dir], name)
 		end,
 		is_always_hidden = function(name, bufnr)
 			return false
@@ -84,8 +99,8 @@ oil.setup({
 	float = {
 		-- Padding around the floating window
 		padding = 2,
-		max_width = 0,
-		max_height = 0,
+		max_width = 200,
+		max_height = 50,
 		border = "rounded",
 		win_options = {
 			winblend = 0,
