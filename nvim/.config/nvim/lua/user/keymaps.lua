@@ -6,6 +6,8 @@ keymap("", "<Bslash>", "<Nop>", opts)
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = "\\"
 
+keymap("n", "<leader>:", "q:", opts)
+
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)

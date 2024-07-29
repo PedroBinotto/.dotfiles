@@ -1,17 +1,17 @@
 local servers = {
+	"angularls",
+	"biome",
 	"clangd",
-	"ruff",
+	"cssls",
 	"eslint",
-	"denols",
+	"html",
+	"jsonls",
 	"lua_ls",
 	"pyright",
-	"html",
-	"cssls",
-	"jsonls",
-	"tsserver",
-	"tailwindcss",
+	"ruff",
 	"solidity",
-	"angularls",
+	"tailwindcss",
+	"tsserver",
 }
 
 local lsp_opts = {}

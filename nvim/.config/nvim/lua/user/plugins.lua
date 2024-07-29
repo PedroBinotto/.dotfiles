@@ -83,6 +83,7 @@ return packer.startup(function(use)
 	use("navarasu/onedark.nvim")
 	use("morhetz/gruvbox")
 	use("folke/tokyonight.nvim")
+	use("PedroBinotto/lucretia.nvim")
 	use({ "tjdevries/colorbuddy.nvim" })
 
 	if PACKER_BOOTSTRAP then
