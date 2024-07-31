@@ -79,12 +79,10 @@ return packer.startup(function(use)
 	})
 
 	-- colorschemes
-
-	use("lunarvim/colorschemes")
-	use("navarasu/onedark.nvim")
-	use("morhetz/gruvbox")
+	--
+	--
+	use("tinted-theming/base16-vim")
 	use("folke/tokyonight.nvim")
-	-- use("PedroBinotto/lucretia.nvim")
 	use({ "tjdevries/colorbuddy.nvim" })
 
 	if PACKER_BOOTSTRAP then

@@ -8,7 +8,7 @@ fterm.setup({
 	ft = "fterm",
 	border = "rounded",
 	dimensions = {
-		height = 0.65, -- Height of the terminal window
+		height = 0.8, -- Height of the terminal window
 		width = 0.65, -- Width of the terminal window
 	},
 })
