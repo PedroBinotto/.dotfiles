@@ -16,6 +16,8 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<leader>e", utils.oil_find_file, { desc = "Open parent directory" })
 keymap("n", "<leader>E", utils.oil_cwd, { desc = "Open CWD" })
 
+keymap("n", "<leader>t", ':lua require("FTerm").toggle()<CR>', opts)
+
 keymap("n", "<leader>=", ":10winc > <CR>", opts)
 keymap("n", "<leader>-", ":10winc < <CR>", opts)
 keymap("n", "<leader>+", ":10winc + <CR>", opts)
