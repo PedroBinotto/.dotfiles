@@ -125,3 +125,5 @@ cmp.setup({
 		native_menu = false,
 	},
 })
+
+return cmp

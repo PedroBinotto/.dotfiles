@@ -23,3 +23,5 @@ comment.setup({
 		basic = false,
 	},
 })
+
+return comment

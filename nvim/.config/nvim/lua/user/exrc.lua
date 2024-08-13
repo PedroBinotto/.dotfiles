@@ -12,3 +12,5 @@ exrc.setup({
 		".exrc",
 	},
 })
+
+return exrc

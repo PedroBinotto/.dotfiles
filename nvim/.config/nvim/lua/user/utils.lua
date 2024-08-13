@@ -1,5 +1,22 @@
 local M = {}
 
+local harpoon = require("user.harpoon")
+local telescope_conf = require("telescope.config").values
+local finders = require("telescope.finders")
+
+local harpoon_get_paths = function(files)
+	local paths = {}
+	for _, item in ipairs(files.items) do
+		table.insert(paths, item.value)
+	end
+
+	return paths
+end
+
+local function harpoon_make_finder(paths)
+	return finders.new_table({ results = paths })
+end
+
 local function preview_markdown()
 	require("user.markdown-preview").setup()
 	vim.cmd("MarkdownPreviewToggle")
@@ -60,5 +77,33 @@ M.oil_is_git_ignored = setmetatable({}, {
 		return ret
 	end,
 })
+
+function M.toggle_telescope(harpoon_files)
+	local file_paths = harpoon_get_paths(harpoon_files)
+
+	require("telescope.pickers")
+		.new({}, {
+			prompt_title = "Harpoon",
+			finder = harpoon_make_finder(file_paths),
+			previewer = telescope_conf.file_previewer({}),
+			sorter = telescope_conf.generic_sorter({}),
+			attach_mappings = function(prompt_buffer_number, map)
+				map(
+					"i",
+					"<M-d>", -- your mapping here
+					function()
+						local state = require("telescope.actions.state")
+						local selected_entry = state.get_selected_entry()
+						local current_picker = state.get_current_picker(prompt_buffer_number)
+						harpoon:list():remove_at(selected_entry.index)
+						current_picker:refresh(harpoon_make_finder(harpoon_get_paths(harpoon:list())))
+					end
+				)
+
+				return true
+			end,
+		})
+		:find()
+end
 
 return M

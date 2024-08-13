@@ -61,8 +61,13 @@ return packer.startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("lewis6991/gitsigns.nvim")
 	use({ "nvimtools/none-ls.nvim", lazy = true })
-	use("nvim-lualine/lualine.nvim")
 	use("tpope/vim-fugitive")
+	use("nvim-lualine/lualine.nvim")
+	use({
+		"thePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+	})
 	use("lukas-reineke/indent-blankline.nvim")
 	use("MunifTanjim/exrc.nvim")
 	use("mg979/vim-visual-multi")
@@ -81,7 +86,6 @@ return packer.startup(function(use)
 	-- colorschemes
 	--
 	--
-	use("tinted-theming/base16-vim")
 	use("folke/tokyonight.nvim")
 	use({ "tjdevries/colorbuddy.nvim" })
 

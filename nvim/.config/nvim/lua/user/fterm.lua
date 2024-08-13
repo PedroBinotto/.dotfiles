@@ -12,3 +12,5 @@ fterm.setup({
 		width = 0.65, -- Width of the terminal window
 	},
 })
+
+return fterm

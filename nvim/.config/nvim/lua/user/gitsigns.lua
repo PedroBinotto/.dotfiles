@@ -53,3 +53,5 @@ gitsigns.setup({
 		col = 1,
 	},
 })
+
+return gitsigns

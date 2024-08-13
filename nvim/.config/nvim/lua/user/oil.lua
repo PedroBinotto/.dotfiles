@@ -161,3 +161,5 @@ oil.setup({
 		border = "rounded",
 	},
 })
+
+return oil

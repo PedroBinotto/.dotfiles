@@ -107,3 +107,5 @@ lualine.setup({
 	tabline = {},
 	extensions = {},
 })
+
+return lualine

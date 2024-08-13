@@ -44,3 +44,5 @@ bqf.setup({
 		},
 	},
 })
+
+return bqf

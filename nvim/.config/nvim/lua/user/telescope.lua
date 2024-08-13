@@ -76,3 +76,5 @@ telescope.setup({
 		},
 	},
 })
+
+return telescope
