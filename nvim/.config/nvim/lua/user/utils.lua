@@ -2,28 +2,34 @@ local M = {}
 
 local harpoon = require("user.harpoon")
 local telescope_conf = require("telescope.config").values
-local finders = require("telescope.finders")
+local telescope_state = require("telescope.actions.state")
+local telescope_finders = require("telescope.finders")
+local telescope_pickers = require("telescope.pickers")
+local latex = require("user.latex")
+local mkpreview = require("user.markdown-preview")
+local oil = require("user.oil")
 
 local harpoon_get_paths = function(files)
 	local paths = {}
 	for _, item in ipairs(files.items) do
 		table.insert(paths, item.value)
 	end
+	vim.print(paths)
 
 	return paths
 end
 
 local function harpoon_make_finder(paths)
-	return finders.new_table({ results = paths })
+	return telescope_finders.new_table({ results = paths })
 end
 
 local function preview_markdown()
-	require("user.markdown-preview").setup()
+	mkpreview.setup()
 	vim.cmd("MarkdownPreviewToggle")
 end
 
 local function preview_latex()
-	require("user.latex").latex_start_preview()
+	latex.latex_start_preview()
 end
 
 function M.preview()
@@ -43,12 +49,10 @@ end
 function M.stop_preview() end
 
 function M.oil_cwd()
-	local oil = require("oil")
 	oil.toggle_float(".")
 end
 
 function M.oil_find_file()
-	local oil = require("oil")
 	local path = vim.fn.expand("%:h")
 	if vim.fn.findfile(path) then
 		oil.toggle_float(path)
@@ -57,31 +61,10 @@ function M.oil_find_file()
 	end
 end
 
-M.oil_is_git_ignored = setmetatable({}, {
-	__index = function(self, key)
-		local proc = vim.system({ "git", "ls-files", "--ignored", "--exclude-standard", "--others", "--directory" }, {
-			cwd = key,
-			text = true,
-		})
-		local result = proc:wait()
-		local ret = {}
-		if result.code == 0 then
-			for line in vim.gsplit(result.stdout, "\n", { plain = true, trimempty = true }) do
-				-- Remove trailing slash
-				line = line:gsub("/$", "")
-				table.insert(ret, line)
-			end
-		end
-
-		rawset(self, key, ret)
-		return ret
-	end,
-})
-
 function M.toggle_telescope(harpoon_files)
 	local file_paths = harpoon_get_paths(harpoon_files)
 
-	require("telescope.pickers")
+	telescope_pickers
 		.new({}, {
 			prompt_title = "Harpoon",
 			finder = harpoon_make_finder(file_paths),
@@ -92,11 +75,11 @@ function M.toggle_telescope(harpoon_files)
 					"i",
 					"<M-d>", -- your mapping here
 					function()
-						local state = require("telescope.actions.state")
-						local selected_entry = state.get_selected_entry()
-						local current_picker = state.get_current_picker(prompt_buffer_number)
-						harpoon:list():remove_at(selected_entry.index)
-						current_picker:refresh(harpoon_make_finder(harpoon_get_paths(harpoon:list())))
+						local selected_entry = telescope_state.get_selected_entry()
+						local current_picker = telescope_state.get_current_picker(prompt_buffer_number)
+						current_picker:refresh(
+							harpoon_make_finder(harpoon_get_paths(harpoon:list():remove_at(selected_entry.index)))
+						)
 					end
 				)
 

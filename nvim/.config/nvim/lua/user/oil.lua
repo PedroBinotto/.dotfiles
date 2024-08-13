@@ -4,7 +4,26 @@ if not status_ok then
 	return
 end
 
-local utils = require("user.utils")
+local oil_is_git_ignored = setmetatable({}, {
+	__index = function(self, key)
+		local proc = vim.system({ "git", "ls-files", "--ignored", "--exclude-standard", "--others", "--directory" }, {
+			cwd = key,
+			text = true,
+		})
+		local result = proc:wait()
+		local ret = {}
+		if result.code == 0 then
+			for line in vim.gsplit(result.stdout, "\n", { plain = true, trimempty = true }) do
+				-- Remove trailing slash
+				line = line:gsub("/$", "")
+				table.insert(ret, line)
+			end
+		end
+
+		rawset(self, key, ret)
+		return ret
+	end,
+})
 
 oil.setup({
 	default_file_explorer = true,
@@ -71,7 +90,7 @@ oil.setup({
 				return false
 			end
 			-- Check if file is gitignored
-			return vim.list_contains(utils.oil_is_git_ignored[dir], name)
+			return vim.list_contains(oil_is_git_ignored[dir], name)
 		end,
 		is_always_hidden = function(name, bufnr)
 			return false
