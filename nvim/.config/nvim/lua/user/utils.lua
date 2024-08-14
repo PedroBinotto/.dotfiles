@@ -14,8 +14,6 @@ local harpoon_get_paths = function(files)
 	for _, item in ipairs(files.items) do
 		table.insert(paths, item.value)
 	end
-	vim.print(paths)
-
 	return paths
 end
 
@@ -77,9 +75,8 @@ function M.toggle_telescope(harpoon_files)
 					function()
 						local selected_entry = telescope_state.get_selected_entry()
 						local current_picker = telescope_state.get_current_picker(prompt_buffer_number)
-						current_picker:refresh(
-							harpoon_make_finder(harpoon_get_paths(harpoon:list():remove_at(selected_entry.index)))
-						)
+						table.remove(harpoon:list().items, selected_entry.index)
+						current_picker:refresh(harpoon_make_finder(harpoon_get_paths(harpoon:list())))
 					end
 				)
 
