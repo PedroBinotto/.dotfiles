@@ -1,5 +1,6 @@
 local o = vim.opt
 local c = vim.cmd
+local g = vim.g
 
 o.backup = false
 o.clipboard = "unnamedplus"
@@ -9,7 +10,7 @@ o.conceallevel = 0 -- so that `` is visible in markdown files
 o.fileencoding = "utf-8" -- the encoding written to a file
 o.hlsearch = true -- highlight all matches on previous search pattern
 o.ignorecase = false -- ignore case in search patterns
-o.mouse = "a" -- allow the mouse to be used in neovim
+o.mouse = ""
 o.pumheight = 10 -- pop up menu height
 o.showmode = false -- we don't need to see things like -- INSERT -- anymore
 o.showtabline = 0 -- always show tabs
@@ -40,6 +41,7 @@ o.hidden = true
 o.exrc = false
 o.background = "dark"
 o.shortmess:append("c")
+g.skip_ts_context_commentstring_module = true
 
 c("set listchars=tab:»·,eol:¬,trail:·")
 c("set whichwrap+=<,>,[,],h,l")

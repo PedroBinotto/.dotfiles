@@ -11,6 +11,7 @@ if not config_status_ok then
 end
 
 configs.setup({
+	auto_install = true,
 	ensure_intalled = {
 		"bash",
 		"c",
@@ -48,8 +49,4 @@ configs.setup({
 		enable = true,
 	},
 	indent = { enable = true, disable = { "python", "yaml" } },
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
-	},
 })

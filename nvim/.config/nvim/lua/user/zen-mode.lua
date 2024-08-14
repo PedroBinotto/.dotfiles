@@ -9,3 +9,5 @@ zenmode.setup({
 		width = 0.60,
 	},
 })
+
+return zenmode

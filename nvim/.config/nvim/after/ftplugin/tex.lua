@@ -5,6 +5,7 @@ local autocmd = vim.api.nvim_create_autocmd
 keymap("", "<Bslash>", "<Nop>", opts) -- TODO: Source from 'user.keymaps' or smth
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = "\\"
+vim.o.textwidth = 120
 
 keymap("i", "<leader>bg", "\\begin{<>}<Enter>end{<>}<Esc>kT{vi{<C-n><C-n>", { noremap = false, silent = true })
 keymap("i", "<leader>em", "\\emph{}<Space><><Esc>T{i", opts)
