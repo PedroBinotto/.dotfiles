@@ -69,17 +69,12 @@ function M.toggle_telescope(harpoon_files)
 			previewer = telescope_conf.file_previewer({}),
 			sorter = telescope_conf.generic_sorter({}),
 			attach_mappings = function(prompt_buffer_number, map)
-				map(
-					"i",
-					"<M-d>", -- your mapping here
-					function()
-						local selected_entry = telescope_state.get_selected_entry()
-						local current_picker = telescope_state.get_current_picker(prompt_buffer_number)
-						table.remove(harpoon:list().items, selected_entry.index)
-						current_picker:refresh(harpoon_make_finder(harpoon_get_paths(harpoon:list())))
-					end
-				)
-
+				map("i", "<M-d>", function()
+					local selected_entry = telescope_state.get_selected_entry()
+					local current_picker = telescope_state.get_current_picker(prompt_buffer_number)
+					table.remove(harpoon:list().items, selected_entry.index)
+					current_picker:refresh(harpoon_make_finder(harpoon_get_paths(harpoon:list())))
+				end)
 				return true
 			end,
 		})
