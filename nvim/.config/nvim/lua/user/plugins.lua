@@ -64,7 +64,7 @@ return packer.startup(function(use)
 	use("tpope/vim-fugitive")
 	use("nvim-lualine/lualine.nvim")
 	use({
-		"thePrimeagen/harpoon",
+		"PedroBinotto/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
 	})

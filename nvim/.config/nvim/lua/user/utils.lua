@@ -11,9 +11,17 @@ local oil = require("user.oil")
 
 local harpoon_get_paths = function(files)
 	local paths = {}
-	for _, item in ipairs(files.items) do
-		table.insert(paths, item.value)
+	local items = files.items
+	local len = files._length
+
+	for i = 1, len do
+		paths[i] = ""
+		local item = items[i]
+		if item ~= nil then
+			paths[i] = item.value
+		end
 	end
+
 	return paths
 end
 
@@ -72,7 +80,7 @@ function M.toggle_telescope(harpoon_files)
 				map("i", "<M-d>", function()
 					local selected_entry = telescope_state.get_selected_entry()
 					local current_picker = telescope_state.get_current_picker(prompt_buffer_number)
-					table.remove(harpoon:list().items, selected_entry.index)
+					harpoon:list():remove_at(selected_entry.index)
 					current_picker:refresh(harpoon_make_finder(harpoon_get_paths(harpoon:list())))
 				end)
 				return true
