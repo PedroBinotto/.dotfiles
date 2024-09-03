@@ -1,13 +1,11 @@
-local M = {}
-
 local harpoon = require("user.harpoon")
 local telescope_conf = require("telescope.config").values
 local telescope_state = require("telescope.actions.state")
 local telescope_finders = require("telescope.finders")
 local telescope_pickers = require("telescope.pickers")
-local latex = require("user.latex")
-local mkpreview = require("user.markdown-preview")
 local oil = require("user.oil")
+
+local M = {}
 
 local harpoon_get_paths = function(files)
 	local paths = {}
@@ -28,31 +26,6 @@ end
 local function harpoon_make_finder(paths)
 	return telescope_finders.new_table({ results = paths })
 end
-
-local function preview_markdown()
-	mkpreview.setup()
-	vim.cmd("MarkdownPreviewToggle")
-end
-
-local function preview_latex()
-	latex.latex_start_preview()
-end
-
-function M.preview()
-	local function_map = {
-		markdown = preview_markdown,
-		tex = preview_latex,
-	}
-
-	local filetype = vim.bo.filetype
-	if function_map[filetype] then
-		function_map[filetype]()
-	else
-		print("No preview method available for filetype '" .. filetype .. "'.")
-	end
-end
-
-function M.stop_preview() end
 
 function M.oil_cwd()
 	oil.toggle_float(".")
@@ -87,6 +60,10 @@ function M.toggle_telescope(harpoon_files)
 			end,
 		})
 		:find()
+end
+
+function M.is_empty(string)
+	return string == nil or string == ""
 end
 
 return M

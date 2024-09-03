@@ -2,6 +2,7 @@ local comment = require("Comment.api")
 
 local harpoon = require("user.harpoon")
 local utils = require("user.utils")
+local preview = require("user.preview")
 local appcontext = require("user.app-context")
 local fterm = require("user.fterm")
 
@@ -129,5 +130,5 @@ vim.keymap.set("n", "<M-]>", function()
 end)
 
 keymap("n", "<leader>mdp", function()
-	appcontext.preview()
+	preview.preview()
 end, opts)

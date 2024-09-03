@@ -1,6 +1,6 @@
-local status_ok, utils = pcall(require, "user.lsp.utils")
+local status_ok, utils = pcall(require, "user.utils")
 if not status_ok then
-	print("Failed to load module 'user.lsp.utils'.")
+	print("[tmux.lua] Failed to load module 'user.utils'.")
 	return
 end
 
