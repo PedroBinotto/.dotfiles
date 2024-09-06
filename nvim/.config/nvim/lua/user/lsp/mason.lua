@@ -12,6 +12,7 @@ local servers = {
 	"solidity",
 	"tailwindcss",
 	"tsserver",
+	"graphql",
 	"gopls",
 }
 
