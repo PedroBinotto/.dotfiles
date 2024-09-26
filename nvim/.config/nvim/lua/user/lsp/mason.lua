@@ -12,6 +12,8 @@ local servers = {
 	"solidity",
 	"tailwindcss",
 	"tsserver",
+	"graphql",
+	"gopls",
 }
 
 local lsp_opts = {}

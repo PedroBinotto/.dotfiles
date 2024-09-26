@@ -16,10 +16,6 @@ function M.format_filter(client)
 	end
 end
 
-function M.is_empty(string)
-	return string == nil or string == ""
-end
-
 function M.format(opts)
 	opts = opts or {}
 	opts.filter = opts.filter or M.format_filter

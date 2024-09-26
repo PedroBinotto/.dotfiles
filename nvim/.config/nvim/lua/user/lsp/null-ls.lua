@@ -10,9 +10,12 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
+		diagnostics.mypy,
+		formatting.clang_format,
+		formatting.gofmt,
+		formatting.goimports_reviser,
+		formatting.golines,
 		formatting.prettier,
 		formatting.stylua,
-		formatting.clang_format,
-		diagnostics.mypy,
 	},
 })
