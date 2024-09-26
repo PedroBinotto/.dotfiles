@@ -4,4 +4,5 @@ kitty
 make
 stow
 tmux
+xclip
 zsh

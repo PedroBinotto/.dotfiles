@@ -4,8 +4,10 @@ sudo apt-add-repository -y universe && sudo apt -y update
 
 xargs sudo apt -y install < packagefile
 
-cshsh -s $(which zsh)
+chsh -s $(which zsh)
 
 sudo cat ./env > /etc/environment
+
+mkdir ~/Projetos ~/.local/bin
 
 make all
