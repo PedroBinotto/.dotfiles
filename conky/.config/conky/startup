@@ -1,5 +1,0 @@
-#!/bin/bash
-
-conky -c $HOME/.config/conky/Placid/Placid
-exit 0
-
