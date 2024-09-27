@@ -11,7 +11,7 @@ local servers = {
 	"ruff",
 	"solidity",
 	"tailwindcss",
-	"tsserver",
+	"ts_ls",
 	"graphql",
 	"gopls",
 }

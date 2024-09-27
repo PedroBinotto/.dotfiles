@@ -21,3 +21,4 @@ TODO:
 - [ ] Install and configure NerdFonts;
 - [ ] Solve `/etc/environment` bug;
 - [ ] Solve possible `shellscripts` bug;
+- [ ] FZF version bug;
