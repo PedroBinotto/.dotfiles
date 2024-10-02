@@ -22,3 +22,4 @@ TODO:
 - [ ] Solve `/etc/environment` bug;
 - [ ] Solve possible `shellscripts` bug;
 - [ ] FZF version bug;
+- [ ] Add spell dict to vim;
