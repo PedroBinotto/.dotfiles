@@ -23,20 +23,14 @@ function M.get_main_file()
   return vim.g.LatexEntryPoint
 end
 
-function M.latex_compile_document()
+function M.latex_start_preview()
   local file_path = M.get_main_file()
   if file_path == nil then
     return
   end
-  local tex_compile = "latexmk -pdf -pvc " .. file_path
-  tmux.start_process(tex_compile, "Error while executing 'user.latex.latex_compile_document'", latex_compile_window)
-end
-
-function M.latex_start_preview()
-  M.latex_compile_document()
-  local truncated_file = M.get_main_file():match("(.+)%..+")
-  local tex_preview = "zathura " .. truncated_file .. ".pdf"
-  tmux.start_process(tex_preview, "Error while executing 'user.latex.latex_start_preview'", latex_preview_window)
+  local dir = file_path:match("(.*/)")
+  local tex_compile = "cd " .. dir .. " && latexmk -pdf -pvc " .. file_path
+  tmux.start_process(tex_compile, "Error while executing 'user.latex.latex_start_preview'", latex_compile_window)
 end
 
 function M.latex_stop_preview()
