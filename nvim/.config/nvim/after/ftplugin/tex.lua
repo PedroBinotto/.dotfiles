@@ -21,8 +21,3 @@ keymap("i", "<leader>sec", "\\section{}<Enter><Enter><><Esc>2kf{a", opts)
 keymap("i", "<leader>ssec", "\\subsection{}<Enter><Enter><><Esc>2kf{a", opts)
 keymap("i", "<leader>sssec", "\\subsubsection{}<Enter><Enter><><Esc>2kf{a", opts)
 keymap("n", "<leader>wr", "/<><Enter>cw", opts)
-
-autocmd({ "BufWritePost" }, {
-	pattern = { "*.tex" },
-	command = ":lua require('user.latex').latex_compile_document()",
-})
