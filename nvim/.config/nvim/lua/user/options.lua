@@ -1,6 +1,6 @@
 local o = vim.opt
-local c = vim.cmd
 local g = vim.g
+local c = vim.cmd
 
 o.backup = false
 o.clipboard = "unnamedplus"
@@ -41,6 +41,7 @@ o.hidden = true
 o.exrc = false
 o.background = "dark"
 o.shortmess:append("c")
+g.tex_flavor = "latex"
 g.skip_ts_context_commentstring_module = true
 
 c("set listchars=tab:»·,eol:¬,trail:·")
