@@ -4,16 +4,20 @@ local servers = {
   "clangd",
   "cssls",
   "eslint",
+  "gopls",
+  "graphql",
   "html",
   "jsonls",
   "lua_ls",
   "pyright",
   "ruff",
   "solidity",
+  "sqlls",
   "tailwindcss",
+  "templ",
   "ts_ls",
-  "graphql",
-  "gopls",
+  "yamlls",
+  "rust_analyzer"
 }
 
 local lsp_opts = {}

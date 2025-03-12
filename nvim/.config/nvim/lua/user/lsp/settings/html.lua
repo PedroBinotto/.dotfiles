@@ -1,5 +1,5 @@
 return {
- settings = {
+  settings = {
     html = {
       format = {
         -- Set the token to define unformatted content
