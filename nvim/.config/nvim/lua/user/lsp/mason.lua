@@ -17,7 +17,8 @@ local servers = {
   "templ",
   "ts_ls",
   "yamlls",
-  "rust_analyzer"
+  "rust_analyzer",
+  "dockerls"
 }
 
 local lsp_opts = {}
