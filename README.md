@@ -17,9 +17,11 @@ cd .dotfiles
 
 TODO:
 - [ ] Neovim: Automatic build from source;
-- [ ] Install NodeJS for LSP configuration;
+- [ ] kitty: Automatic build from source;
+- [ ] Install NodeJS and Go (and Python, pip) for LSP configuration;
+- [ ] Install NerdFonts;
+- [ ] Automate firefox and thunderbird backup and restore;
 - [ ] Install and configure NerdFonts;
 - [ ] Solve `/etc/environment` bug;
-- [ ] Solve possible `shellscripts` bug;
 - [ ] FZF version bug;
 - [ ] Add spell dict to vim;

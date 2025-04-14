@@ -8,4 +8,4 @@ bindkey -s "^[j" "tmux-sessionizer ~/shellscripts\n"
 bindkey -s "^[k" "tmux-sessionizer ~/.dotfiles\n"
 bindkey -s "^[u" "tmux-sessionizer ~/Documents/UFSC\n"
 bindkey -s "^[w" "tmux-sessionizer ~/vimwiki\n"
-# bindkey -e
+bindkey -v

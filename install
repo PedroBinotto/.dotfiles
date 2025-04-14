@@ -1,5 +1,12 @@
 #!/bin/bash
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+sudo -v
+
+while true; do sudo -n true; sleep 60; done 2>/dev/null &
+KEEP_ALIVE_PID=$!
+
 sudo apt-add-repository -y universe && sudo apt -y update
 
 xargs sudo apt -y install < packagefile
@@ -8,6 +15,15 @@ chsh -s $(which zsh)
 
 sudo cat ./env > /etc/environment
 
-mkdir ~/Projetos ~/.local/bin
+mkdir ~/.local/bin ~/projects
+
+$SCRIPT_DIR/.helpers/go.sh
+$SCRIPT_DIR/.helpers/nvm.sh
+$SCRIPT_DIR/.helpers/docker.sh
+$SCRIPT_DIR/.helpers/nerd-fonts.sh
+$SCRIPT_DIR/.helpers/kitty.sh
+$SCRIPT_DIR/.helpers/nvim.sh
 
 make all
+
+kill "$KEEP_ALIVE_PID"
