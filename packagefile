@@ -1,6 +1,10 @@
+apparmor 
 build-essential
+cgroup-lite
 cmake
 curl
+docker 
+docker.io
 fzf
 gettext
 git
@@ -21,6 +25,7 @@ libxinerama-dev
 libxkbcommon-x11-dev
 libxrandr-dev
 libxxhash-dev
+lxc
 make
 ninja-build
 python3

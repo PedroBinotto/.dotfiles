@@ -11,4 +11,4 @@ mv JetBrainsMono.tar.xz JetBrains
 cd ~/Downloads/JetBrains
 tar -xvf JetBrainsMono.tar.xz
 cd ~
-mv JetBrains ~/.local/share/fonts
+mv ~/Downloads/JetBrains ~/.local/share/fonts/JetBrains
