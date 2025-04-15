@@ -6,7 +6,6 @@
     "cmake",
     "curl",
     "docker.io",
-    "fzf",
     "gettext",
     "git",
     "git-delta",
@@ -58,6 +57,10 @@
     {
       "package": "Docker configuration",
       "installer": "$SCRIPT_DIR/installers/docker.sh"
+    },
+    {
+      "package": "fzf (Build from source)",
+      "installer": "$SCRIPT_DIR/installers/fzf.sh"
     },
     {
       "package": "NerdFonts (JetBrainsMono) Installation",

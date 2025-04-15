@@ -6,7 +6,7 @@ source $HOME/.zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.keymaps.zsh
 source $HOME/.aliases.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
@@ -17,8 +17,9 @@ export NODE_OPTIONS="--max-old-space-size=8192"
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
+# Created by `pipx` on 2024-09-26 20:23:03
+export PATH="$PATH:/home/pedro/.local/bin"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 
-# Created by `pipx` on 2024-09-26 20:23:03
-export PATH="$PATH:/home/pedro/.local/bin"

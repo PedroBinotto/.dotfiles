@@ -44,11 +44,6 @@ export_env() {  # export_env: export PATH config
   source ./env
 }
 
-export_desktop() {  # export_desktop: export .desktop files (for built-from-source packages)
-  info 'Export desktop entries'
-  sudo cp $SCRIPT_DIR/installers/kitty.desktop /usr/share/applications
-}
-
 create_paths() {  # create_paths: creaetes curstom paths for stow
   info 'Create new ~/.local/bin and ~/projects...'
   mkdir ~/.local/bin ~/projects
@@ -80,7 +75,6 @@ install_apt_packages
 install_snap_packages
 set_zsh_default
 export_env
-export_desktop
 create_paths
 install_custom_packages
 
