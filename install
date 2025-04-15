@@ -25,12 +25,12 @@ install_apt_packages() {
 
 install_snap_packages() {
   info "Installing snap packages..."
-  jq -r '.snap[]' "$PACKAGEFILE" | xargs sudo snap -y install
+  jq -r '.snap[]' "$PACKAGEFILE" | xargs sudo snap install
 }
 
 set_zsh_default() {
   info 'Change default shell to ZSH'
-  chsh -s $(which zsh)
+  chsh -s $(which zsh) "$USER"
 }
 
 export_env() {
