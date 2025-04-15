@@ -6,7 +6,7 @@ cd ~/Downloads
 
 curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
 mv JetBrainsMono.tar.xz JetBrains
-cd JetBrains
+cd ~/Downloads/JetBrains
 tar -xvf JetBrainsMono.tar.xz
 cd ~
 mv JetBrains ~/.local/share/fonts

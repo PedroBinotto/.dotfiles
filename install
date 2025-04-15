@@ -14,7 +14,8 @@ xargs sudo apt -y install < packagefile
 chsh -s $(which zsh)
 
 sudo sh -c 'cat ./env > /etc/environment'
-sudo cp $SCRIPT_DIR/.helpers/kitty.desktop /usr/local/share/applications
+source ./env
+sudo cp $SCRIPT_DIR/.helpers/kitty.desktop /usr/share/applications
 
 mkdir ~/.local/bin ~/projects
 
@@ -28,3 +29,5 @@ $SCRIPT_DIR/.helpers/nvim.sh
 make all
 
 kill "$KEEP_ALIVE_PID"
+
+echo 'Please reboot the system'
