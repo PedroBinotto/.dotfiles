@@ -88,4 +88,4 @@ make all
 
 kill "$KEEP_ALIVE_PID"
 
-sucess 'Please reboot the system in order for the changes to take effect.'
+success 'Please reboot the system in order for the changes to take effect.'
