@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo '[INFO] Installing Neovim (Building from source)...'
+
 cd ~/projects
 
 git clone https://github.com/neovim/neovim
