@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo '[INFO] Installing go 2.24.2...'
-
 mkdir ~/Downloads
 cd ~/Downloads
 

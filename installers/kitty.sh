@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo '[INFO] Installing kitty (Building from source)...'
-
 cd ~/projects
 
 git clone https://github.com/kovidgoyal/kitty.git

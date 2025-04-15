@@ -1,50 +1,88 @@
 #!/bin/bash
 
+set -euo pipefail
+
+PACKAGEFILE="packagefile.json"
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+info() {
+  echo -e "\033[1;34m[INFO]\033[0m $1"
+}
+
+success() {
+  echo -e "\033[1;32m[SUCCESS]\033[0m $1"
+}
+
+add_apt_repos() {
+  info 'Installing jq parser...'
+  sudo apt install jq
+}
+
+install_apt_packages() {
+  info "Installing apt packages..."
+  jq -r '.apt[]' "$PACKAGEFILE" | xargs sudo apt -y install
+}
+
+install_snap_packages() {
+  info "Installing snap packages..."
+  jq -r '.snap[]' "$PACKAGEFILE" | xargs sudo snap -y install
+}
+
+set_zsh_default() {
+  info 'Change default shell to ZSH'
+  chsh -s $(which zsh)
+}
+
+export_env() {
+  info 'Export /etc/environment'
+  sudo sh -c 'cat ./env > /etc/environment'
+  source ./env
+}
+
+export_desktop() {
+  info 'Export desktop entries'
+  sudo cp $SCRIPT_DIR/installers/kitty.desktop /usr/share/applications
+}
+
+create_paths() {
+  info 'Create new ~/.local/bin and ~/projects...'
+  mkdir ~/.local/bin ~/projects
+}
+
+install_custom_packages() {
+  info 'Gunning custom installations...'
+
+  jq -c '.sh[]' "$PACKAGEFILE" | while read -r item; do
+    package=$(jq -r '.package' <<< "$item")
+    raw_installer=$(jq -r '.installer' <<< "$item")
+    installer_path=$(eval echo "$raw_installer")
+
+    echo "[INFO] Running: $package"
+    bash "$installer_path"
+  done
+}
 
 sudo -v
 
 while true; do sudo -n true; sleep 60; done 2>/dev/null &
 KEEP_ALIVE_PID=$!
 
-echo '[INFO] Acrquired sudo permissions.'
+info 'Acrquired sudo permissions.'
 
-echo '[INFO] Adding apt repositories...'
-
+info 'Adding apt repositories...'
 sudo apt-add-repository -y universe && sudo apt -y update
 
-echo '[INFO] Installing apt packages...'
-
-xargs sudo apt -y install < packagefile
-
-echo '[INFO] Change default shell to ZSH'
-
-chsh -s $(which zsh)
-
-echo '[INFO] Export /etc/environment'
-
-sudo sh -c 'cat ./env > /etc/environment'
-source ./env
-
-echo '[INFO] Export desktop entries'
-
-sudo cp $SCRIPT_DIR/.helpers/kitty.desktop /usr/share/applications
-
-echo '[INFO] Create new ~/.local/bin and ~/projects...'
-
-mkdir ~/.local/bin ~/projects
-
-echo '[INFO] Running custom installations...'
-
-$SCRIPT_DIR/.helpers/go.sh
-$SCRIPT_DIR/.helpers/nvm.sh
-$SCRIPT_DIR/.helpers/docker.sh
-$SCRIPT_DIR/.helpers/nerd-fonts.sh
-$SCRIPT_DIR/.helpers/kitty.sh
-$SCRIPT_DIR/.helpers/nvim.sh
+add_apt_repos
+install_apt_packages
+install_snap_packages
+set_zsh_default
+export_env
+export_desktop
+create_paths
+install_custom_packages
 
 make all
 
 kill "$KEEP_ALIVE_PID"
 
-echo 'Please reboot the system'
+sucess 'Please reboot the system in order for the changes to take effect.'

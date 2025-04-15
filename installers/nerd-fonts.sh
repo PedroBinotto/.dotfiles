@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo '[INFO] Installing NerdFonts (JetBrains)...'
-
 mkdir -p ~/Downloads/JetBrains
 mkdir -p ~/.local/share/fonts
 cd ~/Downloads
