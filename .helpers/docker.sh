@@ -4,4 +4,3 @@ echo '[INFO] Configuring Docker...'
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
-newgrp docker
