@@ -13,7 +13,7 @@ xargs sudo apt -y install < packagefile
 
 chsh -s $(which zsh)
 
-sudo cat ./env > /etc/environment
+sudo sh -c 'cat ./env > /etc/environment'
 
 mkdir ~/.local/bin ~/projects
 
@@ -21,7 +21,7 @@ $SCRIPT_DIR/.helpers/go.sh
 $SCRIPT_DIR/.helpers/nvm.sh
 $SCRIPT_DIR/.helpers/docker.sh
 $SCRIPT_DIR/.helpers/nerd-fonts.sh
-$SCRIPT_DIR/.helpers/kitty.sh
+$SCRIPT_DIR/.helpers/kitty.sh   -> Builds kitty from source
 $SCRIPT_DIR/.helpers/nvim.sh
 
 make all

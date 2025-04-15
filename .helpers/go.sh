@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir ~/Downloads
 cd ~/Downloads
 
 sudo rm -rf /usr/local/go
