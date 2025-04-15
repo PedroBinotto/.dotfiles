@@ -8,6 +8,7 @@ Pre-requisites:
 On Ubuntu:
 
 ```bash
+# pwd: $HOME
 git clone --recursive-submodules git@github.com:PedroBinotto/.dotfiles.git
 cd .dotfiles
 ./install
@@ -22,5 +23,5 @@ TODO:
 - [x] Install NerdFonts;
 - [ ] Automate firefox and thunderbird backup and restore;
 - [x] Solve `/etc/environment` bug;
-- [ ] FZF version bug;
+- [x] FZF version bug;
 - [ ] Add spell dict to vim;

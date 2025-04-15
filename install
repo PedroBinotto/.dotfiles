@@ -5,51 +5,56 @@ set -euo pipefail
 PACKAGEFILE="packagefile.json"
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-info() {
+info() {  # info: print formatted info message
   echo -e "\033[1;34m[INFO]\033[0m $1"
 }
 
-success() {
+success() { # success: print formatted success message
   echo -e "\033[1;32m[SUCCESS]\033[0m $1"
 }
 
-add_apt_repos() {
+add_apt_repos() { # add_apt_repos: adds additional apt repositories to pull from
+  info 'Adding apt repositories...'
+  sudo apt-add-repository -y universe && sudo apt -y update
+}
+
+install_jq_parser() {  # install_jq_parser: installs `jq`, a JSON parser used to read the packagefile, required for the script
   info 'Installing jq parser...'
   sudo apt install jq
 }
 
-install_apt_packages() {
+install_apt_packages() {  # install_apt_packages: install packages listed int the `"apt"` section of the packagefile
   info "Installing apt packages..."
   jq -r '.apt[]' "$PACKAGEFILE" | xargs sudo apt -y install
 }
 
-install_snap_packages() {
+install_snap_packages() { # install_snap_packages: install packages listed int the `"snap"` section of the packagefile
   info "Installing snap packages..."
   jq -r '.snap[]' "$PACKAGEFILE" | xargs sudo snap install
 }
 
-set_zsh_default() {
+set_zsh_default() { # set_zsh_default: change default system shell to ZSH
   info 'Change default shell to ZSH'
   chsh -s $(which zsh) "$USER"
 }
 
-export_env() {
+export_env() {  # export_env: export PATH config
   info 'Export /etc/environment'
   sudo sh -c 'cat ./env > /etc/environment'
   source ./env
 }
 
-export_desktop() {
+export_desktop() {  # export_desktop: export .desktop files (for built-from-source packages)
   info 'Export desktop entries'
   sudo cp $SCRIPT_DIR/installers/kitty.desktop /usr/share/applications
 }
 
-create_paths() {
+create_paths() {  # create_paths: creaetes curstom paths for stow
   info 'Create new ~/.local/bin and ~/projects...'
   mkdir ~/.local/bin ~/projects
 }
 
-install_custom_packages() {
+install_custom_packages() { # install_custom_packages: install packages listed int the `"sh"` section of the packagefile
   info 'Gunning custom installations...'
 
   jq -c '.sh[]' "$PACKAGEFILE" | while read -r item; do
@@ -57,7 +62,7 @@ install_custom_packages() {
     raw_installer=$(jq -r '.installer' <<< "$item")
     installer_path=$(eval echo "$raw_installer")
 
-    echo "[INFO] Running: $package"
+    info "Running: $package"
     bash "$installer_path"
   done
 }
@@ -69,10 +74,8 @@ KEEP_ALIVE_PID=$!
 
 info 'Acrquired sudo permissions.'
 
-info 'Adding apt repositories...'
-sudo apt-add-repository -y universe && sudo apt -y update
-
 add_apt_repos
+install_jq_parser
 install_apt_packages
 install_snap_packages
 set_zsh_default
