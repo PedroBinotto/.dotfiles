@@ -3,11 +3,11 @@ build-essential
 cgroup-lite
 cmake
 curl
-docker 
 docker.io
 fzf
 gettext
 git
+git-delta
 kitty
 libcairo2-dev
 libdbus-1-dev
@@ -35,6 +35,7 @@ ripgrep
 stow
 texlive-full
 tmux
+wmdocker 
 xclip
 zathura
 zathura-pdf-poppler
