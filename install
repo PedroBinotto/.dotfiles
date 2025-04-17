@@ -35,7 +35,7 @@ install_snap_packages() { # install_snap_packages: install packages listed int t
 
 set_zsh_default() { # set_zsh_default: change default system shell to ZSH
   info 'Change default shell to ZSH'
-  chsh -s $(which zsh) "$USER"
+  sudo chsh -s $(which zsh) "$USER"
 }
 
 export_env() {  # export_env: export PATH config
