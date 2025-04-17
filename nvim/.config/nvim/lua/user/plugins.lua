@@ -75,16 +75,11 @@ return packer.startup(function(use)
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use({ "vimwiki/vimwiki", commit = "7279261" })
   use({ "kevinhwang91/nvim-bqf", ft = "qf", commit = "ebb6d26" })
+  use({ "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig", commit = "8649f69" })
   use({
     "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    setup = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
-    commit = "a923f5f"
+    run = function() vim.fn["mkdp#util#install"]() end,
   })
-  use({ "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig", commit = "8649f69" })
   use({ "folke/tokyonight.nvim", commit = "84ea0b5" })
   use({ "tjdevries/colorbuddy.nvim", commit = "8b96858" })
 

@@ -9,6 +9,7 @@
     "gettext",
     "git",
     "git-delta",
+    "htop",
     "kitty",
     "libcairo2-dev",
     "libdbus-1-dev",
