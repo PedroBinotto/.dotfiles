@@ -60,6 +60,10 @@
       "installer": "$SCRIPT_DIR/installers/docker.sh"
     },
     {
+      "package": "makedocument (LaTeX shellscript collection)",
+      "installer": "$SCRIPT_DIR/installers/makedocument.sh"
+    },
+    {
       "package": "fzf (Build from source)",
       "installer": "$SCRIPT_DIR/installers/fzf.sh"
     },
