@@ -1,5 +1,5 @@
 **/**/packer_compiled.lua
-**/node_modules
-**/nvim/.config/nvim/spell
+**/nvim/.config/nvim/spell/*.spl
+**/nvim/.config/nvim/spell/*.sug
 **/nvim/Projetos
 **/nvim/plugin

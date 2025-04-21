@@ -44,15 +44,15 @@ export_env() {  # export_env: export PATH config
   source ./env
 }
 
-create_paths() {  # create_paths: creaetes curstom paths for stow
+create_paths() {  # create_paths: creates curstom paths for stow
   info 'Create new ~/.local/bin and ~/projects...'
   mkdir ~/.local/bin ~/projects
 }
 
-install_custom_packages() { # install_custom_packages: install packages listed int the `"sh"` section of the packagefile
-  info 'Gunning custom installations...'
+run_custom_installers() {
+  local attr="$1"
 
-  jq -c '.sh[]' "$PACKAGEFILE" | while read -r item; do
+  jq -c --arg attr "$attr" '.[$attr][]?' "$PACKAGEFILE" | while read -r item; do
     package=$(jq -r '.package' <<< "$item")
     raw_installer=$(jq -r '.installer' <<< "$item")
     installer_path=$(eval echo "$raw_installer")
@@ -62,12 +62,22 @@ install_custom_packages() { # install_custom_packages: install packages listed i
   done
 }
 
+install_custom_packages() { # install_custom_packages: install packages listed int the `"sh"` section of the packagefile
+  info 'Running custom installations...'
+  run_custom_installers 'sh'
+}
+
+after() { # after: actions to be run after STOW
+  info 'Running custom installations...'
+  run_custom_installers 'after'
+}
+
 sudo -v
 
 while true; do sudo -n true; sleep 60; done 2>/dev/null &
 KEEP_ALIVE_PID=$!
 
-info 'Acrquired sudo permissions.'
+info 'Acquired sudo permissions.'
 
 add_apt_repos
 install_jq_parser
@@ -79,6 +89,8 @@ create_paths
 install_custom_packages
 
 make all
+
+after
 
 kill "$KEEP_ALIVE_PID"
 

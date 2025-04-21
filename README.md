@@ -16,4 +16,3 @@ cd .dotfiles
 
 TODO:
 - [ ] Automate firefox and thunderbird backup and restore;
-- [ ] Add spell dict to vim;

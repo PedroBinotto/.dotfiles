@@ -80,5 +80,11 @@
       "package": "nvim (Build from source)",
       "installer": "$SCRIPT_DIR/installers/nvim.sh"
     }
+  ],
+  "after": [
+    {
+      "package": "nvim (pt_br spell and suggestion files)",
+      "installer": "$SCRIPT_DIR/installers/after/nvim_spell.sh"
+    }
   ]
 }
