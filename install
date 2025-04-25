@@ -2,16 +2,24 @@
 
 set -euo pipefail
 
+# DRYRUN=false
 PACKAGEFILE="packagefile.json"
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+LOGFILE="$SCRIPT_DIR/install.log"
 
 info() {  # info: print formatted info message
-  echo -e "\033[1;34m[INFO]\033[0m $1"
+  echo -e "\033[1;34m[INFO]\033[0m $1" | tee -a "$LOGFILE" >&1;
 }
 
 success() { # success: print formatted success message
-  echo -e "\033[1;32m[SUCCESS]\033[0m $1"
+  echo -e "\033[1;32m[SUCCESS]\033[0m $1" | tee -a "$LOGFILE" >&1;
 }
+
+error() { # error: print formatted error message
+  echo -e "\033[1;31m[ERROR]\033[0m $1" | tee -a "$LOGFILE" >&2;
+}
+
+trap 'error "Script failed at line $LINENO"; exit 1' ERR
 
 add_apt_repos() { # add_apt_repos: adds additional apt repositories to pull from
   info 'Adding apt repositories...'
@@ -58,7 +66,12 @@ run_custom_installers() {
     installer_path=$(eval echo "$raw_installer")
 
     info "Running: $package"
-    bash "$installer_path"
+    if bash "$installer_path"; then
+      success "$package run successfully."
+    else
+      error "$package failed."
+      exit 1
+    fi
   done
 }
 
