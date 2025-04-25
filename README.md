@@ -1,5 +1,7 @@
 # .dofiles
 
+## installation
+
 Pre-requisites:
 - `git`;
 
@@ -7,7 +9,7 @@ On Ubuntu:
 
 ```bash
 # pwd: $HOME
-git clone --recursive-submodules git@github.com:PedroBinotto/.dotfiles.git
+git clone --recursive git@github.com:PedroBinotto/.dotfiles.git
 cd .dotfiles
 ./install
 ```
