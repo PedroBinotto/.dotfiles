@@ -30,6 +30,7 @@
     "lxc",
     "make",
     "ninja-build",
+    "pipx",
     "python3",
     "python3-pip",
     "python3-venv ",
@@ -79,6 +80,14 @@
     {
       "package": "nvim (Build from source)",
       "installer": "$SCRIPT_DIR/installers/nvim.sh"
+    },
+    {
+      "package": "pipx ensurepath",
+      "installer": "$SCRIPT_DIR/installers/pipx.sh"
+    },
+    {
+      "package": "Poetry",
+      "installer": "$SCRIPT_DIR/installers/poetry.sh"
     }
   ],
   "after": [
