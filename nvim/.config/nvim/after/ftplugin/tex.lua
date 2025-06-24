@@ -5,7 +5,6 @@ keymap("", "<Bslash>", "<Nop>", opts) -- TODO: Source from 'user.keymaps' or smt
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = "\\"
 vim.o.spell = true
-vim.o.spell = true
 vim.o.spelllang = "en,pt_br"
 vim.o.textwidth = 120
 
