@@ -39,6 +39,7 @@ o.list = true
 o.laststatus = 3
 o.hidden = true
 o.exrc = false
+o.spell = false
 o.background = "dark"
 o.shortmess:append("c")
 g.tex_flavor = "latex"
