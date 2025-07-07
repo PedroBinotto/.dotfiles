@@ -36,6 +36,7 @@
     "python3-venv ",
     "ripgrep",
     "stow",
+    "taskwarrior",
     "texlive-full",
     "tmux",
     "tree-sitter-cli",
