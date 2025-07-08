@@ -1,9 +1,17 @@
-local cmd = [[
-let wiki = {}
-let wiki.path = '~/vimwiki/'
-let wiki.nested_syntaxes = { 'python': 'python', 'java': 'java', 'kotlin': 'kotlin', 'c++': 'cpp', 'c': 'c' }
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_global_ext = 0
-]]
-
-vim.cmd(cmd)
+local wiki_path = '~/vimwiki/'
+local nested_syntaxes = {
+  python = 'python',
+  java = 'java',
+  kotlin = 'kotlin',
+  ['c++'] = 'cpp',
+  c = 'c',
+}
+vim.g.vimwiki_list = {
+  {
+    path = wiki_path,
+    syntax = 'markdown',
+    ext = '.md',
+  }
+}
+vim.g.vimwiki_global_ext = 0
+vim.g.vimwiki_nested_syntaxes = nested_syntaxes
