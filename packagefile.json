@@ -89,6 +89,10 @@
     {
       "package": "Poetry",
       "installer": "$SCRIPT_DIR/installers/poetry.sh"
+    },
+    {
+      "package": "Personal wiki and notes (vimwiki)",
+      "installer": "$SCRIPT_DIR/installers/vimwiki.sh"
     }
   ],
   "after": [

@@ -7,6 +7,7 @@ vim.g.maplocalleader = "\\"
 vim.o.spell = true
 vim.o.spelllang = "en,pt_br"
 vim.o.textwidth = 120
+vim.o.wrap = true
 
 keymap("i", "<leader>bg", "\\begin{<>}<Enter>end{<>}<Esc>kT{vi{<C-n><C-n>", { noremap = false, silent = true })
 keymap("i", "<leader>em", "\\emph{}<Space><><Esc>T{i", opts)

@@ -14,4 +14,5 @@ vim.g.vimwiki_list = {
   }
 }
 vim.g.vimwiki_global_ext = 0
+vim.g.vimwiki_markdown_link_ext = 1
 vim.g.vimwiki_nested_syntaxes = nested_syntaxes
