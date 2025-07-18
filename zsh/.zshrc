@@ -20,7 +20,8 @@ export NVM_DIR=~/.nvm
 # Created by `pipx` on 2024-09-26 20:23:03
 export PATH="$PATH:/home/pedro/.local/bin"
 
+source $HOME/.autoexec.sh
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
-
-source $HOME/.autoexec.sh
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"

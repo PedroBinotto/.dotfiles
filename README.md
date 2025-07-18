@@ -59,15 +59,18 @@ Running it will install the following packages (from `apt`):
 - `lxc`;
 - `make`;
 - `ninja-build`;
+- `pipx`;
+- `python-is-python3`;
 - `python3`;
 - `python3-pip`;
-- `python3-venv `;
+- `python3-venv`;
 - `ripgrep`;
 - `stow`;
+- `taskwarrior`;
 - `texlive-full`;
 - `tmux`;
 - `tree-sitter-cli`;
-- `wmdocker `;
+- `wmdocker`;
 - `xclip`;
 - `zathura`;
 - `zathura-pdf-poppler`;
@@ -85,6 +88,9 @@ because the download is too outdated in the default repositories or it is simply
 - `fzf`;
 - `kitty`;
 - `nvim`;
+- `sdkman` (via `curl`);
+- `java` \[`8.0.442-zulu`, `17.0.14-zulu`\] (via `sdkman`);
+- `maven` \[`3.9.3`\] (via `sdkman`);
 
 The installation script will also install custom system fonts and some custom utilities that I developed for day-to-day use 
 but keep in separate repositories:

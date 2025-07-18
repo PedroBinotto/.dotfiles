@@ -31,16 +31,17 @@
     "make",
     "ninja-build",
     "pipx",
+    "python-is-python3",
     "python3",
     "python3-pip",
-    "python3-venv ",
+    "python3-venv",
     "ripgrep",
     "stow",
     "taskwarrior",
     "texlive-full",
     "tmux",
     "tree-sitter-cli",
-    "wmdocker ",
+    "wmdocker",
     "xclip",
     "zathura",
     "zathura-pdf-poppler",
@@ -91,6 +92,10 @@
       "installer": "$SCRIPT_DIR/installers/poetry.sh"
     },
     {
+      "package": "SDKMAN",
+      "installer": "$SCRIPT_DIR/installers/sdkman.sh"
+    },
+    {
       "package": "Personal wiki and notes (vimwiki)",
       "installer": "$SCRIPT_DIR/installers/vimwiki.sh"
     }
@@ -99,6 +104,14 @@
     {
       "package": "nvim (pt_br spell and suggestion files)",
       "installer": "$SCRIPT_DIR/installers/after/nvim_spell.sh"
+    },
+    {
+      "package": "Apache Maven (via SDKMAN)",
+      "installer": "$SCRIPT_DIR/installers/after/maven.sh"
+    },
+    {
+      "package": "Java (via SDKMAN)",
+      "installer": "$SCRIPT_DIR/installers/after/java.sh"
     }
   ]
 }
