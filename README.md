@@ -59,7 +59,6 @@ Running it will install the following packages (from `apt`):
 - `lxc`;
 - `make`;
 - `ninja-build`;
-- `pipx`;
 - `python-is-python3`;
 - `python3`;
 - `python3-pip`;
@@ -91,6 +90,7 @@ because the download is too outdated in the default repositories or it is simply
 - `sdkman` (via `curl`);
 - `java` \[`8.0.442-zulu`, `17.0.14-zulu`\] (via `sdkman`);
 - `maven` \[`3.9.3`\] (via `sdkman`);
+- `pipx` (via custom repo because of unsolved issue [pypa/pipx#1524](https://github.com/pypa/pipx/issues/1524));
 
 The installation script will also install custom system fonts and some custom utilities that I developed for day-to-day use 
 but keep in separate repositories:
