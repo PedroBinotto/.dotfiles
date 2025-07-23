@@ -61,6 +61,7 @@ Running it will install the following packages (from `apt`):
 - `ninja-build`;
 - `python-is-python3`;
 - `python3`;
+- `python3-argcomplete`;
 - `python3-pip`;
 - `python3-venv`;
 - `ripgrep`;
