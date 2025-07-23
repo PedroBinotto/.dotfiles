@@ -12,7 +12,7 @@ cd ~/projects
 
 git clone git@github.com:zinc75/pipx-1.6.0-backport-ubuntu-2404-lts.git pipx
 cd pipx
-sudo dpkg -i python-pipx_1.6.0-1ubuntu24.04-backport1_all.deb
+sudo dpkg -i pipx_1.6.0-1_all.deb
 sudo apt -f install
 sudo pipx ensurepath --global
 
