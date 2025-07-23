@@ -62,7 +62,13 @@ Running it will install the following packages (from `apt`):
 - `python-is-python3`;
 - `python3`;
 - `python3-argcomplete`;
+- `python3-hatch-vcs`;
+- `python3-hatchling`;
+- `python3-packaging`;
 - `python3-pip`;
+- `python3-platformdirs`;
+- `python3-tomli`;
+- `python3-userpath`;
 - `python3-venv`;
 - `ripgrep`;
 - `stow`;
