@@ -22,7 +22,7 @@ cd .dotfiles
 
 This repo contains my personal configuration files for the tools and programs I use most often.
 Everything is organized to make updates/maintanance simple and manageable, and facilitate configuring a new machine.
-This current version is made to work with modern Ubuntu installations (last tested on 24.04).
+This current version is made to work with modern Ubuntu installations (last tested on 24.04, 23-07-25).
 
 ### the install script
 
