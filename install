@@ -57,6 +57,11 @@ create_paths() {  # create_paths: creates curstom paths for stow
   mkdir ~/.local/bin ~/projects
 }
 
+setup_cron() {    # setup_cron: loads crontab backup
+  info 'Loading user crontab...'
+  crontab ./crontab.txt
+}
+
 run_custom_installers() {
   local attr="$1"
 
@@ -99,6 +104,7 @@ install_snap_packages
 set_zsh_default
 export_env
 create_paths
+setup_cron
 install_custom_packages
 
 make all
