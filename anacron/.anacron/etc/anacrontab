@@ -1,0 +1,2 @@
+# period   delay   job-identifier     command
+1          5       vimwiki-backup     ~/.anacron/scripts/vimwiki-backup.sh

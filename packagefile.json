@@ -1,5 +1,6 @@
 {
   "apt": [
+    "anacron",
     "apparmor",
     "build-essential",
     "cgroup-lite",
