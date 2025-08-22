@@ -1,3 +1,4 @@
+**/anacron/.anacron/spool
 **/**/packer_compiled.lua
 **/nvim/.config/nvim/spell/*.spl
 **/nvim/.config/nvim/spell/*.sug
