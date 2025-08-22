@@ -59,6 +59,7 @@ create_paths() {  # create_paths: creates curstom paths for stow
 
 setup_cron() {    # setup_cron: loads crontab backup
   info 'Loading user crontab...'
+  mkdir -p ~/.anacron/spool
   crontab ./crontab.txt
 }
 
