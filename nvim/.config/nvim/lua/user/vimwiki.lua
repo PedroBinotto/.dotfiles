@@ -1,4 +1,6 @@
 local wiki_path = '~/vimwiki/'
+local html_path = '~/Documents/vimwiki/html/'
+local converter = 'custom_converter.py'
 local nested_syntaxes = {
   python = 'python',
   java = 'java',
@@ -6,10 +8,13 @@ local nested_syntaxes = {
   ['c++'] = 'cpp',
   c = 'c',
 }
+
 vim.g.vimwiki_list = {
   {
     path = wiki_path,
+    path_html = html_path,
     syntax = 'markdown',
+    custom_wiki2html = wiki_path .. converter,
     ext = '.md',
   }
 }
