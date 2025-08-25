@@ -29,6 +29,7 @@ This current version is made to work with modern Ubuntu installations (last test
 The repo also includes an "[`install`](https://github.com/PedroBinotto/.dotfiles/blob/main/install)" shellscript.
 Running it will install the following packages (from `apt`):
 
+- `anacron`;
 - `apparmor`;
 - `build-essential`;
 - `cgroup-lite`;
@@ -105,6 +106,8 @@ but keep in separate repositories:
 - [`makedocument`](https://github.com/PedroBinotto/makedocument/);
 - [`shellscripts`](https://github.com/PedroBinotto/shellscripts/);
 - [`zap-prompt`](https://github.com/PedroBinotto/zap-prompt);
+
+My `crontab` and `anacron` scripts will also be configured.
 
 Lastly, it will symlink the configuration files to their target directories and prompt the user to reboot the system:
 ```
