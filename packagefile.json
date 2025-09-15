@@ -105,7 +105,11 @@
     {
       "package": "Personal wiki and notes (vimwiki)",
       "installer": "$SCRIPT_DIR/installers/vimwiki.sh"
-    }
+    },
+    {
+      "package": "Anacron configuration",
+      "installer": "$SCRIPT_DIR/installers/anacron.sh"
+    },
   ],
   "after": [
     {
