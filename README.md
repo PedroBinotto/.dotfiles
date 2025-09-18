@@ -37,8 +37,8 @@ Running it will install the following packages (from `apt`):
 - `curl`;
 - `docker.io`;
 - `gettext`;
-- `git`;
 - `git-delta`;
+- `git`;
 - `htop`;
 - `kitty`;
 - `libcairo2-dev`;
@@ -61,7 +61,6 @@ Running it will install the following packages (from `apt`):
 - `make`;
 - `ninja-build`;
 - `python-is-python3`;
-- `python3`;
 - `python3-argcomplete`;
 - `python3-hatch-vcs`;
 - `python3-hatchling`;
@@ -71,6 +70,8 @@ Running it will install the following packages (from `apt`):
 - `python3-tomli`;
 - `python3-userpath`;
 - `python3-venv`;
+- `python3`;
+- `ranger`;
 - `ripgrep`;
 - `stow`;
 - `taskwarrior`;
@@ -79,8 +80,8 @@ Running it will install the following packages (from `apt`):
 - `tree-sitter-cli`;
 - `wmdocker`;
 - `xclip`;
-- `zathura`;
 - `zathura-pdf-poppler`;
+- `zathura`;
 - `zsh`;
 
 these packages from `snap`:
@@ -110,6 +111,7 @@ but keep in separate repositories:
 My `crontab` and `anacron` scripts will also be configured.
 
 Lastly, it will symlink the configuration files to their target directories and prompt the user to reboot the system:
+
 ```
 ...
 [SUCCESS] Please reboot the system in order for the changes to take effect.

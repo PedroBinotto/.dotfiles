@@ -42,6 +42,7 @@
     "python3-tomli",
     "python3-userpath",
     "python3-venv",
+    "ranger",
     "ripgrep",
     "stow",
     "taskwarrior",
