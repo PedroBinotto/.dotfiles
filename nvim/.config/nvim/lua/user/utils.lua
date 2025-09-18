@@ -5,9 +5,6 @@ local telescope_finders = require("telescope.finders")
 local telescope_pickers = require("telescope.pickers")
 local oil = require("user.oil")
 
----@class Params
-local Params = {}
-
 local M = {}
 
 local harpoon_get_paths = function(files)
@@ -66,15 +63,6 @@ end
 
 function M.is_empty(string)
   return string == nil or string == ""
-end
-
----@param motion string
----@param fn fun(text_obj: string, opts: Params)
----@param fn_opts Params
-function M.run_on_motion(motion, fn, fn_opts)
-  vim.cmd.normal({ args = { '"zy' .. motion }, bang = true })
-  local text = vim.fn.getreg("z")
-  fn(text, fn_opts)
 end
 
 return M
