@@ -109,6 +109,17 @@ but keep in separate repositories:
 - [`shellscripts`](https://github.com/PedroBinotto/shellscripts/);
 - [`zap-prompt`](https://github.com/PedroBinotto/zap-prompt);
 
+As well as my custom Gnome keybindings:
+
+```bash
+gsettings list-recursively org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/
+
+# org.gnome.settings-daemon.plugins.media-keys.custom-keybinding binding '<Ctrl><Alt>t'
+# org.gnome.settings-daemon.plugins.media-keys.custom-keybinding command 'kitty'
+# org.gnome.settings-daemon.plugins.media-keys.custom-keybinding name 'Kitty Terminal'
+
+```
+
 My `crontab` and `anacron` scripts will also be configured.
 
 Lastly, it will symlink the configuration files to their target directories and prompt the user to reboot the system:
@@ -121,6 +132,6 @@ Lastly, it will symlink the configuration files to their target directories and 
 ---
 
 ## todo
-- [ ] Automate firefox and thunderbird backup and restore;
+
 - [ ] Automatically install gnome extensions (espresso, etc.);
 - [ ] Automatically set cutom gnome shortcuts;
