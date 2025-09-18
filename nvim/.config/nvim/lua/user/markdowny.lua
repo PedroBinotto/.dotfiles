@@ -4,6 +4,13 @@ if not markdowny_status_ok then
   return
 end
 
-markdowny.setup()
+markdowny.setup({
+  filetypes = {
+    'markdown',
+    'vimwiki',
+    'gitcommit',
+    'hgcommit'
+  }
+})
 
 return markdowny
