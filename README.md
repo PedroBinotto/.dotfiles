@@ -134,4 +134,4 @@ Lastly, it will symlink the configuration files to their target directories and 
 ## todo
 
 - [ ] Automatically install gnome extensions (espresso, etc.);
-- [ ] Automatically set cutom gnome shortcuts;
+- [x] Automatically set cutom gnome shortcuts;
