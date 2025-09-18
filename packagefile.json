@@ -111,6 +111,10 @@
       "package": "Anacron configuration",
       "installer": "$SCRIPT_DIR/installers/anacron.sh"
     },
+    {
+      "package": "lua-language-server (Build from source)",
+      "installer": "$SCRIPT_DIR/installers/lua-ls.sh"
+    }
   ],
   "after": [
     {

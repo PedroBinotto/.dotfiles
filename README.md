@@ -96,6 +96,7 @@ because the download is too outdated in the default repositories or it is simply
 - `fzf`;
 - `kitty`;
 - `nvim`;
+- `lua-language-server`;
 - `sdkman` (via `curl`);
 - `java` \[`8.0.442-zulu`, `17.0.14-zulu`\] (via `sdkman`);
 - `maven` \[`3.9.3`\] (via `sdkman`);
