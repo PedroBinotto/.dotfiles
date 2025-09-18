@@ -1,4 +1,4 @@
-local markdown_status_ok, markdown = pcall(require, "render-markdown.nvim")
+local markdown_status_ok, markdown = pcall(require, "render-markdown")
 if not markdown_status_ok then
   print("Failed to load module 'render-markdown.nvim'.")
   return
