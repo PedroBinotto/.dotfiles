@@ -48,3 +48,5 @@ g.skip_ts_context_commentstring_module = true
 c("set listchars=tab:»·,eol:¬,trail:·")
 c("set whichwrap+=<,>,[,],h,l")
 c([[set iskeyword+=-]])
+
+vim.treesitter.language.register('markdown', 'vimwiki')

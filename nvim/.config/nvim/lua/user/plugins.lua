@@ -37,7 +37,6 @@ packer.init({
 
 return packer.startup(function(use)
   use({ "wbthomason/packer.nvim" })
-  use({ "kylechui/nvim-surround" })
   use({ "nvim-lua/popup.nvim" })
   use({ "nvim-lua/plenary.nvim" })
   use({ "folke/zen-mode.nvim", commit = "863f150" })
@@ -83,6 +82,13 @@ return packer.startup(function(use)
   })
   use({ "folke/tokyonight.nvim", commit = "84ea0b5" })
   use({ "tjdevries/colorbuddy.nvim", commit = "8b96858" })
+  use({ "antonk52/markdowny.nvim" })
+  use({ "kylechui/nvim-surround" })
+  use({
+    'MeanderingProgrammer/render-markdown.nvim',
+    after = { 'nvim-treesitter' },
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+  })
 
   -- colorschemes
 

@@ -5,3 +5,5 @@ if not status_ok then
 end
 
 surround.setup()
+
+return surround
