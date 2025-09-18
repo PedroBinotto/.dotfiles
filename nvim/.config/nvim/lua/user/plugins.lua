@@ -37,6 +37,7 @@ packer.init({
 
 return packer.startup(function(use)
   use({ "wbthomason/packer.nvim" })
+  use({ "kylechui/nvim-surround" })
   use({ "nvim-lua/popup.nvim" })
   use({ "nvim-lua/plenary.nvim" })
   use({ "folke/zen-mode.nvim", commit = "863f150" })
