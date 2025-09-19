@@ -18,11 +18,15 @@ add_shortcut() {
   local EXISTING
   EXISTING=$(gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings)
 
-  if [[ "$EXISTING" != *"$BASE_PATH"* ]]; then
-    local UPDATED
+  if [[ "$EXISTING" == "@as []" || "$EXISTING" == "[]" ]]; then
+    UPDATED="['$BASE_PATH']"
+  elif [[ "$EXISTING" != *"$BASE_PATH"* ]]; then
     UPDATED=$(echo "$EXISTING" | sed "s/]$/, '${BASE_PATH//\//\\/}']/")
-    gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "$UPDATED"
+  else
+    UPDATED="$EXISTING"
   fi
+
+  gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "$UPDATED"
 
   gsettings set "$SCHEMA" name "$NAME"
   gsettings set "$SCHEMA" command "$COMMAND"
