@@ -66,4 +66,5 @@ add_gnome_keybinding() {
     echo "Path: $new"
 }
 
-add_gnome_keybinding "Open Terminal (kitty)" "kitty" "<Ctrl><Alt>t"
+add_gnome_keybinding "Open Terminal (kitty)" "sh -c '/opt/kitty/kitty/launcher/kitty'" "<Ctrl><Alt>t"
+
