@@ -114,10 +114,6 @@
     {
       "package": "lua-language-server (Build from source)",
       "installer": "$SCRIPT_DIR/installers/lua-ls.sh"
-    },
-    {
-      "package": "Gnome keybindings",
-      "installer": "$SCRIPT_DIR/installers/gnome-keymaps.sh"
     }
   ],
   "after": [
