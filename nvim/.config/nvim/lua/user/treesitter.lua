@@ -48,7 +48,7 @@ configs.setup({
   autopairs = {
     enable = true,
   },
-  indent = { enable = true, disable = { "python", "yaml" } },
+  indent = { enable = true, disable = { "yaml" } },
 })
 
 return tresitter
