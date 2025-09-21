@@ -34,6 +34,7 @@ Running it will install the following packages (from `apt`):
 - `build-essential`;
 - `cgroup-lite`;
 - `cmake`;
+- `cloc`;
 - `curl`;
 - `docker.io`;
 - `gettext`;

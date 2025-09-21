@@ -4,6 +4,7 @@
     "apparmor",
     "build-essential",
     "cgroup-lite",
+    "cloc",
     "cmake",
     "curl",
     "docker.io",
