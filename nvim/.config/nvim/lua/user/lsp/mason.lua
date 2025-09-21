@@ -9,7 +9,7 @@ local servers = {
   "html",
   "jsonls",
   "lua_ls",
-  "pyright",
+  "basedpyright",
   "ruff",
   "solidity",
   "sqlls",
