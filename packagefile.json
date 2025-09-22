@@ -2,6 +2,7 @@
   "apt": [
     "anacron",
     "apparmor",
+    "bsdmainutils",
     "build-essential",
     "cgroup-lite",
     "cloc",

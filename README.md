@@ -31,6 +31,7 @@ Running it will install the following packages (from `apt`):
 
 - `anacron`;
 - `apparmor`;
+- `bsdmainutils`;
 - `build-essential`;
 - `cgroup-lite`;
 - `cmake`;
