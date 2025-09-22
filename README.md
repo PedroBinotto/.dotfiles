@@ -61,6 +61,7 @@ Running it will install the following packages (from `apt`):
 - `lxc`;
 - `make`;
 - `ninja-build`;
+- `pandoc`;
 - `python-is-python3`;
 - `python3-argcomplete`;
 - `python3-hatch-vcs`;
