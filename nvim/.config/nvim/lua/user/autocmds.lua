@@ -19,7 +19,21 @@ local function enable_vimwiki_diary_template()
   })
 end
 
+
+local function setup_dadbod_completion()
+  local cmp = require('cmp')
+  local autocomplete_group = vim.api.nvim_create_augroup('vimrc_autocompletion', { clear = true })
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'sql', 'mysql', 'plsql' },
+    callback = function()
+      cmp.setup.buffer({ sources = { { name = 'vim-dadbod-completion' } } })
+    end,
+    group = autocomplete_group,
+  })
+end
+
 configure_format_on_save()
 enable_vimwiki_diary_template()
+setup_dadbod_completion()
 
 -- TODO: autocmd numbertoggle

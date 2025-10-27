@@ -89,11 +89,26 @@ return packer.startup(function(use)
     after = { 'nvim-treesitter' },
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
   })
+  use({
+    'kristijanhusak/vim-dadbod-ui',
+    requires = {
+      { 'tpope/vim-dadbod' },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' } },
+    },
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    config = function()
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  })
 
   -- colorschemes
 
   use("folke/tokyonight.nvim")
-  use({ "tjdevries/colorbuddy.nvim" })
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
