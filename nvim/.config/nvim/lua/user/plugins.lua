@@ -105,6 +105,14 @@ return packer.startup(function(use)
       vim.g.db_ui_use_nerd_fonts = 1
     end,
   })
+  use({
+    "hedyhli/outline.nvim",
+    config = function()
+      vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>",
+        { desc = "Toggle Outline" })
+      require("outline").setup {}
+    end
+  })
 
   -- colorschemes
 
