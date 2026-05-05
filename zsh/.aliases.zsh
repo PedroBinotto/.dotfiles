@@ -1,10 +1,6 @@
 #/bin/zsh
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias ls="ls -G"
-else
-  alias ls="ls --color=auto"
-fi
+alias ls="ls --color=auto"
 alias l="ls -al"
 alias vi="nvim"
 alias vim="nvim"

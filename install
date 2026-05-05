@@ -1,0 +1,117 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# DRYRUN=false
+PACKAGEFILE="packagefile.json"
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+LOGFILE="$SCRIPT_DIR/install.log"
+
+info() {  # info: print formatted info message
+  echo -e "\033[1;34m[INFO]\033[0m $1" | tee -a "$LOGFILE" >&1;
+}
+
+success() { # success: print formatted success message
+  echo -e "\033[1;32m[SUCCESS]\033[0m $1" | tee -a "$LOGFILE" >&1;
+}
+
+error() { # error: print formatted error message
+  echo -e "\033[1;31m[ERROR]\033[0m $1" | tee -a "$LOGFILE" >&2;
+}
+
+trap 'error "Script failed at line $LINENO"; exit 1' ERR
+
+add_apt_repos() { # add_apt_repos: adds additional apt repositories to pull from
+  info 'Adding apt repositories...'
+  sudo apt-add-repository -y universe && sudo apt -y update
+}
+
+install_jq_parser() {  # install_jq_parser: installs `jq`, a JSON parser used to read the packagefile, required for the script
+  info 'Installing jq parser...'
+  sudo apt install jq
+}
+
+install_apt_packages() {  # install_apt_packages: install packages listed int the `"apt"` section of the packagefile
+  info "Installing apt packages..."
+  jq -r '.apt[]' "$PACKAGEFILE" | xargs sudo apt -y install
+}
+
+install_snap_packages() { # install_snap_packages: install packages listed int the `"snap"` section of the packagefile
+  info "Installing snap packages..."
+  jq -r '.snap[]' "$PACKAGEFILE" | xargs sudo snap install
+}
+
+set_zsh_default() { # set_zsh_default: change default system shell to ZSH
+  info 'Change default shell to ZSH'
+  sudo chsh -s $(which zsh) "$USER"
+}
+
+export_env() {  # export_env: export PATH config
+  info 'Export /etc/environment'
+  sudo sh -c 'cat ./env > /etc/environment'
+  source ./env
+}
+
+create_paths() {  # create_paths: creates curstom paths for stow
+  info 'Create new ~/.local/bin and ~/projects...'
+  mkdir ~/.local/bin ~/projects
+}
+
+setup_cron() {    # setup_cron: loads crontab backup
+  info 'Loading user crontab...'
+  mkdir -p ~/.anacron/spool
+  crontab ./crontab.txt
+}
+
+run_custom_installers() {
+  local attr="$1"
+
+  jq -c --arg attr "$attr" '.[$attr][]?' "$PACKAGEFILE" | while read -r item; do
+    package=$(jq -r '.package' <<< "$item")
+    raw_installer=$(jq -r '.installer' <<< "$item")
+    installer_path=$(eval echo "$raw_installer")
+
+    info "Running: $package"
+    if bash "$installer_path"; then
+      success "$package run successfully."
+    else
+      error "$package failed."
+      exit 1
+    fi
+  done
+}
+
+install_custom_packages() { # install_custom_packages: install packages listed int the `"sh"` section of the packagefile
+  info 'Running custom installations...'
+  run_custom_installers 'sh'
+}
+
+after() { # after: actions to be run after STOW
+  info 'Running custom installations...'
+  run_custom_installers 'after'
+}
+
+sudo -v
+
+while true; do sudo -n true; sleep 60; done 2>/dev/null &
+KEEP_ALIVE_PID=$!
+
+info 'Acquired sudo permissions.'
+
+add_apt_repos
+install_jq_parser
+install_apt_packages
+install_snap_packages
+set_zsh_default
+export_env
+create_paths
+setup_cron
+install_custom_packages
+
+make all
+
+after
+
+kill "$KEEP_ALIVE_PID"
+
+success 'Please reboot the system in order for the changes to take effect.'
