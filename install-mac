@@ -1,0 +1,98 @@
+#!/bin/bash
+
+set -euo pipefail
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+LOGFILE="$SCRIPT_DIR/install.log"
+
+info()    { echo -e "\033[1;34m[INFO]\033[0m $1"    | tee -a "$LOGFILE" >&1; }
+success() { echo -e "\033[1;32m[SUCCESS]\033[0m $1" | tee -a "$LOGFILE" >&1; }
+error()   { echo -e "\033[1;31m[ERROR]\033[0m $1"   | tee -a "$LOGFILE" >&2; }
+
+trap 'error "Script failed at line $LINENO"; exit 1' ERR
+
+check_brew() {
+  if ! command -v brew &>/dev/null; then
+    error "Homebrew not found. Install it from https://brew.sh and re-run."
+    exit 1
+  fi
+}
+
+BREW_FORMULAE=(tmux neovim stow fzf git-delta ripgrep go node task pandoc)
+BREW_CASKS=(kitty font-jetbrains-mono-nerd-font)
+
+preflight_check() {
+  info "Checking all packages exist in Homebrew before installing..."
+  local missing=0
+
+  for pkg in "${BREW_FORMULAE[@]}"; do
+    if ! brew info --formula "$pkg" &>/dev/null; then
+      error "Unknown formula: $pkg"
+      missing=1
+    fi
+  done
+
+  for cask in "${BREW_CASKS[@]}"; do
+    if ! brew info --cask "$cask" &>/dev/null; then
+      error "Unknown cask: $cask"
+      missing=1
+    fi
+  done
+
+  if [[ $missing -eq 1 ]]; then
+    error "Preflight check failed — fix the package names above before re-running."
+    exit 1
+  fi
+
+  success "Preflight check passed."
+}
+
+install_packages() {
+  info "Installing packages via Homebrew..."
+  brew install "${BREW_FORMULAE[@]}"
+  brew install --cask "${BREW_CASKS[@]}"
+}
+
+install_nvm() {
+  info "Installing NVM..."
+  bash "$SCRIPT_DIR/installers/nvm.sh"
+}
+
+install_sdkman() {
+  info "Installing SDKMAN..."
+  bash "$SCRIPT_DIR/installers/sdkman.sh"
+}
+
+create_paths() {
+  info "Creating ~/.local/bin and ~/projects..."
+  mkdir -p ~/.local/bin ~/projects
+}
+
+setup_cron() {
+  info "Loading user crontab..."
+  mkdir -p ~/.anacron/spool
+  crontab "$SCRIPT_DIR/crontab.txt"
+}
+
+set_zsh_default() {
+  info "Setting zsh as default shell..."
+  local zsh_path
+  zsh_path=$(which zsh)
+  if ! grep -qF "$zsh_path" /etc/shells; then
+    sudo sh -c "echo $zsh_path >> /etc/shells"
+  fi
+  chsh -s "$zsh_path"
+}
+
+check_brew
+preflight_check
+install_packages
+create_paths
+install_nvm
+install_sdkman
+set_zsh_default
+
+info "Symlinking configs with stow..."
+make -C "$SCRIPT_DIR" all
+
+success "Done. Open a new shell or run: source ~/.zshrc"
