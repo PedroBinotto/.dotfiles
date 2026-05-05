@@ -18,7 +18,8 @@ export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # Created by `pipx` on 2024-09-26 20:23:03
-export PATH="$PATH:/home/pedro/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
+[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 source $HOME/.autoexec.sh
 
