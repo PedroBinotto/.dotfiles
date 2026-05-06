@@ -7,9 +7,9 @@ local fterm = require("user.fterm")
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
-keymap("", "<Bslash>", "<Nop>", opts)
-vim.g.mapleader = "\\"
-vim.g.maplocalleader = "\\"
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 keymap("n", "<leader>:", "q:", opts)
 
@@ -60,6 +60,9 @@ keymap("n", "<leader>z", ":ZenMode<CR>", opts)
 keymap("n", "<C-_>", "gcc", { remap = true })
 keymap("x", "<C-_>", "gc", { remap = true })
 keymap("v", "<C-_>", "gc", { remap = true })
+keymap("n", "<C-/>", "gcc", { remap = true })
+keymap("x", "<C-/>", "gc", { remap = true })
+keymap("v", "<C-/>", "gc", { remap = true })
 
 keymap("n", "<leader>cc", function()
   appcontext.build_app()
