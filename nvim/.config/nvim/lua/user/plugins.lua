@@ -74,7 +74,7 @@ return packer.startup(function(use)
   use({ "mg979/vim-visual-multi", commit = "a6975e7" })
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use({ "vimwiki/vimwiki", commit = "7279261" })
-  use({ "kevinhwang91/nvim-bqf", ft = "qf", commit = "ebb6d26" })
+  use({ "kevinhwang91/nvim-bqf", commit = "ebb6d26" })
   use({ "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig", commit = "8649f69" })
   use({
     "iamcco/markdown-preview.nvim",

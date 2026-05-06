@@ -1,6 +1,8 @@
 #!/bin/bash
 
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
+
 cd "$HOME/vimwiki" || exit 1
-git add *
-git commit -m "$(date --rfc-3339=date)" || true
+git add -A
+git commit -m "$(date -I)" || true
 git push

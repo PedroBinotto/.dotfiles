@@ -18,7 +18,7 @@ check_brew() {
   fi
 }
 
-BREW_FORMULAE=(tmux neovim stow fzf git-delta ripgrep go node task pandoc)
+BREW_FORMULAE=(tmux neovim stow fzf git-delta ripgrep go node task pandoc tree-sitter-cli)
 BREW_CASKS=(kitty font-jetbrains-mono-nerd-font)
 
 preflight_check() {
@@ -63,15 +63,22 @@ install_sdkman() {
   bash "$SCRIPT_DIR/installers/sdkman.sh"
 }
 
+clone_vimwiki() {
+  info "Cloning vimwiki repo..."
+  bash "$SCRIPT_DIR/installers/vimwiki.sh"
+}
+
 create_paths() {
   info "Creating ~/.local/bin and ~/projects..."
   mkdir -p ~/.local/bin ~/projects
 }
 
-setup_cron() {
-  info "Loading user crontab..."
-  mkdir -p ~/.anacron/spool
-  crontab "$SCRIPT_DIR/crontab.txt"
+setup_launchd() {
+  info "Loading vimwiki-backup LaunchAgent..."
+  local plist="$HOME/Library/LaunchAgents/com.pedrobinotto.vimwiki-backup.plist"
+  local domain="gui/$(id -u)"
+  launchctl bootout "$domain" "$plist" 2>/dev/null || true
+  launchctl bootstrap "$domain" "$plist"
 }
 
 set_zsh_default() {
@@ -90,9 +97,12 @@ install_packages
 create_paths
 install_nvm
 install_sdkman
+clone_vimwiki
 set_zsh_default
 
 info "Symlinking configs with stow..."
 make -C "$SCRIPT_DIR" all
+
+setup_launchd
 
 success "Done. Open a new shell or run: source ~/.zshrc"

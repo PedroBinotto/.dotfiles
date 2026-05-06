@@ -41,13 +41,15 @@ M.setup = function()
 
   vim.diagnostic.config(config)
 
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-  })
+  local hover = vim.lsp.handlers.hover
+  vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+    return hover(err, result, ctx, vim.tbl_deep_extend("force", config or {}, { border = "rounded" }))
+  end
 
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-  })
+  local signature_help = vim.lsp.handlers.signature_help
+  vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
+    return signature_help(err, result, ctx, vim.tbl_deep_extend("force", config or {}, { border = "rounded" }))
+  end
 end
 
 local function lsp_highlight_document(client)

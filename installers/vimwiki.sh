@@ -1,7 +1,8 @@
 #!/bin/bash
 
-cd ~
+if [[ -d "$HOME/vimwiki" ]]; then
+  echo "vimwiki already cloned at ~/vimwiki, skipping."
+  exit 0
+fi
 
-git clone git@github.com:PedroBinotto/wiki.git vimwiki
-
-cd ~
+git clone git@github.com:PedroBinotto/wiki.git "$HOME/vimwiki"
